@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Projeto</title>
+
+    <!--Estilo Principal-->
+    <link rel="stylesheet" href="index.css">
+
+    <!--Kits FontAwesome-->
+    <script src="https://kit.fontawesome.com/3388b00aea.js" crossorigin="anonymous"></script> 
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="assets/EmakersJr.png" alt="EmakersJr">
+        </div>
+        <div class="tittle">
+            <h2>GINCA WEB</h2>
+        </div>
+        <div class="profile">
+            <div class="profile-img">
+                <img src="assets/white.jpg" alt="Perfil">
+            </div>
+            <div class="profile-name">
+                <p>Fulano de Tal</p>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Pesquisar"><a href="#"><i class="fas fa-search"></i></a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="tab">
+            <button class="tablinks" onclick="openPage(event, 'Dash')" id="defaultopenPage"><img src="assets/dash.png" alt="Dashboard" onclick="openPage(event, 'Dash')"></button>
+            <button class="tablinks" onclick="openPage(event, 'Ranck')"><img src="assets/botton1.png"></button>
+            <button class="tablinks" onclick="openPage(event, 'Calendar')"><img src="assets/event.png"></button>
+            <button class="tablinks" onclick="openPage(event, 'Email')"><img src="assets/email.png"></button>
+            <button class="tablinks" onclick="openPage(event, 'Quit')"><img src="assets/botton3.png"></button>
+        </div>
+        <div class="content">
+            <div id="Dash" class="tabcontent">
+                <div class="dashContent">
+                    <div class="dashBody">
+                        <h3>Dash</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="Ranck" class="tabcontent">
+                <div class="ranckContent">
+                    <h3>Ranck</h3>
+                </div>
+            </div>
+
+            <div id="Calendar" class="tabcontent">
+                <div class="calendarContent">
+                    <h3>Calendar</h3>
+                </div>
+            </div>
+
+            <div id="Email" class="tabcontent">
+                <div class="emailContent">
+                    <h3>Email</h3>
+                </div>
+            </div>
+            
+            <div id="Quit" class="tabcontent">
+                <div class="quitContent">
+                    <h3>Sair</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPage(evt, pageMoment) {
+          let tabcontent = document.getElementsByClassName("tabcontent");
+          for (let i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          let tablinks = document.getElementsByClassName("tablinks");
+          for (let i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(pageMoment).style.display = "block";
+          evt.currentTarget.className += " active";
+
+          /*if(pageMoment == "Dash"){
+            tablinks[0].style.backgroundColor = "#ae8eba";
+            tablinks[1].style.backgroundColor = "#5e2075";
+            tablinks[2].style.backgroundColor = "#5e2075";
+            tablinks[3].style.backgroundColor = "#5e2075";
+            tablinks[4].style.backgroundColor = "#5e2075";
+          }
+          else if(pageMoment == "Ranck"){
+            tablinks[0].style.backgroundColor = "#5e2075";
+            tablinks[1].style.backgroundColor = "#ae8eba";
+            tablinks[2].style.backgroundColor = "#5e2075";
+            tablinks[3].style.backgroundColor = "#5e2075";
+            tablinks[4].style.backgroundColor = "#5e2075";
+          }
+          else if(pageMoment == "Calendar"){
+            tablinks[0].style.backgroundColor = "#5e2075";
+            tablinks[1].style.backgroundColor = "#5e2075";
+            tablinks[2].style.backgroundColor = "#ae8eba";
+            tablinks[3].style.backgroundColor = "#5e2075";
+            tablinks[4].style.backgroundColor = "#5e2075";
+          }
+          else if(pageMoment == "Email"){
+            tablinks[0].style.backgroundColor = "#5e2075";
+            tablinks[1].style.backgroundColor = "#5e2075";
+            tablinks[2].style.backgroundColor = "#5e2075";
+            tablinks[3].style.backgroundColor = "#ae8eba";
+            tablinks[4].style.backgroundColor = "#5e2075";
+          }
+          else {
+            tablinks[0].style.backgroundColor = "#5e2075";
+            tablinks[1].style.backgroundColor = "#5e2075";
+            tablinks[2].style.backgroundColor = "#5e2075";
+            tablinks[3].style.backgroundColor = "#5e2075";
+            tablinks[4].style.backgroundColor = "#ae8eba";
+          }*/
+        }
+        document.getElementById("defaultopenPage").click();
+    </script>
+</body>
+</html>

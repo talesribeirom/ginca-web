@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+/* by FaBiUsKcomp 2019 */
+
+/* Variaveis */
+
+:root {
+    --font: 'Montserrat', sans-serif;
+    --primary-color: #5e2075;
+    --secundary-color: #Fcfeff;
+}
+
+/* Reset de Elementos */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/*  Inicio - Estilização da NavBar e corpo do documento */
+
+nav {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    background: var(--primary-color);
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+}
+
+.logo {
+    width: 12%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav img {
+    width: 69%;
+    padding: 0 20px;
+}
+
+nav .tittle {
+    width: 50%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav h2 {
+    color: var(--secundary-color);
+    font-family: var(--primary-color);
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+nav .profile {
+    color: var(--secundary-color);
+    height: 8vh;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border: 1px black solid;
+    border-radius: 100%;
+    background: #Fcfeff;
+}
+
+.profile-img img {
+    width: 100%;
+    padding: 0;
+}
+
+.profile .profile-name {
+    padding: 0;
+    background: var(--secundary-color);
+    filter:alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    width: 80%;
+    height: 35%;
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: none;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-name p {
+    color: black;
+    opacity: 1;
+}
+
+nav .search {
+    width: 18%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search input {
+    border: none;
+    border-radius: 10px;
+    height: 25px;
+    width: 60%;
+}
+
+.search input::placeholder {
+    padding: 0 5px;
+}
+
+.search i {
+    padding: 0 7px;
+    color: var(--secundary-color);
+}
+
+.container {
+    width: 100%;
+    height: 92vh;
+    display: grid;
+    grid-template-columns: 4% 96%;
+}
+
+.tab {
+    background: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab button {
+    display: block;
+    margin: auto;
+    background-color: inherit;
+    color: var(--secundary-color);
+    width: 100%;
+    padding: 15px 10px;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+    border-radius: 7px;
+}
+
+.tab button:active {
+    background: var(--secundary-color);
+    background-size: 100%;
+}
+
+.tab button:hover {
+    background: #ae8eba;
+}
+
+.tab button img {
+    width: 95%;
+}
+
+/* Inicio do Corpo de cada elemento da Dash */
+
+.content {
+    width: 100%;
+    height: 92vh;
+    background: url('assets/background1.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: cover;
+}
+
+.dashContent {
+    width: 100%;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.ranckContent {
+    width: 100%;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.calendarContent {
+    width: 100%;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.emailContent {
+    width: 100%;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.quitContent {
+    width: 100%;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.dashBody{
+    width: 93%;
+    height: 90%;
+    background: transparent;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
