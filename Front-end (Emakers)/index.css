@@ -1,13 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Archivo&display=swap');
 
 /* by FaBiUsKcomp 2019 */
 
 /* Variaveis */
 
 :root {
-    --font: 'Montserrat', sans-serif;
+    --font: 'Archivo', sans-serif;
     --primary-color: #5e2075;
     --secundary-color: #Fcfeff;
+    --dark-color: #333;
+    --border: #4C1D5E;
+    --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --gradient : linear-gradient(#5e2075, #171519);
+    --button-hover: #ae8eba;
 }
 
 /* Reset de Elementos */
@@ -17,36 +22,35 @@ html, body {
     padding: 0;
 }
 
-/*  Inicio - Estilização da NavBar e corpo do documento */
+/*  Inicio - Estilização da NavBar e corpo do documento *********************************/
 
 nav {
     width: 100%;
-    height: 8vh;
+    height: 10vh;
     display: flex;
     flex-direction: row;
     background: var(--primary-color);
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    position: relative;
+    box-shadow: var(--shadow);
 }
 
 .logo {
-    width: 12%;
-    height: 8vh;
+    width: 15%;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-nav img {
-    width: 69%;
-    padding: 0 20px;
+nav .logo img {
+    width: 68%;
+    margin: 0 20px;
 }
 
 nav .tittle {
     width: 50%;
-    height: 8vh;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +58,7 @@ nav .tittle {
 
 nav h2 {
     color: var(--secundary-color);
-    font-family: var(--primary-color);
+    font-family: var(--font);
     font-size: 30px;
     margin: 0;
     padding: 0;
@@ -62,24 +66,25 @@ nav h2 {
 
 nav .profile {
     color: var(--secundary-color);
-    height: 8vh;
-    width: 20%;
+    height: 10vh;
+    width: 17%;
     margin: 0;
     padding: 0;
-    display: grid;
-    grid-template-columns: 100%;
-    justify-content: center;
+    box-shadow: 5px 0 5px -5px #333;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
+    position: relative;
 }
 
 .profile-img {
-    width: 30px;
-    height: 30px;
+    width: 43px;
+    height: 43px;
     display: flex;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
-    position: relative;
-    border: 1px black solid;
+    position: absolute;
     border-radius: 100%;
     background: #Fcfeff;
 }
@@ -95,50 +100,139 @@ nav .profile {
     filter:alpha(opacity=50);
     -moz-opacity: 0.5;
     opacity: 0.5;
-    width: 80%;
-    height: 35%;
+    width: 70%;
+    height: 40%;
     border: none;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    display: none;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-name p {
-    color: black;
-    opacity: 1;
-}
-
-nav .search {
-    width: 18%;
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.search input {
-    border: none;
-    border-radius: 10px;
-    height: 25px;
-    width: 60%;
+.profile-name p {
+    font-family: var(--font);
+    font-size: 100%;
+    margin: 0;
+    margin-left: 30%;
+    color: black;
+    opacity: 1;
 }
 
-.search input::placeholder {
-    padding: 0 5px;
+.profile .dropdown {
+    width: 18%;
+    font-family: var(--font);
+    position: relative;
+    display: inline-block;
+    z-index: 9999;
 }
 
-.search i {
-    padding: 0 7px;
+.dropdown .expand-drop-img {
+    width: 90%;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.dropdown .dropdown-content {
+    font-family: var(--font);
+    margin-top: 5%;
+    width: 65%;
+    height: 20vh;
+    position: absolute;
+    display: none;
+    background-color: var(--secundary-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 9999;
+    opacity: 1;
+    left: -280%;
+}
+
+.dropdown-content a { 
+    width: 100%;
+    height: 33.33%;
+    opacity: 1;
+    color: var(--dark-color);
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dropdown-content a p {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+
+.dropdown:hover .expand-drop-img {
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a:hover {color: var(--dark-color); background: var(--button-hover);}
+
+nav .info-day {
+    width: 18%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.info-day .info-date {
+    width: 100%;
+    height: 10vh;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-date .week {
+    font-family: var(--font);
+    font-weight: bold;
+    font-size: 130%;
     color: var(--secundary-color);
+    margin: 0;
+    text-align: center;
 }
+
+.info-date .year {
+    font-family: var(--font);
+    font-weight: bold;
+    font-size: 100%;
+    color: var(--secundary-color);
+    margin: 0;
+    text-align: center;
+}
+
+.info-day .info-hour {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-hour .hour {
+    font-family: var(--font);
+    font-weight: bold;
+    font-size: 140%;
+    color: var(--secundary-color);
+    margin: 0;
+    text-align: center;
+}
+
+/* Inicio da estilização do corpo ******************************************** */
 
 .container {
     width: 100%;
-    height: 92vh;
+    height: 90vh;
     display: grid;
-    grid-template-columns: 4% 96%;
+    grid-template-columns: 4.5% 95.5%;
 }
 
 .tab {
@@ -160,38 +254,54 @@ nav .search {
     outline: none;
     text-align: center;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.5s;
     font-size: 17px;
+    opacity: 1;
     border-radius: 7px;
 }
 
-.tab button:active {
-    background: var(--secundary-color);
+.tab .active {
+    background: var(--button-hover);
     background-size: 100%;
 }
 
 .tab button:hover {
-    background: #ae8eba;
+    background: var(--button-hover);
+    opacity: 0.6;
+    -webkit-animation-name: hoverAnimation; 
+    -webkit-animation-duration: 4s; 
+    animation-name: hoverAnimation;
+    animation-duration: 4s;
 }
 
 .tab button img {
     width: 95%;
 }
 
-/* Inicio do Corpo de cada elemento da Dash */
+/* Inicio do Corpo de cada elemento da Dash **********************************/
 
 .content {
     width: 100%;
-    height: 92vh;
+    height: 90vh;
     background: url('assets/background1.png');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: cover;
+    font-family: var(--font);
 }
 
 .dashContent {
     width: 100%;
-    height: 92vh;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.participanteContent {
+    width: 100%;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -200,25 +310,16 @@ nav .search {
 
 .ranckContent {
     width: 100%;
-    height: 92vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--primary-color);
 }
 
-.calendarContent {
+.eventosContent {
     width: 100%;
-    height: 92vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--primary-color);
-}
-
-.emailContent {
-    width: 100%;
-    height: 92vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -227,7 +328,7 @@ nav .search {
 
 .quitContent {
     width: 100%;
-    height: 92vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -243,4 +344,105 @@ nav .search {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
 }
+
+.participanteBody{
+    width: 93%;
+    height: 90%;
+    background: grey;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+}
+
+.ranckBody{
+    width: 93%;
+    height: 90%;
+    background: grey;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+}
+
+.eventosBody{
+    width: 93%;
+    height: 90%;
+    background: grey;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+}
+
+.quitBody{
+    width: 93%;
+    height: 90%;
+    background: grey;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+}
+
+/* Inicio das KeyFrames ************************************************** */
+
+@keyframes hoverAnimation {
+    0%   {padding: 16px 11px;}
+    25%  {padding: 17px 12px}
+    50%  {padding: 18px 13px}
+    75%  {padding: 19px 14px}
+    100% {padding: 20px 15px}
+}
+
+@-webkit-keyframes hoverAnimation {
+    0%   {padding: 16px 11px;}
+    25%  {padding: 17px 12px}
+    50%  {padding: 18px 13px}
+    75%  {padding: 19px 14px}
+    100% {padding: 20px 15px}
+}
+
+@-webkit-keyframes slide {
+    100% { opacity: 1; }
+}
+
+@keyframes slide {
+    100% { opacity: 1; }
+}
+
+
+/* Efeito alternativo
+
+-webkit-animation-name: slideAnimation;
+    -webkit-animation-duration: .3s; 
+    animation-name: slideAnimation;
+    animation-duration: .3s;
+
+@keyframes slideAnimation {
+    0%   {width: 0%; height: 0%;}
+    25%  {width: 28%; height: 25%;}
+    50%  {width: 53%; height: 50%;}
+    75%  {width: 78%; height: 70%;}
+    100% {width: 93%; height: 90%;}
+}*/

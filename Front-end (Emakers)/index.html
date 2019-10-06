@@ -12,9 +12,10 @@
     <!--Kits FontAwesome-->
     <script src="https://kit.fontawesome.com/3388b00aea.js" crossorigin="anonymous"></script> 
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
+    <!--<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">-->
+
+    <!--<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>-->
 
 </head>
 <body>
@@ -27,23 +28,37 @@
         </div>
         <div class="profile">
             <div class="profile-img">
-                <img src="assets/white.jpg" alt="Perfil">
+                <!--<img src="assets/white.jpg" alt="Perfil">-->
             </div>
             <div class="profile-name">
                 <p>Fulano de Tal</p>
             </div>
+            <div class="dropdown">
+                <img class="expand-drop-img" src="assets/expand.png">
+                <div class="dropdown-content">
+                    <a href="#"><p>Inicio</p></a>
+                    <a href="#"><p>Configurações</p></a>
+                    <a href="#"><p>Sair</p></a>
+                </div>
+            </div>
         </div>
-        <div class="search">
-            <input type="text" placeholder="Pesquisar"><a href="#"><i class="fas fa-search"></i></a>
+        <div class="info-day">
+            <div class="info-date">
+                <p id="week" class="week"></p>
+                <p id="year" class="year"></p>
+            </div>
+            <div class="info-hour">
+                <p id="hour" class="hour"></p>
+            </div>
         </div>
     </nav>
     <div class="container">
         <div class="tab">
-            <button class="tablinks" onclick="openPage(event, 'Dash')" id="defaultopenPage"><img src="assets/dash.png" alt="Dashboard" onclick="openPage(event, 'Dash')"></button>
-            <button class="tablinks" onclick="openPage(event, 'Ranck')"><img src="assets/botton1.png"></button>
-            <button class="tablinks" onclick="openPage(event, 'Calendar')"><img src="assets/event.png"></button>
-            <button class="tablinks" onclick="openPage(event, 'Email')"><img src="assets/email.png"></button>
-            <button class="tablinks" onclick="openPage(event, 'Quit')"><img src="assets/botton3.png"></button>
+            <button class="tablinks" onclick="openPage(event, 'Dash')" title="Início" id="defaultopenPage"><img src="assets/dash.png" alt="Dashboard" onclick="openPage(event, 'Dash')"></button>
+            <button class="tablinks" onclick="openPage(event, 'participante')" title="Participantes"><img src="assets/botton1.png"></button>
+            <button class="tablinks" onclick="openPage(event, 'ranck')" title="Ranck"><img src="assets/event.png"></button>
+            <button class="tablinks" onclick="openPage(event, 'eventos')" title="Eventos"><img src="assets/email.png"></button>
+            <button class="tablinks" onclick="openPage(event, 'Quit')" title="Sair"><img src="assets/botton3.png"></button>
         </div>
         <div class="content">
             <div id="Dash" class="tabcontent">
@@ -54,27 +69,35 @@
                 </div>
             </div>
             
-            <div id="Ranck" class="tabcontent">
+            <div id="participante" class="tabcontent">
+                <div class="participanteContent">
+                    <div class="participanteBody">
+                        <h3>Ranck</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ranck" class="tabcontent">
                 <div class="ranckContent">
-                    <h3>Ranck</h3>
+                    <div class="ranckBody">
+                        <h3>Calendar</h3>
+                    </div> 
                 </div>
             </div>
 
-            <div id="Calendar" class="tabcontent">
-                <div class="calendarContent">
-                    <h3>Calendar</h3>
-                </div>
-            </div>
-
-            <div id="Email" class="tabcontent">
-                <div class="emailContent">
-                    <h3>Email</h3>
+            <div id="eventos" class="tabcontent">
+                <div class="eventosContent">
+                    <div class="eventosBody">
+                        <h3>Email</h3>
+                    </div>
                 </div>
             </div>
             
             <div id="Quit" class="tabcontent">
                 <div class="quitContent">
-                    <h3>Sair</h3>
+                    <div class="quitBody">
+                        <h3>Sair</h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,44 +115,12 @@
           }
           document.getElementById(pageMoment).style.display = "block";
           evt.currentTarget.className += " active";
-
-          /*if(pageMoment == "Dash"){
-            tablinks[0].style.backgroundColor = "#ae8eba";
-            tablinks[1].style.backgroundColor = "#5e2075";
-            tablinks[2].style.backgroundColor = "#5e2075";
-            tablinks[3].style.backgroundColor = "#5e2075";
-            tablinks[4].style.backgroundColor = "#5e2075";
-          }
-          else if(pageMoment == "Ranck"){
-            tablinks[0].style.backgroundColor = "#5e2075";
-            tablinks[1].style.backgroundColor = "#ae8eba";
-            tablinks[2].style.backgroundColor = "#5e2075";
-            tablinks[3].style.backgroundColor = "#5e2075";
-            tablinks[4].style.backgroundColor = "#5e2075";
-          }
-          else if(pageMoment == "Calendar"){
-            tablinks[0].style.backgroundColor = "#5e2075";
-            tablinks[1].style.backgroundColor = "#5e2075";
-            tablinks[2].style.backgroundColor = "#ae8eba";
-            tablinks[3].style.backgroundColor = "#5e2075";
-            tablinks[4].style.backgroundColor = "#5e2075";
-          }
-          else if(pageMoment == "Email"){
-            tablinks[0].style.backgroundColor = "#5e2075";
-            tablinks[1].style.backgroundColor = "#5e2075";
-            tablinks[2].style.backgroundColor = "#5e2075";
-            tablinks[3].style.backgroundColor = "#ae8eba";
-            tablinks[4].style.backgroundColor = "#5e2075";
-          }
-          else {
-            tablinks[0].style.backgroundColor = "#5e2075";
-            tablinks[1].style.backgroundColor = "#5e2075";
-            tablinks[2].style.backgroundColor = "#5e2075";
-            tablinks[3].style.backgroundColor = "#5e2075";
-            tablinks[4].style.backgroundColor = "#ae8eba";
-          }*/
         }
+        
         document.getElementById("defaultopenPage").click();
     </script>
+
+    <!--Script para controle de datas e hora-->
+    <script src="info-day.js"></script>
 </body>
 </html>
