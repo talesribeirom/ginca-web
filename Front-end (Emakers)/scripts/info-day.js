@@ -1,8 +1,15 @@
+/* Esse script serve para adicionar dia, semana, ano e hora em uma pagina html 
+
+ -Copyright -> FaBiUsKcomp
+ 
+ */
+
+
 let $lineWeek = document.getElementById('week');
 let $lineYear = document.getElementById('year');
 let $lineHour = document.getElementById('hour');
 
-let getWeekDay = ["Dom", "Seg", "Ter", "qua", "Qui", "Sex", "Sab"];
+let getWeekDay = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
 let getMonthSig = ["Jan","Fev", "Mar","Abr", "Mai","Jun", "Jul", "Ago","Set","Out","Nov","Dez"];
 
 function hourAuto() {
@@ -32,3 +39,4 @@ console.log(getWeekDay.length);
 
 setInterval(hourAuto, 1000);
 
+//  Conferir ------------------> https://ntp.br/
