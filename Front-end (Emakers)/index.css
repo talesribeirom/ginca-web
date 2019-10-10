@@ -10,12 +10,15 @@
     --secundary-color: #Fcfeff;
     --dark-color: #333;
     --border: #4C1D5E;
+    --opacity: 0.5;
     --shadow: 0 4px 8px 13px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --shadow-right: 5px 0 5px -5px #333;
     --shadow-right-bottom: 5px 10px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --text-shadow: 5px 5px var(--dark-color);
     --gradient : linear-gradient(#5e2075, #171519);
     --button-hover: #ae8eba;
+    --drop-hover: #333;
+    --profile-name: black;
 }
 
 /* Sera encaixado o tema dark do site */
@@ -23,15 +26,18 @@
 [data-theme="dark"] {
     --font: 'Archivo', sans-serif;
     --primary-color: #333;
-    --secundary-color: #Fcfeff;
+    --secundary-color: grey;
     --dark-color: #333;
     --border: #4C1D5E;
+    --opacity: 1;
     --shadow: 0 4px 8px 13px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --shadow-right: 5px 0 5px -5px #333;
     --shadow-right-bottom: 5px 10px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --text-shadow: 5px 5px var(--dark-color);
     --gradient : linear-gradient(#5e2075, #171519);
-    --button-hover: #ae8eba; 
+    --button-hover: rgb(20, 20, 20); 
+    --drop-hover: whitesmoke;
+    --profile-name: whitesmoke;
 }
 
 /* Reset de Elementos */
@@ -68,7 +74,7 @@ nav .logo img {
 }
 
 nav .tittle {
-    width: 50%;
+    width: 61%;
     height: 10vh;
     display: flex;
     justify-content: center;
@@ -81,6 +87,19 @@ nav h2 {
     font-size: 30px;
     margin: 0;
     padding: 0;
+}
+
+nav .notification {
+    width: 7%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notification img {
+    width: 27%;
+    cursor: pointer;
 }
 
 nav .profile {
@@ -116,9 +135,8 @@ nav .profile {
 .profile .profile-name {
     padding: 0;
     background: var(--secundary-color);
-    filter:alpha(opacity=50);
-    -moz-opacity: 0.5;
-    opacity: 0.5;
+    -moz-opacity: var(--opacity);
+    opacity: var(--opacity);
     width: 70%;
     height: 40%;
     border: none;
@@ -133,7 +151,7 @@ nav .profile {
     font-size: 100%;
     margin: 0;
     margin-left: 30%;
-    color: black;
+    color: var(--profile-name);
     opacity: 1;
 }
 
@@ -163,12 +181,83 @@ nav .profile {
     box-shadow: var(--shadow);
     z-index: 9999;
     opacity: 1;
-    left: -100%;
+    left: -120px;
+}
+
+.dropdown-content .night-mode {
+    width: 100%;
+    height: 25%;
+    margin: 0;
+    color: var(--dark-color);
+    display: grid;
+    grid-template-columns: 65% 35%;
+    justify-content: center;
+    align-items: center;
+}
+
+.night-mode p {
+    font-family: var(--font);
+    font-size: 14px;
+    margin: 0;
+}
+
+.night-mode:hover {
+    color: var(--drop-hover); 
+    background: var(--button-hover); 
+}
+
+.switch {
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    width: 50px;
+  }
+  
+  .switch input {
+    display:none;
+  }
+  
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+  
+.slider:before {
+    background-color: #fff;
+    bottom: 2px;
+    content: "";
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 16px;
+}
+  
+input:checked + .slider {
+    background-color: var(--dark-color);
+}
+  
+input:checked + .slider:before {
+    transform: translateX(27px);
+}
+  
+.slider.round {
+    border-radius: 24px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
 }
 
 .dropdown-content a { 
     width: 100%;
-    height: 33.33%;
+    height: 25%;
     opacity: 1;
     color: var(--dark-color);
     text-decoration: none;
@@ -180,7 +269,7 @@ nav .profile {
 .dropdown-content a p {
     margin: 0;
     padding: 0;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .dropdown:hover .expand-drop-img {
@@ -193,57 +282,7 @@ nav .profile {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-.dropdown-content a:hover {color: var(--dark-color); background: var(--button-hover);}
-
-nav .info-day {
-    width: 18%;
-    display: grid;
-    grid-template-columns: 60% 40%;
-}
-
-.info-day .info-date {
-    width: 100%;
-    height: 10vh;
-    display: grid;
-    grid-template-rows: 50% 50%;
-    justify-content: center;
-    align-items: center;
-}
-
-.info-date .week {
-    font-family: var(--font);
-    font-weight: bold;
-    font-size: 130%;
-    color: var(--secundary-color);
-    margin: 0;
-    text-align: center;
-}
-
-.info-date .year {
-    font-family: var(--font);
-    font-weight: bold;
-    font-size: 100%;
-    color: var(--secundary-color);
-    margin: 0;
-    text-align: center;
-}
-
-.info-day .info-hour {
-    width: 100%;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.info-hour .hour {
-    font-family: var(--font);
-    font-weight: bold;
-    font-size: 140%;
-    color: var(--secundary-color);
-    margin: 0;
-    text-align: center;
-}
+.dropdown-content a:hover {color: var(--drop-hover); background: var(--button-hover);}
 
 /* Inicio da estilização do corpo ******************************************** */
 
@@ -302,7 +341,7 @@ nav .info-day {
 .content {
     width: 100%;
     height: 90vh;
-    background: url('assets/background1.png');
+    background: url('assets/fundo-cinza.png');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: cover;
@@ -345,15 +384,6 @@ nav .info-day {
     color: var(--primary-color);
 }
 
-.quitContent {
-    width: 100%;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--primary-color);
-}
-
 /* Definição das divs do corpo *********************************************** */
 
 /* Parte destinado a Pagina DashBoard *** */
@@ -372,79 +402,6 @@ nav .info-day {
     opacity: 0;
     -webkit-animation: slide 0.5s forwards;
     animation: slide 0.5s forwards;
-}
-
-.dashBody .dashBody-left {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: 50% 50%;
-}
-
-.dashBody-left .left-top {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.dashBody-left .left-bottom {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.left-top .top-content {
-    width: 95%;
-    height: 96%;
-    margin-bottom: 1%;
-    border-radius: 5px;
-    background: var(--button-hover);
-}
-
-.left-bottom .bottom-content {
-    width: 95%;
-    height: 96%;
-    margin-top: 1%;
-    border-radius: 5px;
-    background: var(--primary-color);
-    display: grid;
-    box-shadow: var(--shadow);
-    grid-template-rows: 20% 80%;
-}
-
-.bottom-content .content-text {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.content-text .b-content-text {
-    margin: 0;
-    color: var(--secundary-color);
-    font-family: var(--font);
-    text-shadow: var(--text-shadow);
-}
-
-.bottom-content .content-table {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.content-table .table {
-    width: 90%;
-    height: 85%;
-    background: var(--primary-color);
-    box-shadow: var(--shadow-right-bottom);
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
 }
 
 /* Parte direita do corpo */
@@ -511,24 +468,6 @@ nav .info-day {
     -webkit-animation: slide 0.5s forwards;
     animation: slide 0.5s forwards;
 }
-
-/* Parte destinado a Pagina Sair *** */
-
-.quitBody{
-    width: 93%;
-    height: 90%;
-    background: grey;
-    border: none;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    -webkit-animation: slide 0.5s forwards;
-    animation: slide 0.5s forwards;
-}
-
-
 
 /* Inicio das KeyFrames ************************************************** */
 

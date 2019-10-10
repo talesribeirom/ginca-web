@@ -23,9 +23,9 @@
     </div>
     <div class="tittle">
       <h2>GINCA WEB</h2>
-      <!--Modo Noturno
-      <label class="theme-switch" for="checkbox">
-        <input type="checkbox" id="checkbox" />-->
+    </div>
+    <div class="notification">
+      <img src="assets/notification.svg">
     </div>
     <div class="profile">
       <div class="profile-img">
@@ -40,6 +40,15 @@
           <a href="#">
             <p>Perfil</p>
           </a>
+          <!--Modo Noturno-->
+          <div class="night-mode">
+            <p>Modo Noturno</p>
+            <label class="switch" for="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+          
           <a href="#">
             <p>Configurações</p>
           </a>
@@ -49,7 +58,7 @@
         </div>
       </div>
     </div>
-    <div class="info-day">
+    <!--<div class="info-day">
       <div class="info-date">
         <p id="week" class="week"></p>
         <p id="year" class="year"></p>
@@ -57,23 +66,22 @@
       <div class="info-hour">
         <p id="hour" class="hour"></p>
       </div>
-    </div>
+    </div>-->
   </nav>
   <div class="container">
     <div class="tab">
       <button class="tablinks" onclick="openPage(event, 'Dash')" title="Início" id="defaultopenPage"><img
-          src="assets/dash.png" alt="Dashboard" onclick="openPage(event, 'Dash')"></button>
+          src="assets/home.svg" alt="Dashboard" onclick="openPage(event, 'Dash')"></button>
       <button class="tablinks" onclick="openPage(event, 'participante')" title="Participantes"><img
-          src="assets/botton1.png"></button>
-      <button class="tablinks" onclick="openPage(event, 'ranck')" title="Ranck"><img src="assets/event.png"></button>
+          src="assets/membros.svg"></button>
+      <button class="tablinks" onclick="openPage(event, 'ranck')" title="Ranck"><img src="assets/trofeu.svg"></button>
       <button class="tablinks" onclick="openPage(event, 'eventos')" title="Eventos"><img
-          src="assets/email.png"></button>
-      <button class="tablinks" onclick="openPage(event, 'Quit')" title="Sair"><img src="assets/botton3.png"></button>
+          src="assets/eventos.svg"></button>
     </div>
     <div class="content">
       <div id="Dash" class="tabcontent">
         <div class="dashContent">
-          <div class="dashBody">
+          <!--<div class="dashBody">
             <div class="dashBody-left">
               <div class="left-top">
                 <div class="top-content">
@@ -98,7 +106,7 @@
 
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
       </div>
 
@@ -154,7 +162,7 @@
   </script>
 
   <!--Script para controle de datas e hora-->
-  <script src="scripts/info-day.js"></script>
+  <!--<script src="scripts/info-day.js"></script>-->
 
   <!--Script para Seleção de tema (Day mode/Dark mode)-->
   <script src="scripts/theme-selector.js"></script>
