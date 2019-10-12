@@ -7,6 +7,7 @@
 :root {
     --font: 'Archivo', sans-serif;
     --primary-color: #5e2075;
+    --primary-color-dark: #3B1B47;
     --secundary-color: #Fcfeff;
     --dark-color: #333;
     --border: #4C1D5E;
@@ -14,6 +15,7 @@
     --shadow: 0 4px 8px 13px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --shadow-right: 5px 0 5px -5px #333;
     --shadow-right-bottom: 5px 10px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --shadow-right-bottom-dark: 5px 4px 8px #5E2075, 0 6px 4px 0 #5E2075;
     --text-shadow: 5px 5px var(--dark-color);
     --gradient : linear-gradient(#5e2075, #171519);
     --button-hover: #ae8eba;
@@ -25,19 +27,21 @@
 
 [data-theme="dark"] {
     --font: 'Archivo', sans-serif;
-    --primary-color: #333;
-    --secundary-color: grey;
+    --primary-color: #2F1737;
+    --primary-color-dark: #3B1B47;
+    --secundary-color: #DFE1E1;
     --dark-color: #333;
     --border: #4C1D5E;
     --opacity: 1;
     --shadow: 0 4px 8px 13px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --shadow-right: 5px 0 5px -5px #333;
     --shadow-right-bottom: 5px 10px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --shadow-right-bottom-dark: 5px 10px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --text-shadow: 5px 5px var(--dark-color);
     --gradient : linear-gradient(#5e2075, #171519);
     --button-hover: rgb(20, 20, 20); 
     --drop-hover: whitesmoke;
-    --profile-name: whitesmoke;
+    --profile-name: #2F1737;
 }
 
 /* Reset de Elementos */
@@ -60,6 +64,8 @@ nav {
     box-shadow: var(--shadow);
 }
 
+/* Refere as proporções da logo */
+
 .logo {
     width: 15%;
     height: 10vh;
@@ -72,6 +78,8 @@ nav .logo img {
     width: 68%;
     margin: 0 20px;
 }
+
+/* Refere a Texto "Ginca Web" presente na Nav */
 
 nav .tittle {
     width: 61%;
@@ -89,6 +97,8 @@ nav h2 {
     padding: 0;
 }
 
+/* Refere a icone de notificação da Nav */
+
 nav .notification {
     width: 7%;
     height: 10vh;
@@ -101,6 +111,8 @@ nav .notification {
     width: 27%;
     cursor: pointer;
 }
+
+/* Estilo do perfil presente na NavBar */
 
 nav .profile {
     color: var(--secundary-color);
@@ -155,6 +167,8 @@ nav .profile {
     opacity: 1;
 }
 
+/* Inicio de estilização do DropDown */
+
 .profile .dropdown {
     width: 18%;
     font-family: var(--font);
@@ -184,6 +198,8 @@ nav .profile {
     left: -120px;
 }
 
+/* Parte do campo modo noturno */
+
 .dropdown-content .night-mode {
     width: 100%;
     height: 25%;
@@ -205,6 +221,8 @@ nav .profile {
     color: var(--drop-hover); 
     background: var(--button-hover); 
 }
+
+/* Parte que refere ao switch presente no DropDown */
 
 .switch {
     display: inline-block;
@@ -255,6 +273,8 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+/* Estilização do DropDown */
+
 .dropdown-content a { 
     width: 100%;
     height: 25%;
@@ -292,6 +312,8 @@ input:checked + .slider:before {
     display: grid;
     grid-template-columns: 4.5% 95.5%;
 }
+
+/* Tab da Dash */
 
 .tab {
     background: var(--primary-color);
@@ -388,25 +410,99 @@ input:checked + .slider:before {
 
 /* Parte destinado a Pagina DashBoard *** */
 
-
-/* Parte esquerda do corpo */
 .dashBody{
     width: 93%;
     height: 90%;
     border: none;
-    border-radius: 20px;
+    border-radius: 7px;
     display: grid;
-    grid-template-columns: 70% 30%;
-    justify-content: center;
-    align-items: center;
+    grid-template-rows: 50% 50%;
     opacity: 0;
     -webkit-animation: slide 0.5s forwards;
     animation: slide 0.5s forwards;
 }
 
-/* Parte direita do corpo */
+/* Aqui esta sendo dividido em dois pedaços principais */
 
-.dashBody .dashBody-right {
+.dashBody .dash-top {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1%;
+}
+
+.dashBody .dash-bottom {
+    width: 100%;
+    height: 100%;
+    margin-top: 1%;
+}
+
+/* Inicio de Estilização Corpo superior */
+
+.dash-top .top-content {
+    width: 100%;
+    height: 97%;
+    border-radius: 7px;
+    background: var(--primary-color-dark);
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
+
+/*Titulo da pagina superior */
+
+.top-content .top-content-title {
+    width: 50%;
+    height: 80%;
+    background: var(--secundary-color);
+    margin: -3.5% auto 0 auto;
+    border-radius: 35px;
+    box-shadow: var(--shadow-right-bottom-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+}
+
+.top-content-title h3 {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 40px;
+    color: var(--profile-name);
+    letter-spacing: 2px;
+}
+
+/* Divisão da parte do rancking */
+
+.top-content .top-content-position {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+}
+
+/* Definindo posição e estilos dos circulos do Ranck */
+
+/* Parte do terceiro lugar */
+
+.top-content-position .position-3 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.position-3 .position-3-content {
+    width: 60%;
+    height: 75%;
+    background: var(--primary-color-dark);
+    display: grid;
+    grid-template-rows: 15% 70% 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-3-content .position-3-text {
     width: 100%;
     height: 100%;
     display: flex;
@@ -414,11 +510,236 @@ input:checked + .slider:before {
     align-items: center;
 }
 
-.dashBody-right .right-content {
-    width: 95%;
-    height: 99%;
-    border-radius: 10px;
-    background: var(--border);
+.position-3-text h4 {
+    color: silver; /* Cor Prata */
+    font-family: var(--font);
+    margin: 0;
+    font-size: 20px;
+}
+
+.position-3-text h5 {
+    color: var(--secundary-color);
+    font-family: var(--font);
+    margin: 0;
+    font-size: 15px;
+}
+
+.position-3-content .position-3-content-profile {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    background: silver; /* Cor Prata */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-3-content-profile .position-3-content-profile-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Parte do primeiro lugar */
+
+.top-content-position .position-1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Padrao de Estilo do circulo com os textos */
+
+.position-1 .position-1-content {
+    width: 60%;
+    height: 95%;
+    background: var(--primary-color-dark);
+    display: grid;
+    grid-template-rows: 15% 70% 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-1-content .position-1-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-1-text h4 {
+    color: #FFFF40; /* Cor Amarela */
+    font-family: var(--font);
+    margin: 0;
+    font-size: 30px;
+}
+
+.position-1-text h5 {
+    color: var(--secundary-color);
+    font-family: var(--font);
+    margin: 0;
+    font-size: 18px;
+}
+
+.position-1-content .position-1-content-profile {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background: #FFFF40; /* Cor Amarela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-1-content-profile .position-1-content-profile-circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 100%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Parte do segundo lugar */
+
+.top-content-position .position-2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.position-2 .position-2-content {
+    width: 60%;
+    height: 65%;
+    background: var(--primary-color-dark);
+    display: grid;
+    grid-template-rows: 15% 70% 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-2-content .position-2-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-2-text h4 {
+    color: #cd7f32; /* Cor Bronze */
+    font-family: var(--font);
+    margin: 0;
+    font-size: 18px;
+}
+
+.position-2-text h5 {
+    color: var(--secundary-color);
+    font-family: var(--font);
+    margin: 0;
+    font-size: 14px;
+}
+
+.position-2-content .position-2-content-profile {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    background: #cd7f32; /* Cor Bronze */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-2-content-profile .position-2-content-profile-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+/* Inicio de Estilização Corpo inferior */
+
+.dash-bottom .bottom-content {
+    width: 100%;
+    height: 97%;
+    border-radius: 7px;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Refere ao primeiro quadrado da parte inferior "my position" */
+
+.bottom-content .bottom-content-myposition {
+    width: 20%;
+    height: 90%;
+    margin-left: 2%;
+    border-radius: 7px;
+    background: var(--primary-color-dark);
+    display: grid;
+    grid-template-rows: 20% 10% 50% 20%;
+}
+
+.bottom-content-myposition .myposition-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secundary-color);
+}
+
+.myposition-text h3 {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 25px;
+    color: var(--secundary-color);
+    letter-spacing: 2px;
+}
+
+.myposition-text h5 {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 20px;
+    color: #8080FF; /* Cor Azul claro */
+}
+
+.myposition-text h4 {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 25px;
+    color: #8080FF; /* Cor Azul claro */
+}
+
+.myposition-profile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myposition-profile .myposition-profile-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 /* Parte destinado a Pagina Participantes *** */
@@ -472,19 +793,19 @@ input:checked + .slider:before {
 /* Inicio das KeyFrames ************************************************** */
 
 @keyframes hoverAnimation {
-    0%   {padding: 16px 11px;}
-    25%  {padding: 17px 12px}
-    50%  {padding: 18px 13px}
-    75%  {padding: 19px 14px}
-    100% {padding: 20px 15px}
+    0%   { padding: 16px 11px; }
+    25%  { padding: 17px 12px; } 
+    50%  { padding: 18px 13px; }
+    75%  { padding: 19px 14px; }
+    100% { padding: 20px 15px; }
 }
 
 @-webkit-keyframes hoverAnimation {
-    0%   {padding: 16px 11px;}
-    25%  {padding: 17px 12px}
-    50%  {padding: 18px 13px}
-    75%  {padding: 19px 14px}
-    100% {padding: 20px 15px}
+    0%   { padding: 16px 11px; }
+    25%  { padding: 17px 12px; }
+    50%  { padding: 18px 13px; }
+    75%  { padding: 19px 14px; }
+    100% { padding: 20px 15px; }
 }
 
 @-webkit-keyframes slide {
