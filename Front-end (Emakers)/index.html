@@ -62,11 +62,11 @@
   <div class="container">
     <div class="tab">
       <button class="tablinks" onclick="openPage(event, 'Dash')" title="Início" id="defaultopenPage"><img
-          src="assets/home.svg" alt="Dashboard" onclick="openPage(event, 'Dash')"></button>
+          src="assets/home.svg"></button>
       <button class="tablinks" onclick="openPage(event, 'participante')" title="Participantes"><img
           src="assets/membros.svg"></button>
       <button class="tablinks" onclick="openPage(event, 'ranck')" title="Ranck"><img src="assets/trofeu.svg"></button>
-      <button class="tablinks" onclick="openPage(event, 'eventos')" title="Eventos"><img
+      <button class="tablinks" onclick="openPage(event, 'eventos')" title="Eventos" id="button-end"><img
           src="assets/eventos.svg"></button>
     </div>
     <div class="content">
@@ -198,7 +198,6 @@
       document.getElementById(pageMoment).style.display = "block";
       evt.currentTarget.className += " active";
     }
-
     document.getElementById("defaultopenPage").click();
   </script>
 
