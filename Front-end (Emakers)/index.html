@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body id="body">
   <nav>
     <div class="logo">
       <img src="assets/EmakersJr.png" alt="EmakersJr">
@@ -86,7 +86,7 @@
                       </div>
                       <div class="position-3-content-profile">
                         <div class="position-3-content-profile-circle">
-                          <!--<img src="assets/white.jpg" alt="Perfil">-->
+                          <img src="assets/foto_mulher.svg" alt="Perfil">
                         </div>
                       </div>
                       <div class="position-3-text">
@@ -101,7 +101,7 @@
                       </div>
                       <div class="position-1-content-profile">
                         <div class="position-1-content-profile-circle">
-                          <!--<img src="assets/white.jpg" alt="Perfil">-->
+                         <img src="assets/foto_homem.svg" alt="Perfil">
                         </div>
                       </div>
                       <div class="position-1-text">
@@ -116,7 +116,7 @@
                       </div>
                       <div class="position-2-content-profile">
                         <div class="position-2-content-profile-circle">
-                          <!--<img src="assets/white.jpg" alt="Perfil">-->
+                          <img src="assets/foto_jovem.svg" alt="Perfil">
                         </div>
                       </div>
                       <div class="position-2-text">
@@ -155,53 +155,139 @@
         <div class="participanteContent">
           <div class="participanteBody">
             <div class="participante-Buttons">
-              <button type="button" class="btn-user">Cadastrar Usuário</button>
-              <button type="button" class="btn-score">Cadastrar Pontuação</button>
+              <button type="button" id="btn-user" class="btn-user"><img src="assets/membros_add.svg" width="15px"> Cadastrar Usuário</button>
+              <button type="button" id="btn-score" class="btn-score"><img src="assets/caixa_add_quadrada.svg" width="15px"> Cadastrar Pontuação</button>
             </div>
             <div class="participante-table">
               <div class="table-title">
                 <h3>PARTICIPANTES</h3>
               </div>
               <div class="table-content">
+                <!-- Conteudo do Modal adcionar Usuario -->
+                <div id="myModalUser" class="modal">
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Aqui Ficara o conteudo do Modal Usuario</p>
+                  </div>
+                </div>
+                  <!-- Conteudo do Modal adcionar Pontuação -->
+                <div id="myModalScore" class="modal">
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Aqui Ficara o conteudo do Modal Pontuação</p>
+                  </div>
+                </div>
                 <div class="table-content-field">
-                  <table>
+                  <table id="table">
                     <thead>
                       <tr class="content-title">
                         <th>
                           <div class="row-table">
-                            <input type="checkbox" id="check-all" class="check-all">
-                            <label id="checklabel" for="check-all"></label>
-                            <h4>Nome</h4>
+                            <div class="row-table-check">
+                              <input type="checkbox" id="check-all">
+                              <label id="checklabel" for="check-all"></label>
+                            </div>
+                            <div class="row-table-content">
+                              <h4>Nome</h4>
+                              <img src="assets/ordenar_alfabeto.svg" width="18px">
+                            </div> 
                           </div>
                         </th>
-                        <th>Função</th>
-                        <th>Pontos</th>
+                        <th>Função<img src="assets/ordenar_alfabeto.svg" width="18px"></th>
+                        <th>Pontos<img src="assets/ordenar.svg" width="18px"></th>
                         <th>Opções</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Fabio</td>
+                        <td>
+                          <div class="row-table">
+                            <div class="row-table-check">
+                              <input type="checkbox" id="name01">
+                              <label for="name01"></label>
+                            </div>
+                            <div class="row-table-content">
+                              <h5>Fábio</h5>
+                            </div>
+                          </div>
+                        </td>
                         <td>Programador Front</td>
                         <td>342</td>
+                        <td>
+                          <div class="row-table-option">
+                            <img src="assets/caixa_add_redonda.svg">
+                            <img src="assets/caixa_remove_redonda.svg">
+                            <img src="assets/configuracoes.svg">
+                          </div>
+                        </td>
                       </tr>
                       <tr>
-                        <td>Andolfo</td>
+                        <td>
+                          <div class="row-table">
+                            <div class="row-table-check">
+                              <input type="checkbox" id="name02">
+                              <label for="name02"></label>
+                            </div>
+                            <div class="row-table-content">
+                              <h5>Andolfo</h5>
+                            </div>
+                            </div>
+                          </td>
                         <td>Programador Front</td>
                         <td>350</td>
+                        <td>
+                          <div class="row-table-option">
+                            <img src="assets/caixa_add_redonda.svg">
+                            <img src="assets/caixa_remove_redonda.svg">
+                            <img src="assets/configuracoes.svg">
+                          </div>
+                        </td>
                       </tr>
                       <tr>
-                        <td>Ferreira</td>
+                        <td>
+                          <div class="row-table">
+                            <div class="row-table-check">
+                              <input type="checkbox" id="name03">
+                              <label for="name03"></label>
+                            </div>
+                            <div class="row-table-content">
+                              <h5>Ferreira</h5>
+                            </div>
+                          </div>
+                        </td>
                         <td>Programador Back</td>
                         <td>383</td>
+                        <td>
+                          <div class="row-table-option">
+                            <img src="assets/caixa_add_redonda.svg">
+                            <img src="assets/caixa_remove_redonda.svg">
+                            <img src="assets/configuracoes.svg">
+                          </div>
+                        </td>
                       </tr>
                       <tr>
-                        <td>Gabriel</td>
+                        <td>
+                          <div class="row-table">
+                            <div class="row-table-check">
+                              <input type="checkbox" id="name04">
+                              <label for="name04"></label>
+                            </div>
+                            <div class="row-table-content">
+                              <h5>Gabriel</h5>
+                            </div>
+                            </div>
+                        </td>
                         <td>Programador Back</td>
                         <td>383</td>
+                        <td>
+                          <div class="row-table-option">
+                            <img src="assets/caixa_add_redonda.svg">
+                            <img src="assets/caixa_remove_redonda.svg">
+                            <img src="assets/configuracoes.svg">
+                          </div>
+                        </td>
                       </tr>
                     </tbody>
-                    
                   </table>
                 </div>
               </div>
@@ -254,6 +340,9 @@
 
   <!--Script para Seleção de tema (Day mode/Dark mode)-->
   <script src="scripts/theme-selector.js"></script>
+
+  <!--Script para abrir os modais da tela de Participantes-->
+  <script src="scripts/active-modal.js"></script>
 </body>
 
 </html>

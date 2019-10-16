@@ -2,7 +2,7 @@
 
     Funciona baseado em alterações de variáveis do Css
 
- -Copyright -> FaBiUsKcomp
+ -Copyright -> FaBiUsKcomp - 2019
  
  */
 
