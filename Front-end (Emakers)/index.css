@@ -28,12 +28,12 @@
 
 [data-theme="dark"] {
     --font: 'Archivo', sans-serif;
-    --primary-color: #2F1737;
-    --primary-color-lite: #812ca0;
-    --primary-color-dark: #3B1B47;
+    --primary-color: #121212;
+    --primary-color-lite: #121212;
+    --primary-color-dark: #121212;
     --secundary-color: #DFE1E1;
     --dark-color: #333;
-    --border: #4C1D5E;
+    --border: black;
     --opacity: 1;
     --shadow: 0 4px 8px 13px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --shadow-right: 5px 0 5px -5px #333;
@@ -41,7 +41,7 @@
     --shadow-right-bottom-dark: 5px 10px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --text-shadow: 5px 5px var(--dark-color);
     --gradient : linear-gradient(#5e2075, #171519);
-    --button-hover: #3B1B47; 
+    --button-hover: black; 
     --drop-hover: whitesmoke;
     --profile-name: #2F1737;
 }
@@ -698,7 +698,7 @@ input:checked + .slider:before {
     width: 80%;
     height: 97%;
     border-radius: 7px;
-    background: #812ca0;
+    background: var(--primary-color-lite);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -886,21 +886,23 @@ table .content-title {
   
 /* Conteudo dos modais */
 .modal .modal-content {
-    border-radius: 7px;
+    border-radius: 5px;
     background-color: var(--secundary-color);
     margin: auto;
     margin-top: 12%;
-    padding: 20px;
+    padding: 1%;
     border: none;
     width: 80%;
-    height: 40%;
+    height: 50%;
+    display: grid;
+    grid-template-rows: 15% 85%;
 }
+
   
 /* Botao dos modais da tela Participantes */
 .close {
     color: var(--profile-name);
-    float: right;
-    font-size: 28px;
+    font-size: 35px;
     font-weight: bold;
 }
   
@@ -911,13 +913,117 @@ table .content-title {
     cursor: pointer;
 }
 
-.blur-effect > *:not(.modal, .modal-content) {
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
+.modal-content .modal-top {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 97% 3%;
 }
+
+.modal-top .modal-top-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-top-text .modal-top-text-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    border-bottom: 2px var(--drop-hover) solid;
+}
+
+.modal-top-text-content p {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--drop-hover);
+    letter-spacing: 2px;
+}
+
+.modal-content .modal-bottom {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 33.33% 33.33% 33.33%;
+}
+
+.modal-bottom .modal-bottom-field {
+    width: 100%;
+    height: 100%;
+    padding: .5% 1%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.modal-bottom-field p {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--drop-hover);
+    letter-spacing: 2px;
+}
+
+.modal-bottom-field input[type="text"] {
+    width: 96%;
+    height: 30%;
+    margin: 1% 0;
+    border: none;
+    border-bottom: 2px var(--drop-hover) solid;
+}
+
+.modal-bottom-field input[type="text"]::placeholder {
+    font-size: 25px;
+    opacity: 0.5;
+    font-weight: 600;
+}
+
+.modal-bottom-field {
+    width: 100%;
+    height: 100%;
+    color: var(--drop-hover);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.modal-bottom-field .modal-bottom-row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: 0;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.modal-bottom-row input[type="checkbox"] {
+    margin: 0 1%;
+    background: transparent;
+    display: none;
+}
+
+.modal-bottom-row label {
+    margin: 0 1%;
+    width: 13px;
+    height: 13px;
+    border: 2px var(--drop-hover) solid;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.modal-bottom-row input[type="checkbox"]:checked + label {
+    background-color: var(--dark-color);
+    cursor: pointer;
+}
+
 
 /* Ainda falta melhorar essa parte da tela */
 
@@ -1089,5 +1195,13 @@ td .row-table-option {
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
     filter: blur(5px);
+
+    .blur-effect > *:not(.modal, .modal-content) {
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+    }
 */
 
