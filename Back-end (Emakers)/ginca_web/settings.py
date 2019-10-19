@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'crispy_forms',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -78,8 +79,12 @@ WSGI_APPLICATION = 'ginca_web.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'teste_bd1',
+        'USER': 'postgres',
+        'PASSWORD': 'FEFEFE1998',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -125,3 +130,6 @@ STATIC_URL = '/static/'
 # Model de autenticação de usuário
 
 AUTH_USER_MODEL = 'core.MyUser'
+
+LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = 'login'
