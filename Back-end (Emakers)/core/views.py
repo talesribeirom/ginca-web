@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from users.models import User
 
 
 def index(request):
-    return render(request, 'core/index.html')
+    users = User.objects.all().order_by('username')
+    return render(request, 'core/index.html', {'users': users})

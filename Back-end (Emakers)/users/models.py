@@ -47,7 +47,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(verbose_name='Nome', max_length=100, unique=True)
     email = models.EmailField(verbose_name='Email', max_length=255, unique=True)
     date_of_birth = models.DateField(verbose_name='Data de Nascimento')
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(verbose_name='Ativo', default=True)
     
     MALE = 'M'
     FEMALE = 'F'
