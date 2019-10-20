@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #Apps do Projeto
-    'core'
+    'core',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -80,9 +81,9 @@ WSGI_APPLICATION = 'ginca_web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'teste_bd1',
-        'USER': 'postgres',
-        'PASSWORD': 'FEFEFE1998',
+        'NAME': 'ginca',
+        'USER': 'ghamorim',
+        'PASSWORD': 'ghamorim',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -129,7 +130,12 @@ STATIC_URL = '/static/'
 
 # Model de autenticação de usuário
 
-AUTH_USER_MODEL = 'core.MyUser'
+AUTH_USER_MODEL = 'users.User'
 
-LOGIN_REDIRECT_URL = 'index'
-LOGIN_URL = 'login'
+# URLs referente ao login
+
+LOGIN_URL = 'login/'
+
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/'

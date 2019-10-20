@@ -1,33 +1,33 @@
 from django.contrib import admin
-from .models import Pontuacao
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django import forms
-from .forms import UserCreationForm
-from .models import MyUser
+from users.forms import User_Creation_Form
+from .models import Score
+from users.models import User
 
-class UserAdmin(BaseUserAdmin):
+
+class User_Admin(BaseUserAdmin):
     # The forms to add and change user instances
     # form = UserChangeForm
-    add_form = UserCreationForm
+    add_form = User_Creation_Form
 
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('username', 'email', 'date_of_birth', 'is_admin')
-    list_filter = ('is_admin',)
+    list_display = ('username', 'email', 'date_of_birth', 'is_superuser')
+    list_filter = ('is_superuser',)
     fieldsets = (
         (None, {'fields': ('username', 'email', 'password')}),
-        ('Personal info', {'fields': ('date_of_birth',)}),
-        ('Permissions', {'fields': ('is_admin',)}),
-        ('Others', {'fields': ('sexUser', 'scores')}),
+        ('Informações Pessoais', {'fields': ('date_of_birth', 'sex')}),
+        ('Permissões', {'fields': ('is_superuser',)}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
     # overrides get_fieldsets to use this attribute when creating a user.
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('username', 'email', 'date_of_birth', 'sexUser', 'scores', 'password1', 'password2')}
+            'fields': ('username', 'email', 'date_of_birth', 'sex', 'password1', 'password2')}
         ),
     )
     search_fields = ('username',)
@@ -35,7 +35,7 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 # Now register the new UserAdmin...
-admin.site.register(Pontuacao)
-admin.site.register(MyUser, UserAdmin)
+admin.site.register(Score)
+admin.site.register(User, User_Admin)
 
 admin.site.unregister(Group)
