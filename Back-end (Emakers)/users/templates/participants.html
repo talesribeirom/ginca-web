@@ -16,8 +16,11 @@
                 <h3>PARTICIPANTES</h3>
               </div>
               <div class="table-content">
+                
                 <!-- Conteudo do Modal adcionar Usuario -->
+               
                 <form method="POST"> 
+                {% csrf_token %}
                 <div id="myModalUser" class="modal">
                   <div class="modal-content">
                     <div class="modal-top">
@@ -46,12 +49,11 @@
                       <div class="modal-bottom-field">
                         <p>Sexo</p>
                         <div class="modal-bottom-row">
-                          <input type="checkbox" name="sex" id="id_sex">
-                          <label for="M"></label>
-                          Masculino
-                          <input type="checkbox" name="sex" id="id_sex">
-                          <label for="F"></label>
-                          Feminino
+                            <select name="sex" id="id_sex">
+                            <option value="M" selected>Masculino</option>
+
+                            <option value="F">Feminino</option>
+                        </select>
                         </div>
                       </div>
                       <div class="modal-bottom-field">
@@ -62,10 +64,10 @@
                       </div>
                     </div>
                   </div>
-                  {% comment %} <button type="submit">Salvar</button> {% endcomment %}
+                  <button type="submit">Salvar</button> 
                   </form>
                 </div>
-
+                    
                   <!-- Conteudo do Modal adcionar Pontuação -->
                 <div id="myModalScore" class="modal">
                   <div class="modal-content">
@@ -128,50 +130,6 @@
                         <td>
                           <div class="row-table">
                             <div class="row-table-check">
-                              <input type="checkbox" id="name01">
-                              <label for="name01"></label>
-                            </div>
-                            <div class="row-table-content">
-                              <h5>Fábio</h5>
-                            </div>
-                          </div>
-                        </td>
-                        <td>Programador Front</td>
-                        <td>342</td>
-                        <td>
-                          <div class="row-table-option">
-                            <img src="{% static 'assets/caixa_add_redonda.svg' %}">
-                            <img src="{% static 'assets/caixa_remove_redonda.svg' %}">
-                            <img src="{% static 'assets/configuracoes.svg' %}">
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="row-table">
-                            <div class="row-table-check">
-                              <input type="checkbox" id="name02">
-                              <label for="name02"></label>
-                            </div>
-                            <div class="row-table-content">
-                              <h5>Andolfo</h5>
-                            </div>
-                            </div>
-                          </td>
-                        <td>Programador Front</td>
-                        <td>350</td>
-                        <td>
-                          <div class="row-table-option">
-                            <img src="{% static 'assets/caixa_add_redonda.svg' %}">
-                            <img src="{% static 'assets/caixa_remove_redonda.svg' %}">
-                            <img src="{% static 'assets/configuracoes.svg' %}">
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="row-table">
-                            <div class="row-table-check">
                               <input type="checkbox" id="name03">
                               <label for="name03"></label>
                             </div>
@@ -221,4 +179,4 @@
         </div>
       </div>
 {% endif %}
-{% endblock %}
+{% endblock content %}
