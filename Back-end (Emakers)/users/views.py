@@ -51,3 +51,12 @@ def delete_user(request, id_user):
 		return redirect('index')
 	else:
 		return redirect('index')
+
+@login_required
+def list_users(request):
+    users = User.objects.all().order_by('username')
+    form = User_Creation_Form(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('url_participants')
+    return render(request, 'participants.html', {'users': users, 'form': form})

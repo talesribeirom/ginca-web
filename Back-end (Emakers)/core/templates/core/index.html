@@ -1,52 +1,115 @@
-<doctype html>
-<html lang="en">
+{% extends 'core/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-	<style type="text/css"> a.nounderline:link { text-decoration:none; } </style>
-</head>
+{% load static %}
 
-<body>
-    <h1>Seja Bem-Vindo</h1>
-    {% if user.is_authenticated %}
-		Usuario logado - {{ user.username }} - 
-		<a href="{% url 'url_change_user' user.id %}">Editar Perfil</a>
-		<br>
-		<a href="{% url 'logout' %}">Logout</a>
-		
-		{% if user.is_superuser %}
-			<p>Conta de administrador - <a href="{% url 'url_new_user' %}">Cadastrar Novo Usuário</a></p>
-			<p>Usuários cadastrados até o momento:
-				<ul>
-					{% for u in users %}
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="content">
+      <div id="Dash" class="tabcontent">
+        <div class="dashContent">
+          <div class="dashBody">
+            <div class="dash-top">
+              <div class="top-content">
+                <div class="top-content-title">
+                  <h3>Melhores Colocados</h3>
+                </div>
+                <div class="top-content-position">
+                  <div class="position-3">
+                    <div class="position-3-content">
+                      <div class="position-3-text">
+                          <h4>2º - 114</h4>
+                      </div>
+                      <div class="position-3-content-profile">
+                        <div class="position-3-content-profile-circle">
+                          <img src="{% static 'assets/foto_mulher.svg' %}" alt="Perfil">
+                        </div>
+                      </div>
+                      <div class="position-3-text">
+                        <h5>Ciclano</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="position-1">
+                    <div class="position-1-content">
+                      <div class="position-1-text">
+                        <h4>1º - 250</h4>
+                      </div>
+                      <div class="position-1-content-profile">
+                        <div class="position-1-content-profile-circle">
+                         <img src="{% static 'assets/foto_homem.svg' %}" alt="Perfil">
+                        </div>
+                      </div>
+                      <div class="position-1-text">
+                        <h5>Fulano</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="position-2">
+                    <div class="position-2-content">
+                      <div class="position-2-text">
+                        <h4>3º - 53</h4>
+                      </div>
+                      <div class="position-2-content-profile">
+                        <div class="position-2-content-profile-circle">
+                          <img src="{% static 'assets/foto_jovem.svg' %}" alt="Perfil">
+                        </div>
+                      </div>
+                      <div class="position-2-text">
+                        <h5>Beltrano</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dash-bottom">
+              <div class="bottom-content">
+                <div class="bottom-content-myposition">
+                  <div class="myposition-text">
+                    <h3>Sua posição</h2>
+                  </div>
+                  <div class="myposition-text">
+                    <h5>23º - 14</h5>
+                  </div>
+                  <div class="myposition-profile">
+                    <div class="myposition-profile-circle">
 
-						<li>
-							<a href="{% url 'url_detail_user' u.id %}"> {{ u.username }}</a> - 
-							<a href="{% url 'url_change_user' u.id %}">Editar</a> - 
-							<a href="{% url 'url_remove_user' u.id %}">Excluir</a> - 
-							<a href="{% url 'url_ponctuate' u.id 'bonus' %}" class="nounderline"><font color=green><font size=6>+</font></font></a> 
-							<a href="{% url 'url_ponctuate' u.id 'penalty' %}" class="nounderline"><font color=red><font size=6.8>-</font></font></a>
-						</li>
+                    </div>
+                  </div>
+                  <div class="myposition-text">
+                    <h4>Administrador</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-					{% endfor %}
-				</ul>
-			</p>
-		{% else %}
+      <div id="ranck" class="tabcontent">
+        <div class="ranckContent">
+          <div class="ranckBody">
+            <h3>Ranck</h3>
+          </div>
+        </div>
+      </div>
 
-			<p>Conta de usuário comum</p>
+      <div id="eventos" class="tabcontent">
+        <div class="eventosContent">
+          <div class="eventosBody">
+            <h3>Eventos</h3>
+          </div>
+        </div>
+      </div>
 
-		{% endif %}
-
-	{% else %}
-
-		Usuario não logado
-		<br>
-		<a href="{% url 'login' %}">Login</a>
-
-	{% endif %}
-	<hr>
-</body>
-</html>
+      <div id="Quit" class="tabcontent">
+        <div class="quitContent">
+          <div class="quitBody">
+            <h3>Sair</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}

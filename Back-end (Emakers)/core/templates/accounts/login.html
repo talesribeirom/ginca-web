@@ -1,35 +1,40 @@
-{% load crispy_forms_tags %}
-<doctype html>
-    <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ginca-Web</title>
+  <link rel="shortcut icon" href="assets/ico-title.png" type="image/x-icon">
 
-        {% comment %} <link  rel="stylesheet" type="text/css" href="{% static 'core/main.css' %}"> {% endcomment %}
-    <title>Document</title>
+  <!--Estilo da Tela de login-->
+  <link rel="stylesheet" href="{% static 'core/login.css' %}">
 </head>
+
 <body>
-    <div class="content-section">
+    <div class="container">
+        <div class="imgcontainer">
+            <img src="{% static 'assets/Logo_lateral_secundaria_semfundo.png' %}" alt="EmakersJr">
+        </div>
+        <div class="formulario">
         <form method="POST">
             {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Log In</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Login</button>
+                <div id="div_id_username" class="user"> 
+                    <input type="text" name="username" placeholder="Usuário" autofocus required id="id_username"> 
+                </div> 
+                <div id="div_id_password" class="password"> 
+                    <input type="password" name="password" placeholder="Senha" required id="id_password">
+                </div>
+            <div class="submit">
+                <button type="submit">Login</button>
             </div>
         </form>
+        </div>
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
 </body>
+
 </html>
