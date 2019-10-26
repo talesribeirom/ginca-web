@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ginca Web</title>
+  <link rel="shortcut icon" href="assets/ico-title.png" type="image/x-icon">
+
+  <!--Estilo Principal-->
+  <link rel="stylesheet" href="{% static 'core/index.css' %}">
+
+  <!--Kits FontAwesome-->
+  <script src="https://kit.fontawesome.com/3388b00aea.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body id="body">
+  {% if user.is_authenticated %}
+  <nav>
+    <div class="logo">
+      <img src="{% static 'assets/EmakersJr.png' %}" alt="EmakersJr">
+    </div>
+    <div class="tittle">
+      <h2>GINCA WEB</h2>
+    </div>
+    <div class="notification">
+      <img src="{% static 'assets/notification.svg' %}">
+    </div>
+    <div class="profile">
+      <div class="profile-img">
+        <!--<img src="assets/white.jpg" alt="Perfil">-->
+      </div>
+      <div class="profile-name">
+        <p>Fulano de Tal</p>
+      </div>
+      <div class="dropdown">
+        <img class="expand-drop-img" src="{% static 'assets/expand.png' %}">
+        <div class="dropdown-content">
+          <a href="#">
+            <p>Perfil</p>
+          </a>
+          <!--Modo Noturno-->
+          <div class="night-mode">
+            <p>Modo Noturno</p>
+            <label class="switch" for="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+          
+          <a href="#">
+            <p>Configurações</p>
+          </a>
+          <a href="{% url 'logout' %}">
+            <p>Sair</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="tab">
+      <button class="tablinks" onclick="openPage(event, 'Dash')" title="Início" id="defaultopenPage"><img
+          src="{% static 'assets/home.svg' %}"></button>
+      <button class="tablinks" onclick="nova(event, 'participante')" title="Participantes"><img
+          src="{% static 'assets/membros.svg' %}"></button>
+      <button class="tablinks" onclick="openPage(event, 'ranck')" title="Ranck"><img src="{% static 'assets/trofeu.svg' %}"></button>
+      <button class="tablinks" onclick="openPage(event, 'eventos')" title="Eventos" id="button-end"><img
+          src="{% static 'assets/eventos.svg' %}"></button>
+    </div>
+	{% else %}
+
+    Usuario não logado
+    <br>
+    <a href="{% url 'login' %}">Login</a>
+
+  	{% endif %}
+
+	{% block content %}
+	{% endblock %}
+
+  <script>
+    function openPage(evt, pageMoment) {
+      let tabcontent = document.getElementsByClassName("tabcontent");
+      for (let i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      let tablinks = document.getElementsByClassName("tablinks");
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(pageMoment).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    document.getElementById("defaultopenPage").click();
+  </script>
+
+  <script>
+    function nova(evt, participants) {
+      location.href="{% url 'url_participants' %}"
+    }
+  </script>
+
+  <!--Script para Seleção de tema (Day mode/Dark mode)-->
+  {% comment %} <script src="{% static 'scripts/theme-selector.js' %}"></script> {% endcomment %}
+
+  <!--Script para abrir os modais da tela de Participantes-->
+  <script src="{% static 'scripts/active-modal.js' %}"></script>
+</body>
+
+</html>

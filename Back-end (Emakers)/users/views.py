@@ -51,3 +51,8 @@ def delete_user(request, id_user):
 		return redirect('index')
 	else:
 		return redirect('index')
+
+@login_required
+def list_users(request):
+	users = User.objects.all().order_by('username')
+	return render(request, 'participants.html', {'users': users})
