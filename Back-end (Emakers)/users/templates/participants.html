@@ -15,95 +15,98 @@
               <div class="table-title">
                 <h3>PARTICIPANTES</h3>
               </div>
-              <div class="table-content">
-                
-                <!-- Conteudo do Modal adcionar Usuario -->
-               
-                <form method="POST"> 
-                {% csrf_token %}
-                <div id="myModalUser" class="modal">
-                  <div class="modal-content">
-                    <div class="modal-top">
-                      <div class="modal-top-text">
-                        <div class="modal-top-text-content">
-                          <p>Cadastrar novo usuário</p>
-                        </div>
-                      </div>
-                      <div class="modal-top-close">
-                        <span class="close">&times;</span>
-                      </div>
-                    </div>
-                    <div class="modal-bottom">
-                      <div class="modal-bottom-field">
-                        <p>Nome:</p>
-                        <input type="text" placeholder="Digite o nome do participante" name="username" maxlength="100" required id="id_username">
-                      </div>
-                      <div class="modal-bottom-field">
-                        <p>Email:</p>
-                        <input type="email" name="email" maxlength="255" required id="id_email" placeholder="Digite o email do participante">
-                      </div>
-                      <div class="modal-bottom-field">
-                        <p>Data de Nascimento:</p>
-                        <input type="date" name="date_of_birth" required id="id_date_of_birth">
-                      </div>
-                      <div class="modal-bottom-field">
-                        <p>Sexo</p>
-                        <div class="modal-bottom-row">
-                            <select name="sex" id="id_sex">
-                            <option value="M" selected>Masculino</option>
-
-                            <option value="F">Feminino</option>
-                        </select>
-                        </div>
-                      </div>
-                      <div class="modal-bottom-field">
-                        <p> Senha: </p>
-                        <input type="password" name="password1" required id="id_password1">
-                        <p> Confirmação da senha: </p> 
-                        <input type="password" name="password2" required id="id_password2">
-                      </div>
-                    </div>
-                  </div>
-                  <button type="submit">Salvar</button> 
-                  </form>
-                </div>
+              {% if user.is_superuser %}
+                <div class="table-content">
                     
-                  <!-- Conteudo do Modal adcionar Pontuação -->
-                <div id="myModalScore" class="modal">
-                  <div class="modal-content">
-                    <div class="modal-top">
-                      <div class="modal-top-text">
-                        <div class="modal-top-text-content">
-                          <p>Cadastrar nova pontuação</p>
+                    <!-- Conteudo do Modal adcionar Usuario -->
+                
+                    <form method="POST"> 
+                    {% csrf_token %}
+                    <div id="myModalUser" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-top">
+                        <div class="modal-top-text">
+                            <div class="modal-top-text-content">
+                            <p>Cadastrar novo usuário</p>
+                            </div>
                         </div>
-                      </div>
-                      <div class="modal-top-close">
-                        <span class="close">&times;</span>
-                      </div>
-                    </div>
-                    <div class="modal-bottom">
-                      <div class="modal-bottom-field">
-                        <p>Tipo</p>
-                        <input type="text" placeholder="Digite o tipo da pontuação (Ex.B07, P14)">
-                      </div>
-                      <div class="modal-bottom-field">
-                        <p>Descrição</p>
-                        <input type="text" placeholder="Descreva a pontuação (Ex.: O membro teve imprevistos)">
-                      </div>
-                      <div class="modal-bottom-field">
-                        <p>Categoria</p>
-                        <div class="modal-bottom-row">
-                          <input type="checkbox" name="" id="boni">
-                          <label for="boni"></label>
-                          Bonificação
-                          <input type="checkbox" name="" id="pena">
-                          <label for="pena"></label>
-                          Penalização
+                        <div class="modal-top-close">
+                            <span class="close">&times;</span>
                         </div>
-                      </div>
+                        </div>
+                        <div class="modal-bottom">
+                        <div class="modal-bottom-field">
+                            <p>Nome:</p>
+                            <input type="text" placeholder="Digite o nome do participante" name="username" maxlength="100" required id="id_username">
+                        </div>
+                        <div class="modal-bottom-field">
+                            <p>Email:</p>
+                            <input type="email" name="email" maxlength="255" required id="id_email" placeholder="Digite o email do participante">
+                        </div>
+                        <div class="modal-bottom-field">
+                            <p>Data de Nascimento:</p>
+                            <input type="date" name="date_of_birth" required id="id_date_of_birth">
+                        </div>
+                        <div class="modal-bottom-field">
+                            <p>Sexo</p>
+                            <div class="modal-bottom-row">
+                                <select name="sex" id="id_sex">
+                                <option value="M" selected>Masculino</option>
+
+                                <option value="F">Feminino</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="modal-bottom-field">
+                            <p> Senha: </p>
+                            <input type="password" name="password1" required id="id_password1">
+                            <p> Confirmação da senha: </p> 
+                            <input type="password" name="password2" required id="id_password2">
+                            <button type="submit">Salvar</button> 
+                        </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
+                    
+                    </form>
+                    </div>
+                        
+                    <!-- Conteudo do Modal adcionar Pontuação -->
+                    <div id="myModalScore" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-top">
+                        <div class="modal-top-text">
+                            <div class="modal-top-text-content">
+                            <p>Cadastrar nova pontuação</p>
+                            </div>
+                        </div>
+                        <div class="modal-top-close">
+                            <span class="close">&times;</span>
+                        </div>
+                        </div>
+                        <div class="modal-bottom">
+                        <div class="modal-bottom-field">
+                            <p>Tipo</p>
+                            <input type="text" placeholder="Digite o tipo da pontuação (Ex.B07, P14)">
+                        </div>
+                        <div class="modal-bottom-field">
+                            <p>Descrição</p>
+                            <input type="text" placeholder="Descreva a pontuação (Ex.: O membro teve imprevistos)">
+                        </div>
+                        <div class="modal-bottom-field">
+                            <p>Categoria</p>
+                            <div class="modal-bottom-row">
+                            <input type="checkbox" name="" id="boni">
+                            <label for="boni"></label>
+                            Bonificação
+                            <input type="checkbox" name="" id="pena">
+                            <label for="pena"></label>
+                            Penalização
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                {% endif %}
                 <div class="table-content-field">
                   <table id="table">
                     <thead>
@@ -120,13 +123,14 @@
                             </div> 
                           </div>
                         </th>
-                        <th>Função<img src="{% static 'assets/ordenar_alfabeto.svg' %}" width="18px"></th>
+                        <th>Email<img src="{% static 'assets/ordenar_alfabeto.svg' %}" width="18px"></th>
                         <th>Pontos<img src="{% static 'assets/ordenar.svg' %}" width="18px"></th>
                         <th>Opções</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                    {% for user in users %}
+                        <tr>
                         <td>
                           <div class="row-table">
                             <div class="row-table-check">
@@ -134,11 +138,11 @@
                               <label for="name03"></label>
                             </div>
                             <div class="row-table-content">
-                              <h5>Ferreira</h5>
+                              <h5>{{user.username}}</h5>
                             </div>
                           </div>
                         </td>
-                        <td>Programador Back</td>
+                        <td>{{user.email}}</td>
                         <td>383</td>
                         <td>
                           <div class="row-table-option">
@@ -148,28 +152,8 @@
                           </div>
                         </td>
                       </tr>
-                      <tr>
-                        <td>
-                          <div class="row-table">
-                            <div class="row-table-check">
-                              <input type="checkbox" id="name04">
-                              <label for="name04"></label>
-                            </div>
-                            <div class="row-table-content">
-                              <h5>Gabriel</h5>
-                            </div>
-                            </div>
-                        </td>
-                        <td>Programador Back</td>
-                        <td>383</td>
-                        <td>
-                          <div class="row-table-option">
-                            <img src="{% static 'assets/caixa_add_redonda.svg' %}">
-                            <img src="{% static 'assets/caixa_remove_redonda.svg' %}">
-                            <img src="{% static 'assets/configuracoes.svg' %}">
-                          </div>
-                        </td>
-                      </tr>
+                    {% endfor %}
+                      
                     </tbody>
                   </table>
                 </div>

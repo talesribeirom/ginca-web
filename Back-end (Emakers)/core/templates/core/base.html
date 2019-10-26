@@ -18,7 +18,7 @@
     </head>
 
     <body id="body">
-        {% comment %} {% if user.is_authenticated %} {% endcomment %}
+        {% if user.is_authenticated %} 
         <nav>
             <div class="logo">
                 <img src="{% static 'assets/EmakersJr.png' %}" alt="EmakersJr">
@@ -70,18 +70,14 @@
                     src="{% static 'assets/membros.svg' %}"></button>
                 <button class="tablinks" onclick="openPage(event, 'ranck')" title="Ranck"><img src="{% static 'assets/trofeu.svg' %}"></button>
                 <button class="tablinks" onclick="openPage(event, 'eventos')" title="Eventos" id="button-end"><img
-                    src="{% static 'assets/eventos.svg' %}"></button>
+                    src="{% static 'assets/eventos.svg' %}"></button> 
             </div>
-        {% comment %} {% else %}
-
-            Usuario não logado
-            <br>
-            <a href="{% url 'login' %}">Login</a>
-
-        {% endif %} {% endcomment %}
+        
 
         {% block content %}
         {% endblock %}
+
+        {% endif %}
 
         <script>
             function openPage(evt, pageMoment) {
