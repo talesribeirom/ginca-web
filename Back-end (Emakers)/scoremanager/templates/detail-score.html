@@ -9,14 +9,7 @@
 </head>
 <body>
 	
-	{{ user.username }} - {{ user.email }} - {{user.date_of_birth }} - {{ user.sex }} -
-
-	{% if user.is_superuser %}
-		Administrador
-	{% else %}
-		Usuário comum
-	{% endif %}
-
-
+	{{ score.type_score }} - {{ score.score_description }} - {{ score.equivalent_score }}
+	
 </body>
 </html>

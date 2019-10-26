@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     #Apps do Projeto
     'core',
     'users',
+    'scoremanager',
 ]
 
 MIDDLEWARE = [
@@ -81,9 +82,9 @@ WSGI_APPLICATION = 'ginca_web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'teste_bd',
-        'USER': 'postgres',
-        'PASSWORD': 'FEFEFE1998',
+        'NAME': 'ginca',
+        'USER': 'ghamorim',
+        'PASSWORD': 'ghamorim',
         'HOST': 'localhost',
         'PORT': '5432',
     }

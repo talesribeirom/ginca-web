@@ -3,8 +3,9 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django import forms
 from users.forms import User_Creation_Form
-from .models import Score
+from scoremanager.models import Score
 from users.models import User
+from scoremanager.models import User_has_score
 
 
 class User_Admin(BaseUserAdmin):
@@ -36,6 +37,7 @@ class User_Admin(BaseUserAdmin):
 
 # Now register the new UserAdmin...
 admin.site.register(Score)
+admin.site.register(User_has_score)
 admin.site.register(User, User_Admin)
 
 admin.site.unregister(Group)
