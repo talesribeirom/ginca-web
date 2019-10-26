@@ -1,48 +1,429 @@
-<doctype html>
-	<html lang="en">
-	<head>
-	    <meta charset="UTF-8">
-	    <meta name="viewport"
-		      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ginca Web</title>
+  <link rel="shortcut icon" href="assets/ico-title.png" type="image/x-icon">
+
+  <!--Estilo Principal-->
+  <link rel="stylesheet" href="{% static 'core/index.css' %}">
+
+  <!--Kits FontAwesome-->
+  <script src="https://kit.fontawesome.com/3388b00aea.js" crossorigin="anonymous"></script>
+
 </head>
-<body>
-    <h1>Seja Bem-Vindo</h1>
-    {% if user.is_authenticated %}
-		Usuario logado - {{ user.username }} - <a href="{% url 'url_change_user' user.id %}">Editar Perfil</a>
-		<br>
-		<a href="{% url 'logout' %}">Logout</a>
-		
-		{% if user.is_superuser %}
-			<p>Conta de administrador - <a href="{% url 'url_new_user' %}">Cadastrar Novo Usuário</a></p>
 
-			<p>Usuários cadastrados até o momento:
-				<ul>
-				{% for u in users %}
+<body id="body">
+  {% if user.is_authenticated %}
+  <nav>
+    <div class="logo">
+      <img src="{% static 'assets/EmakersJr.png' %}" alt="EmakersJr">
+    </div>
+    <div class="tittle">
+      <h2>GINCA WEB</h2>
+    </div>
+    <div class="notification">
+      <img src="{% static 'assets/notification.svg' %}">
+    </div>
+    <div class="profile">
+      <div class="profile-img">
+        <!--<img src="assets/white.jpg" alt="Perfil">-->
+      </div>
+      <div class="profile-name">
+        <p>Fulano de Tal</p>
+      </div>
+      <div class="dropdown">
+        <img class="expand-drop-img" src="{% static 'assets/expand.png' %}">
+        <div class="dropdown-content">
+          <a href="#">
+            <p>Perfil</p>
+          </a>
+          <!--Modo Noturno-->
+          <div class="night-mode">
+            <p>Modo Noturno</p>
+            <label class="switch" for="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+          
+          <a href="#">
+            <p>Configurações</p>
+          </a>
+          <a href="{% url 'logout' %}">
+            <p>Sair</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="tab">
+      <button class="tablinks" onclick="openPage(event, 'Dash')" title="Início" id="defaultopenPage"><img
+          src="{% static 'assets/home.svg' %}"></button>
+      <button class="tablinks" onclick="openPage(event, 'participante')" title="Participantes"><img
+          src="{% static 'assets/membros.svg' %}"></button>
+      <button class="tablinks" onclick="openPage(event, 'ranck')" title="Ranck"><img src="{% static 'assets/trofeu.svg' %}"></button>
+      <button class="tablinks" onclick="openPage(event, 'eventos')" title="Eventos" id="button-end"><img
+          src="{% static 'assets/eventos.svg' %}"></button>
+    </div>
+    <div class="content">
+      <div id="Dash" class="tabcontent">
+        <div class="dashContent">
+          <div class="dashBody">
+            <div class="dash-top">
+              <div class="top-content">
+                <div class="top-content-title">
+                  <h3>Melhores Colocados</h3>
+                </div>
+                <div class="top-content-position">
+                  <div class="position-3">
+                    <div class="position-3-content">
+                      <div class="position-3-text">
+                          <h4>2º - 114</h4>
+                      </div>
+                      <div class="position-3-content-profile">
+                        <div class="position-3-content-profile-circle">
+                          <img src="{% static 'assets/foto_mulher.svg' %}" alt="Perfil">
+                        </div>
+                      </div>
+                      <div class="position-3-text">
+                        <h5>Ciclano</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="position-1">
+                    <div class="position-1-content">
+                      <div class="position-1-text">
+                        <h4>1º - 250</h4>
+                      </div>
+                      <div class="position-1-content-profile">
+                        <div class="position-1-content-profile-circle">
+                         <img src="{% static 'assets/foto_homem.svg' %}" alt="Perfil">
+                        </div>
+                      </div>
+                      <div class="position-1-text">
+                        <h5>Fulano</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="position-2">
+                    <div class="position-2-content">
+                      <div class="position-2-text">
+                        <h4>3º - 53</h4>
+                      </div>
+                      <div class="position-2-content-profile">
+                        <div class="position-2-content-profile-circle">
+                          <img src="{% static 'assets/foto_jovem.svg' %}" alt="Perfil">
+                        </div>
+                      </div>
+                      <div class="position-2-text">
+                        <h5>Beltrano</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dash-bottom">
+              <div class="bottom-content">
+                <div class="bottom-content-myposition">
+                  <div class="myposition-text">
+                    <h3>Sua posição</h2>
+                  </div>
+                  <div class="myposition-text">
+                    <h5>23º - 14</h5>
+                  </div>
+                  <div class="myposition-profile">
+                    <div class="myposition-profile-circle">
 
-					{% if user.is_superuser %} 
-						<li><a href="{% url 'url_detail_user' u.id %}">
-					{% endif %}
-					{{ u.username }}</a> - <a href="{% url 'url_change_user' u.id %}">Editar</a> - <a href="{% url 'url_remove_user' u.id %}">Excluir</a></li>
+                    </div>
+                  </div>
+                  <div class="myposition-text">
+                    <h4>Administrador</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-				{% endfor %}
-				</ul>
-			</p>
+      <div id="participante" class="tabcontent">
+        <div class="participanteContent">
+          <div class="participanteBody">
+            <div class="participante-Buttons">
+              <button type="button" id="btn-user" class="btn-user"><img src="{% static 'assets/membros_add.svg' %}" width="15px"> Cadastrar Usuário</button>
+              <button type="button" id="btn-score" class="btn-score"><img src="{% static 'assets/caixa_add_quadrada.svg' %}" width="15px"> Cadastrar Pontuação</button>
+            </div>
+            <div class="participante-table">
+              <div class="table-title">
+                <h3>PARTICIPANTES</h3>
+              </div>
+              <div class="table-content">
+                <!-- Conteudo do Modal adcionar Usuario -->
+                <form method="POST"> 
+                <div id="myModalUser" class="modal">
+                  <div class="modal-content">
+                    <div class="modal-top">
+                      <div class="modal-top-text">
+                        <div class="modal-top-text-content">
+                          <p>Cadastrar novo usuário</p>
+                        </div>
+                      </div>
+                      <div class="modal-top-close">
+                        <span class="close">&times;</span>
+                      </div>
+                    </div>
+                    <div class="modal-bottom">
+                      <div class="modal-bottom-field">
+                        <p>Nome:</p>
+                        <input type="text" placeholder="Digite o nome do participante" name="username" maxlength="100" required id="id_username">
+                      </div>
+                      <div class="modal-bottom-field">
+                        <p>Email:</p>
+                        <input type="email" name="email" maxlength="255" required id="id_email" placeholder="Digite o email do participante">
+                      </div>
+                      <div class="modal-bottom-field">
+                        <p>Data de Nascimento:</p>
+                        <input type="date" name="date_of_birth" required id="id_date_of_birth">
+                      </div>
+                      <div class="modal-bottom-field">
+                        <p>Sexo</p>
+                        <div class="modal-bottom-row">
+                          <input type="checkbox" name="sex" id="id_sex">
+                          <label for="M"></label>
+                          Masculino
+                          <input type="checkbox" name="sex" id="id_sex">
+                          <label for="F"></label>
+                          Feminino
+                        </div>
+                      </div>
+                      <div class="modal-bottom-field">
+                        <p> Senha: </p>
+                        <input type="password" name="password1" required id="id_password1">
+                        <p> Confirmação da senha: </p> 
+                        <input type="password" name="password2" required id="id_password2">
+                      </div>
+                    </div>
+                  </div>
+                  {% comment %} <button type="submit">Salvar</button> {% endcomment %}
+                  </form>
+                </div>
 
-		{% else %}
+                  <!-- Conteudo do Modal adcionar Pontuação -->
+                <div id="myModalScore" class="modal">
+                  <div class="modal-content">
+                    <div class="modal-top">
+                      <div class="modal-top-text">
+                        <div class="modal-top-text-content">
+                          <p>Cadastrar nova pontuação</p>
+                        </div>
+                      </div>
+                      <div class="modal-top-close">
+                        <span class="close">&times;</span>
+                      </div>
+                    </div>
+                    <div class="modal-bottom">
+                      <div class="modal-bottom-field">
+                        <p>Tipo</p>
+                        <input type="text" placeholder="Digite o tipo da pontuação (Ex.B07, P14)">
+                      </div>
+                      <div class="modal-bottom-field">
+                        <p>Descrição</p>
+                        <input type="text" placeholder="Descreva a pontuação (Ex.: O membro teve imprevistos)">
+                      </div>
+                      <div class="modal-bottom-field">
+                        <p>Categoria</p>
+                        <div class="modal-bottom-row">
+                          <input type="checkbox" name="" id="boni">
+                          <label for="boni"></label>
+                          Bonificação
+                          <input type="checkbox" name="" id="pena">
+                          <label for="pena"></label>
+                          Penalização
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-content-field">
+                  <table id="table">
+                    <thead>
+                      <tr class="content-title">
+                        <th>
+                          <div class="row-table">
+                            <div class="row-table-check">
+                              <input type="checkbox" id="check-all">
+                              <label id="checklabel" for="check-all"></label>
+                            </div>
+                            <div class="row-table-content">
+                              <h4>Nome</h4>
+                              <img src="{% static 'assets/ordenar_alfabeto.svg' %}" width="18px">
+                            </div> 
+                          </div>
+                        </th>
+                        <th>Função<img src="{% static 'assets/ordenar_alfabeto.svg' %}" width="18px"></th>
+                        <th>Pontos<img src="{% static 'assets/ordenar.svg' %}" width="18px"></th>
+                        <th>Opções</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="row-table">
+                            <div class="row-table-check">
+                              <input type="checkbox" id="name01">
+                              <label for="name01"></label>
+                            </div>
+                            <div class="row-table-content">
+                              <h5>Fábio</h5>
+                            </div>
+                          </div>
+                        </td>
+                        <td>Programador Front</td>
+                        <td>342</td>
+                        <td>
+                          <div class="row-table-option">
+                            <img src="{% static 'assets/caixa_add_redonda.svg' %}">
+                            <img src="{% static 'assets/caixa_remove_redonda.svg' %}">
+                            <img src="{% static 'assets/configuracoes.svg' %}">
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="row-table">
+                            <div class="row-table-check">
+                              <input type="checkbox" id="name02">
+                              <label for="name02"></label>
+                            </div>
+                            <div class="row-table-content">
+                              <h5>Andolfo</h5>
+                            </div>
+                            </div>
+                          </td>
+                        <td>Programador Front</td>
+                        <td>350</td>
+                        <td>
+                          <div class="row-table-option">
+                            <img src="{% static 'assets/caixa_add_redonda.svg' %}">
+                            <img src="{% static 'assets/caixa_remove_redonda.svg' %}">
+                            <img src="{% static 'assets/configuracoes.svg' %}">
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="row-table">
+                            <div class="row-table-check">
+                              <input type="checkbox" id="name03">
+                              <label for="name03"></label>
+                            </div>
+                            <div class="row-table-content">
+                              <h5>Ferreira</h5>
+                            </div>
+                          </div>
+                        </td>
+                        <td>Programador Back</td>
+                        <td>383</td>
+                        <td>
+                          <div class="row-table-option">
+                            <img src="{% static 'assets/caixa_add_redonda.svg' %}">
+                            <img src="{% static 'assets/caixa_remove_redonda.svg' %}">
+                            <img src="{% static 'assets/configuracoes.svg' %}">
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="row-table">
+                            <div class="row-table-check">
+                              <input type="checkbox" id="name04">
+                              <label for="name04"></label>
+                            </div>
+                            <div class="row-table-content">
+                              <h5>Gabriel</h5>
+                            </div>
+                            </div>
+                        </td>
+                        <td>Programador Back</td>
+                        <td>383</td>
+                        <td>
+                          <div class="row-table-option">
+                            <img src="{% static 'assets/caixa_add_redonda.svg' %}">
+                            <img src="{% static 'assets/caixa_remove_redonda.svg' %}">
+                            <img src="{% static 'assets/configuracoes.svg' %}">
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-			<p>Conta de usuário comum</p>
+      <div id="ranck" class="tabcontent">
+        <div class="ranckContent">
+          <div class="ranckBody">
+            <h3>Ranck</h3>
+          </div>
+        </div>
+      </div>
 
-		{% endif %}
+      <div id="eventos" class="tabcontent">
+        <div class="eventosContent">
+          <div class="eventosBody">
+            <h3>Eventos</h3>
+          </div>
+        </div>
+      </div>
 
-	{% else %}
+      <div id="Quit" class="tabcontent">
+        <div class="quitContent">
+          <div class="quitBody">
+            <h3>Sair</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-		Usuario não logado
-		<br>
-		<a href="{% url 'login' %}">Login</a>
+  {% else %}
 
-	{% endif %}
-	<hr>
+    Usuario não logado
+    <br>
+    <a href="{% url 'login' %}">Login</a>
+
+  {% endif %}
+  <script>
+    function openPage(evt, pageMoment) {
+      let tabcontent = document.getElementsByClassName("tabcontent");
+      for (let i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      let tablinks = document.getElementsByClassName("tablinks");
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(pageMoment).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    document.getElementById("defaultopenPage").click();
+  </script>
+
+  <!--Script para Seleção de tema (Day mode/Dark mode)-->
+  {% comment %} <script src="{% static 'scripts/theme-selector.js' %}"></script> {% endcomment %}
+
+  <!--Script para abrir os modais da tela de Participantes-->
+  <script src="{% static 'scripts/active-modal.js' %}"></script>
 </body>
+
 </html>
