@@ -9,14 +9,14 @@
 </head>
 <body>
 	
-	{{ user.username }} - {{ user.email }} - {{user.date_of_birth }} - {{ user.sex }} -
+	<form method="POST"> 
+		{% csrf_token %}
 
-	{% if user.is_superuser %}
-		Administrador
-	{% else %}
-		Usuário comum
-	{% endif %}
+		{{ form.as_p }}
 
+		<button type="submit">Salvar</button>
+
+	</form>
 
 </body>
 </html>
