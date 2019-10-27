@@ -1149,17 +1149,85 @@ td .row-table-option {
 /* Parte destinado a Pagina Ranck ********************************************* */
 
 .ranckBody {
-    width: 93%;
-    height: 90%;
+    width: 95%;
+    height: 93%;
     background: grey;
     border: none;
-    border-radius: 20px;
+    border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
     -webkit-animation: slide 0.5s forwards;
     animation: slide 0.5s forwards;
+}
+
+.ranckBody .ranck-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 12% 88%;
+}
+
+.ranck-container .ranck-top{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3B1B47;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.ranck-top h2{
+    font-family: var(--font);
+    color: var(--secundary-color);
+    font-size: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.ranck-container .ranck-bottom{
+    background-color: #2F1737;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+}
+
+.ranck-bottom .ranck-bottom-cell{
+    margin-top: 15px;
+    height: 100px;
+    display: grid;
+    grid-template-rows: 15% 70% 15%;
+}
+
+.ranck-bottom-cell .ranck-bottom-text{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secundary-color);
+}
+
+.ranck-bottom-cell .ranck-bottom-cell-profile{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ranck-bottom-cell-profile .ranck-bottom-cell-profile-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 /* Parte destinado a Pagina Eventos ********************************************* */
