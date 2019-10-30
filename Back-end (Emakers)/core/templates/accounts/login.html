@@ -1,6 +1,40 @@
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ginca-Web</title>
+  <link rel="shortcut icon" href="assets/ico-title.png" type="image/x-icon">
+
+  <!--Estilo da Tela de login-->
+  <link rel="stylesheet" href="{% static 'core/login.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="imgcontainer">
+            <img src="{% static 'assets/Logo_lateral_secundaria_semfundo.png' %}" alt="EmakersJr">
+        </div>
+        <div class="formulario">
+        <form method="POST">
+            {% csrf_token %}
+                <div id="div_id_username" class="user"> 
+                    <input type="text" name="username" placeholder="Usuário" autofocus required id="id_username"> 
+                </div> 
+                <div id="div_id_password" class="password"> 
+                    <input type="password" name="password" placeholder="Senha" required id="id_password">
+                </div>
+            <div class="submit">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>

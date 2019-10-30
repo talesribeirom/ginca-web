@@ -1,14 +1,115 @@
-<doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Seja Bem-Vindo</h1>
-    <a href="{% url 'url_novo_usuario' %}">Cadastrar Novo Usuário</a>
-</body>
-</html>
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="content">
+      <div id="Dash" class="tabcontent">
+        <div class="dashContent">
+          <div class="dashBody">
+            <div class="dash-top">
+              <div class="top-content">
+                <div class="top-content-title">
+                  <h3>Melhores Colocados</h3>
+                </div>
+                <div class="top-content-position">
+                  <div class="position-3">
+                    <div class="position-3-content">
+                      <div class="position-3-text">
+                          <h4>2º - 114</h4>
+                      </div>
+                      <div class="position-3-content-profile">
+                        <div class="position-3-content-profile-circle">
+                          <img src="{% static 'assets/foto_mulher.svg' %}" alt="Perfil">
+                        </div>
+                      </div>
+                      <div class="position-3-text">
+                        <h5>Ciclano</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="position-1">
+                    <div class="position-1-content">
+                      <div class="position-1-text">
+                        <h4>1º - 250</h4>
+                      </div>
+                      <div class="position-1-content-profile">
+                        <div class="position-1-content-profile-circle">
+                         <img src="{% static 'assets/foto_homem.svg' %}" alt="Perfil">
+                        </div>
+                      </div>
+                      <div class="position-1-text">
+                        <h5>Fulano</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="position-2">
+                    <div class="position-2-content">
+                      <div class="position-2-text">
+                        <h4>3º - 53</h4>
+                      </div>
+                      <div class="position-2-content-profile">
+                        <div class="position-2-content-profile-circle">
+                          <img src="{% static 'assets/foto_jovem.svg' %}" alt="Perfil">
+                        </div>
+                      </div>
+                      <div class="position-2-text">
+                        <h5>Beltrano</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dash-bottom">
+              <div class="bottom-content">
+                <div class="bottom-content-myposition">
+                  <div class="myposition-text">
+                    <h3>Sua posição</h2>
+                  </div>
+                  <div class="myposition-text">
+                    <h5>23º - 14</h5>
+                  </div>
+                  <div class="myposition-profile">
+                    <div class="myposition-profile-circle">
+
+                    </div>
+                  </div>
+                  <div class="myposition-text">
+                    <h4>Administrador</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="ranck" class="tabcontent">
+        <div class="ranckContent">
+          <div class="ranckBody">
+            <h3>Ranck</h3>
+          </div>
+        </div>
+      </div>
+
+      <div id="eventos" class="tabcontent">
+        <div class="eventosContent">
+          <div class="eventosBody">
+            <h3>Eventos</h3>
+          </div>
+        </div>
+      </div>
+
+      <div id="Quit" class="tabcontent">
+        <div class="quitContent">
+          <div class="quitBody">
+            <h3>Sair</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}
