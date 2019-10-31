@@ -41,7 +41,7 @@
     --shadow-right-bottom-dark: 5px 10px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --text-shadow: 5px 5px var(--dark-color);
     --gradient : linear-gradient(#5e2075, #171519);
-    --button-hover: black; 
+    --button-hover: #333; 
     --drop-hover: whitesmoke;
     --profile-name: #2F1737;
 }
@@ -188,7 +188,7 @@ nav .profile {
 .dropdown .dropdown-content {
     font-family: var(--font);
     margin-top: 5%;
-    width: 65%;
+    width: 180px;
     height: 20vh;
     position: absolute;
     display: none;
@@ -197,7 +197,7 @@ nav .profile {
     box-shadow: var(--shadow);
     z-index: 9999;
     opacity: 1;
-    left: -120px;
+    left: -150px;
 }
 
 /* Parte do campo modo noturno */
@@ -232,7 +232,7 @@ nav .profile {
     font-size: 12px;
     font-weight: bold;
     margin: 0;
-    margin-left: 10%;
+    margin-left: 11%;
 }
 
 .night-mode-select {
@@ -869,7 +869,6 @@ input:checked + .slider:before {
     font-size: 30px;
     color: var(--secundary-color);
     margin: 0;
-    text-shadow: var(--text-shadow);
     letter-spacing: 2px;
 }
 
