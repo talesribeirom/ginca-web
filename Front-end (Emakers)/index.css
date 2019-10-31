@@ -151,8 +151,8 @@ nav .profile {
     background: var(--secundary-color);
     -moz-opacity: var(--opacity);
     opacity: var(--opacity);
-    width: 70%;
-    height: 40%;
+    width: 180px;
+    height: 30px;
     border: none;
     border-radius: 15px;
     display: flex;
@@ -162,7 +162,7 @@ nav .profile {
 
 .profile-name p {
     font-family: var(--font);
-    font-size: 100%;
+    font-size: 17px;
     margin: 0;
     margin-left: 30%;
     color: var(--profile-name);
@@ -187,7 +187,7 @@ nav .profile {
 
 .dropdown .dropdown-content {
     font-family: var(--font);
-    margin-top: 15%;
+    margin-top: 5%;
     width: 65%;
     height: 20vh;
     position: absolute;
@@ -208,15 +208,39 @@ nav .profile {
     margin: 0;
     color: var(--dark-color);
     display: grid;
-    grid-template-columns: 65% 35%;
+    grid-template-columns: 75% 25%;
     justify-content: center;
     align-items: center;
 }
 
-.night-mode p {
+.night-mode-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+
+.night-mode .night-mode-text img {
+    width: 16px;
+    margin-left: 10px;
+}
+
+.night-mode .night-mode-text p {
     font-family: var(--font);
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: bold;
     margin: 0;
+    margin-left: 10%;
+}
+
+.night-mode-select {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .night-mode:hover {
@@ -228,9 +252,9 @@ nav .profile {
 
 .switch {
     display: inline-block;
-    height: 20px;
+    height: 10px;
     position: relative;
-    width: 50px;
+    width: 20px;
   }
   
   .switch input {
@@ -249,14 +273,14 @@ nav .profile {
 }
   
 .slider:before {
-    background-color: #fff;
-    bottom: 2px;
+    background-color: var(--profile-name);
+    bottom: 0;
     content: "";
-    height: 16px;
-    left: 4px;
+    height: 10px;
+    left: 0;
     position: absolute;
     transition: .4s;
-    width: 16px;
+    width: 10px;
 }
   
 input:checked + .slider {
@@ -264,11 +288,12 @@ input:checked + .slider {
 }
   
 input:checked + .slider:before {
-    transform: translateX(27px);
+    transform: translateX(10px);
+    background-color: var(--secundary-color);
 }
   
 .slider.round {
-    border-radius: 24px;
+    border-radius: 14px;
 }
   
 .slider.round:before {
@@ -286,12 +311,20 @@ input:checked + .slider:before {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-direction: row;
+}
+
+.dropdown-content a img {
+    width: 16px;
+    margin-left: 10px;
 }
 
 .dropdown-content a p {
     margin: 0;
     padding: 0;
     font-size: 14px;
+    margin-left: 10%;
+    font-weight: bold;
 }
 
 .dropdown:hover .expand-drop-img {
@@ -1175,7 +1208,7 @@ td .row-table-option {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #3B1B47;
+    background-color: var(--primary-color-dark);
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
