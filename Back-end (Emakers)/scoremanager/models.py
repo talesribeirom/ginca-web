@@ -15,8 +15,8 @@ class Score(models.Model):
         return self.type_score
 
 class User_has_score(models.Model):
-    user_name = models.ForeignKey(User, verbose_name='Usuário', on_delete=models.CASCADE)
-    user_score = models.ForeignKey(Score, verbose_name='Pontuação', on_delete=models.PROTECT)
+    user = models.ForeignKey(User, verbose_name='Usuário', related_name='user_has_scores', on_delete=models.CASCADE)
+    score = models.ForeignKey(Score, verbose_name='Pontuação', related_name='users_has_score', on_delete=models.PROTECT)
     score_comment = models.TextField('Comentário', max_length=255)
 
     class Meta:
@@ -24,4 +24,4 @@ class User_has_score(models.Model):
         verbose_name_plural = 'Pontuações Usuários'
 
     def __str__(self):
-        return self.score_comment
+        return self.user.username + " - " + self.score.type_score

@@ -343,7 +343,6 @@ input:checked + .slider:before {
     border-radius: 7px;
 }
 
-
 /*.tab #defaultopenPage {
     margin: 150% auto auto auto;
 }
@@ -890,11 +889,8 @@ table .content-title {
     border-radius: 5px;
     background-color: var(--secundary-color);
     margin: auto;
-    margin-top: 5%;
-    padding-top: 1%;
-    padding-right: 1%;
-    padding-bottom: 18%;
-    padding-left: 1%;
+    margin-top: 12%;
+    padding: 1%;
     border: none;
     width: 80%;
     height: 50%;
@@ -970,7 +966,7 @@ table .content-title {
 .modal-bottom-field p {
     margin: 0;
     font-family: var(--font);
-    font-size: 17px;
+    font-size: 25px;
     font-weight: 600;
     color: var(--drop-hover);
     letter-spacing: 2px;
@@ -984,38 +980,8 @@ table .content-title {
     border-bottom: 2px var(--drop-hover) solid;
 }
 
-.modal-bottom-field input[type="date"] {
-    width: 14%;
-    height: 30%;
-    margin: 1% 0;
-    border: none;
-    border-bottom: 2px var(--drop-hover) solid;
-}
-
-.modal-bottom-field input[type="email"] {
-    width: 96%;
-    height: 30%;
-    margin: 1% 0;
-    border: none;
-    border-bottom: 2px var(--drop-hover) solid;
-}
-
-.modal-bottom-field input[type="password"] {
-    width: 96%;
-    height: 30%;
-    margin: 1% 0;
-    border: none;
-    border-bottom: 2px var(--drop-hover) solid;
-}
-
 .modal-bottom-field input[type="text"]::placeholder {
-    font-size: 15px;
-    opacity: 0.5;
-    font-weight: 600;
-}
-
-.modal-bottom-field input[type="email"]::placeholder {
-    font-size: 15px;
+    font-size: 25px;
     opacity: 0.5;
     font-weight: 600;
 }
@@ -1183,11 +1149,11 @@ td .row-table-option {
 /* Parte destinado a Pagina Ranck ********************************************* */
 
 .ranckBody {
-    width: 93%;
-    height: 90%;
+    width: 95%;
+    height: 93%;
     background: grey;
     border: none;
-    border-radius: 20px;
+    border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1196,20 +1162,170 @@ td .row-table-option {
     animation: slide 0.5s forwards;
 }
 
+.ranckBody .ranck-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 12% 88%;
+}
+
+.ranck-container .ranck-top{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3B1B47;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.ranck-top h2{
+    font-family: var(--font);
+    color: var(--secundary-color);
+    font-size: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.ranck-container .ranck-bottom{
+    background-color: #2F1737;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+}
+
+.ranck-bottom .ranck-bottom-cell{
+    margin-top: 15px;
+    height: 100px;
+    display: grid;
+    grid-template-rows: 15% 70% 15%;
+}
+
+.ranck-bottom-cell .ranck-bottom-text{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secundary-color);
+}
+
+.ranck-bottom-cell .ranck-bottom-cell-profile{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ranck-bottom-cell-profile .ranck-bottom-cell-profile-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
 /* Parte destinado a Pagina Eventos ********************************************* */
 
 .eventosBody{
-    width: 93%;
-    height: 90%;
-    background: grey;
+    width: 95%;
+    height: 93%;
+    background: var(--secundary-color);
     border: none;
-    border-radius: 20px;
+    border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
     -webkit-animation: slide 0.5s forwards;
     animation: slide 0.5s forwards;
+}
+
+.eventosBody .eventos-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 10% 90%;
+}
+
+.eventos-container .eventos-top {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eventos-top h2 {
+    font-family: var(--font);
+    font-size: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.eventos-container .eventos-bottom {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eventos-bottom .eventos-tablecontent {
+    width: 96%;
+    height: 90%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+}
+
+.eventos-tablecontent table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+table .eventos-tablehead {
+    background: var(--primary-color);
+    border: none;
+}
+
+.eventos-tablehead th {
+    font-family: var(--font);
+    color: var(--secundary-color);
+    font-weight: bold;
+    font-size: 25px;
+    border: none;
+}
+
+.table-body-bottom tr {
+    border-bottom: 2px var(--primary-color) solid;
+}
+
+.table-body-bottom tr td {
+    font-weight: 800;
+    color: var(--profile-name);
+}
+
+.table-body-bottom tr td .table-icons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-icons img {
+    margin: 3%;
+}
+
+.table-icons img:hover {
+    cursor: pointer;
 }
 
 /* Inicio das KeyFrames ************************************************** */
