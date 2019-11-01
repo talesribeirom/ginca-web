@@ -148,7 +148,7 @@ nav .profile {
 
 .profile .profile-name {
     padding: 0;
-    background: var(--secundary-color);
+    background: rgba(190, 187, 187, .5);
     -moz-opacity: var(--opacity);
     opacity: var(--opacity);
     width: 180px;
@@ -163,10 +163,10 @@ nav .profile {
 .profile-name p {
     font-family: var(--font);
     font-size: 17px;
+    font-weight: bold;
     margin: 0;
-    margin-left: 30%;
-    color: var(--profile-name);
-    opacity: 1;
+    margin-left: 20%;
+    color: var(--secundary-color);
 }
 
 /* Inicio de estilização do DropDown */
