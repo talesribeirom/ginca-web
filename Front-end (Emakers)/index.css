@@ -448,6 +448,24 @@ input:checked + .slider:before {
     color: var(--primary-color);
 }
 
+.bonificarContent {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.penalizarContent {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
 /* Definição das divs do corpo *********************************************** */
 
 /* Parte destinado a Pagina DashBoard *********************************** */
@@ -1178,6 +1196,12 @@ td .row-table-option {
     cursor: pointer;
 }
 
+.row-table-option input{
+    width: 15%;
+    margin: 0 4%;
+    cursor: pointer;
+}
+
 /* Parte destinado a Pagina Ranck ********************************************* */
 
 .ranckBody {
@@ -1510,6 +1534,170 @@ table .eventos-tablehead {
 
 .profile-logo-content img {
     width: 70%;
+}
+
+/* Parte destinada a página de bonificação  ********************************************* */
+
+.bonificarBody {
+    width: 60%;
+    height: 80%;
+    background: whitesmoke;
+    border: none;
+    border-radius: 6px;
+    display: grid;
+    grid-template-rows: 10% 10% 10% 55% 15%;
+    justify-items: center;
+    align-items: center;
+    opacity: 0;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+}
+
+.bonificarBody .bonificar-title{
+    color: #171519;
+    font-weight: bold;
+}
+
+.bonificarBody .bonificar-select select{
+    width: 100%;
+    font-family: var(--font);
+    font-weight: bold;
+}
+
+.bonificarBody .bonificar-pontos{
+    color: darkgreen;
+}
+
+.bonificarBody .bonificar-message{
+    height: 90%;
+    width: 80%;
+}
+
+.bonificarBody .bonificar-message input{
+    font-family: var(--font);
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.bonificarBody .bonificar-buttons{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.bonificar-buttons button:hover{
+    opacity: 0.7;
+    outline: 0;
+}
+
+.bonificar-buttons .bonificar-cancel{
+    height: 200%;
+}
+
+.bonificar-buttons .bonificar-cancel button{
+    font-family: var(--font);
+    height: 100%;
+    background-color: darkred;
+    color: #Fcfeff;
+    border: none;
+    border-radius: 4px;
+}
+
+.bonificar-buttons .bonificar-confirm{
+    height: 200%;
+}
+
+.bonificar-buttons .bonificar-confirm button{
+    font-family: var(--font);
+    height: 100%;
+    background-color: darkgreen;
+    color: #Fcfeff;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Parte destinada a página de penalização  ********************************************* */
+
+.penalizarBody {
+    width: 60%;
+    height: 80%;
+    background: whitesmoke;
+    border: none;
+    border-radius: 6px;
+    display: grid;
+    grid-template-rows: 10% 10% 10% 55% 15%;
+    justify-items: center;
+    align-items: center;
+    opacity: 0;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+}
+
+.penalizarBody .penalizar-title{
+    color: #171519;
+    font-weight: bold;
+}
+
+.penalizarBody .penalizar-select select{
+    width: 100%;
+    font-family: var(--font);
+    font-weight: bold;
+}
+
+.penalizarBody .penalizar-pontos{
+    color: darkred;
+}
+
+.penalizarBody .penalizar-message{
+    height: 90%;
+    width: 80%;
+}
+
+.penalizarBody .penalizar-message input{
+    font-family: var(--font);
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.penalizarBody .penalizar-buttons{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.penalizar-buttons button:hover{
+    opacity: 0.7;
+    outline: 0;
+}
+
+.penalizar-buttons .penalizar-cancel{
+    height: 200%;
+}
+
+.penalizar-buttons .penalizar-cancel button{
+    font-family: var(--font);
+    height: 100%;
+    background-color: darkred;
+    color: #Fcfeff;
+    border: none;
+    border-radius: 4px;
+}
+
+.penalizar-buttons .penalizar-confirm{
+    height: 200%;
+}
+
+.penalizar-buttons .penalizar-confirm button{
+    font-family: var(--font);
+    height: 100%;
+    background-color: darkgreen;
+    color: #Fcfeff;
+    border: none;
+    border-radius: 4px;
 }
 
 /* Inicio das KeyFrames ************************************************** */
