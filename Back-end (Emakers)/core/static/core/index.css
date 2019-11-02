@@ -148,7 +148,7 @@ nav .profile {
 
 .profile .profile-name {
     padding: 0;
-    background: var(--secundary-color);
+    background: rgba(190, 187, 187, .5);
     -moz-opacity: var(--opacity);
     opacity: var(--opacity);
     width: 180px;
@@ -163,10 +163,10 @@ nav .profile {
 .profile-name p {
     font-family: var(--font);
     font-size: 17px;
+    font-weight: bold;
     margin: 0;
-    margin-left: 30%;
-    color: var(--profile-name);
-    opacity: 1;
+    margin-left: 20%;
+    color: var(--secundary-color);
 }
 
 /* Inicio de estilização do DropDown */
@@ -921,8 +921,11 @@ table .content-title {
     border-radius: 5px;
     background-color: var(--secundary-color);
     margin: auto;
-    margin-top: 12%;
-    padding: 1%;
+    margin-top: 5%;
+    padding-top: 1%;
+    padding-right: 1%;
+    padding-bottom: 18%;
+    padding-left: 1%;
     border: none;
     width: 80%;
     height: 50%;
@@ -998,7 +1001,7 @@ table .content-title {
 .modal-bottom-field p {
     margin: 0;
     font-family: var(--font);
-    font-size: 25px;
+    font-size: 17px;
     font-weight: 600;
     color: var(--drop-hover);
     letter-spacing: 2px;
@@ -1012,8 +1015,38 @@ table .content-title {
     border-bottom: 2px var(--drop-hover) solid;
 }
 
+.modal-bottom-field input[type="date"] {
+    width: 14%;
+    height: 30%;
+    margin: 1% 0;
+    border: none;
+    border-bottom: 2px var(--drop-hover) solid;
+}
+
+.modal-bottom-field input[type="email"] {
+    width: 96%;
+    height: 30%;
+    margin: 1% 0;
+    border: none;
+    border-bottom: 2px var(--drop-hover) solid;
+}
+
+.modal-bottom-field input[type="password"] {
+    width: 96%;
+    height: 30%;
+    margin: 1% 0;
+    border: none;
+    border-bottom: 2px var(--drop-hover) solid;
+}
+
 .modal-bottom-field input[type="text"]::placeholder {
-    font-size: 25px;
+    font-size: 15px;
+    opacity: 0.5;
+    font-weight: 600;
+}
+
+.modal-bottom-field input[type="email"]::placeholder {
+    font-size: 15px;
     opacity: 0.5;
     font-weight: 600;
 }
@@ -1358,6 +1391,158 @@ table .eventos-tablehead {
 
 .table-icons img:hover {
     cursor: pointer;
+}
+
+/* Tela de configurações *******************************************/
+
+.profile-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-content {
+    width: 70%;
+    height: 45%;
+    background: var(--secundary-color);
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 25.33% 41.33% 33.33%;
+}
+
+.profile-img-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img-profile {
+    margin-top: 5%;
+    margin-left: 7%;
+    width: calc(9vmin + 110px);
+    height: calc(9vmin + 110px);
+    border-radius: 50%;
+    background: rgb(255, 224, 211);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-profile img {
+    width: calc(5vmin + 70px);
+    height: calc(5vmin + 70px);
+}
+
+.img-profile img:hover {
+    cursor: pointer;
+}
+
+.profile-button {
+    margin-top: 5%;
+    margin-left: 7%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-button input {
+    display: none;
+}
+
+.profile-button label {
+    font: var(--font);
+    padding: calc(.5px + 1vmin) calc(15px + 3vmin);
+    background: #e67e22;
+    color: var(--secundary-color);
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.profile-button label:hover {
+    cursor: pointer;
+}
+
+.profile-info-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-box {
+    width: 95%;
+    height: 70%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.row button {
+    margin: 2% 5%;
+    padding: 10px 20px;
+    font-family: --font;
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--secundary-color);
+}
+
+.row button:hover {
+    cursor: pointer;
+}
+
+.profile-info-cancel {
+    background: grey;
+    border: none;
+}
+
+.profile-info-confirm {
+    background: #2ecc71;
+    border: none;
+}
+
+.profile-info-content input {
+    width: 80%;
+    border: none;
+    border-bottom: 2px rgb(185, 185, 185) solid;
+    margin: 2.5% 0;
+    font-family: var(--font);
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.profile-info-content input:focus {
+    opacity: 0.7;
+    outline: none;
+    padding-left: 2%;
+    border-bottom: 2px rgb(185, 185, 185) solid;
+}
+
+.profile-logo-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-logo-content img {
+    width: 70%;
 }
 
 /* Inicio das KeyFrames ************************************************** */

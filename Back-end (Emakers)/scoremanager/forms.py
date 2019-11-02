@@ -18,4 +18,4 @@ class Score_Form(forms.ModelForm):
 class Apply_Score_Form(forms.ModelForm):
 	class Meta:
 		model = User_has_score
-		fields = ['user_name', 'user_score', 'score_comment']
+		fields = ['user', 'user', 'score_comment']

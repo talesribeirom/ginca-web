@@ -11,7 +11,8 @@ from .forms import (
 )
 from .models import (
 	Score,
-	User
+	User,
+	User_has_score
 )
 
 
@@ -55,6 +56,11 @@ def delete_score(request, id_score):
 		return redirect('index')
 	else:
 		return redirect('index')
+
+@login_required
+def ranking(request):
+    user = User.objects.get(id=1)
+    return render(request, 'ranking.html', {'user_has_scores': user.user_has_scores.all()})
 
 
 # @login_required

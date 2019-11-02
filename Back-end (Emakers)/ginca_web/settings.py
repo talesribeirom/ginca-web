@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'ginca_web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'teste_bd',
+        'NAME': 'ginca',
         'USER': 'postgres',
         'PASSWORD': 'FEFEFE1998',
         'HOST': 'localhost',
