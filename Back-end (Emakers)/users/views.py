@@ -8,21 +8,28 @@ from .forms import (
 	User_Creation_Form,
 	User_Change_Form
 )
+from scoremanager.forms import (
+    Score_Form,
+	Apply_Score_Form
+)
 from .models import User
+from scoremanager.models import Score
 
 
 @login_required
 def create_user(request):
-	if request.user.is_superuser:
-		form = User_Creation_Form(request.POST or None)
+    if request.user.is_superuser:
+        form = User_Creation_Form(request.POST or None)
+        
 
-		if form.is_valid():
-			form.save()
-			return redirect('index')
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    
 
-		return render(request, 'new-user.html', {'form': form})
-	else:
-		return redirect('index')
+        return render(request, 'new-user.html', {'form': form})
+    else:
+        return redirect('index')
 
 @login_required
 def update_user(request, id_user):
@@ -56,7 +63,13 @@ def delete_user(request, id_user):
 def list_users(request):
     users = User.objects.all().order_by('username')
     form = User_Creation_Form(request.POST or None)
+    score = Score_Form(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('url_participants')
-    return render(request, 'participants.html', {'users': users, 'form': form})
+
+    if score.is_valid():
+        score.save()
+        return redirect('url_participants')
+
+    return render(request, 'participants.html', {'users': users, 'form': form, 'score': score})

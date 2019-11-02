@@ -73,6 +73,8 @@
             </div>
                     
             <!-- Conteudo do Modal adcionar Pontuação -->
+            <form method="POST"> 
+            {% csrf_token %}
             <div id="myModalScore" class="modal">
               <div class="modal-content">
                 <div class="modal-top">
@@ -88,26 +90,21 @@
                 <div class="modal-bottom">
                 <div class="modal-bottom-field">
                   <p>Tipo</p>
-                  <input type="text" placeholder="Digite o tipo da pontuação (Ex.B07, P14)">
+                  <input type="text" name="type_score" placeholder="Digite o tipo da pontuação (Ex.B07, P14)" id="id_type_score">
                 </div>
                 <div class="modal-bottom-field">
                   <p>Descrição</p>
-                  <input type="text" placeholder="Descreva a pontuação (Ex.: O membro teve imprevistos)">
+                  <textarea name="score_description" placeholder="Descreva a pontuação (Ex.: O membro teve imprevistos)" id="id_score_description"></textarea>
                 </div>
                 <div class="modal-bottom-field">
-                  <p>Categoria</p>
-                  <div class="modal-bottom-row">
-                    <input type="checkbox" name="" id="boni">
-                    <label for="boni"></label>
-                    Bonificação
-                    <input type="checkbox" name="" id="pena">
-                    <label for="pena"></label>
-                    Penalização
-                  </div>
+                  <p>Pontos</p>
+                  <input type="number" name="equivalent_score" required id="id_equivalent_score">
+                  <button type="submit">Salvar</button>
                 </div>
               </div>
             </div>
           </div>
+          </form>
           <div class="table-content-field">
             <table id="table">
               <thead>

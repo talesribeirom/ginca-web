@@ -1,22 +1,141 @@
-<doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Documento</title>
-</head>
-<body>
-	
-	<form method="POST"> 
-		{% csrf_token %}
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+    {% if user.is_authenticated %}
+    <div id="ranck" class="tabcontent">
+        <div class="ranckContent">
+          <div class="ranckBody">
+            <div class="ranck-container">
+              <div class="ranck-top">
+                <h2>RANKING</h2>
+              </div>
+              <div class="ranck-bottom">
+                <div class="ranck-bottom-cell">
+                  <div class="ranck-bottom-text">
+                    <h4>1º - 300</h4>
+                  </div>
+                  <div class="ranck-bottom-cell-profile">
+                    <div class="ranck-bottom-cell-profile-circle"></div>
+                  </div>
+                  <div class="ranck-bottom-text">
+                    <h4>Nome</h4>
+                  </div>
+                </div>
+                <div class="ranck-bottom-cell">
+                  <div class="ranck-bottom-text">
+                    <h4>2º - 150</h4>
+                  </div>
+                  <div class="ranck-bottom-cell-profile">
+                    <div class="ranck-bottom-cell-profile-circle"></div>
+                  </div>
+                  <div class="ranck-bottom-text">
+                    <h4>Nome</h4>
+                  </div>
+                </div>
+                <div class="ranck-bottom-cell">
+                  <div class="ranck-bottom-text">
+                    <h4>3º - 102</h4>
+                  </div>
+                  <div class="ranck-bottom-cell-profile">
+                    <div class="ranck-bottom-cell-profile-circle"></div>
+                  </div>
+                  <div class="ranck-bottom-text">
+                    <h4>Nome</h4>
+                  </div>
+                </div>
+                <div class="ranck-bottom-cell">
+                  <div class="ranck-bottom-text">
+                    <h4>4º - 52</h4>
+                  </div>
+                  <div class="ranck-bottom-cell-profile">
+                    <div class="ranck-bottom-cell-profile-circle"></div>
+                  </div>
+                  <div class="ranck-bottom-text">
+                    <h4>Nome</h4>
+                  </div>
+                </div>
+                <div class="ranck-bottom-cell">
+                  <div class="ranck-bottom-text">
+                    <h4>5º - 50</h4>
+                  </div>
+                  <div class="ranck-bottom-cell-profile">
+                    <div class="ranck-bottom-cell-profile-circle"></div>
+                  </div>
+                  <div class="ranck-bottom-text">
+                    <h4>Nome</h4>
+                  </div>
+                </div>
+                <div class="ranck-bottom-cell">
+                  <div class="ranck-bottom-text">
+                    <h4>6º - 50</h4>
+                  </div>
+                  <div class="ranck-bottom-cell-profile">
+                    <div class="ranck-bottom-cell-profile-circle"></div>
+                  </div>
+                  <div class="ranck-bottom-text">
+                    <h4>Nome</h4>
+                  </div>
+                </div>
+                <div class="ranck-bottom-cell">
+                  <div class="ranck-bottom-text">
+                    <h4>7º - 48</h4>
+                  </div>
+                  <div class="ranck-bottom-cell-profile">
+                    <div class="ranck-bottom-cell-profile-circle"></div>
+                  </div>
+                  <div class="ranck-bottom-text">
+                    <h4>Nome</h4>
+                  </div>
+                </div>
+                <div class="ranck-bottom-cell">
+                  <div class="ranck-bottom-text">
+                    <h4>8º - 45</h4>
+                  </div>
+                  <div class="ranck-bottom-cell-profile">
+                    <div class="ranck-bottom-cell-profile-circle"></div>
+                  </div>
+                  <div class="ranck-bottom-text">
+                    <h4>Nome</h4>
+                  </div>
+                </div>
+                <div class="ranck-bottom-cell">
+                  <div class="ranck-bottom-text">
+                    <h4>9º - 44</h4>
+                  </div>
+                  <div class="ranck-bottom-cell-profile">
+                    <div class="ranck-bottom-cell-profile-circle"></div>
+                  </div>
+                  <div class="ranck-bottom-text">
+                    <h4>Nome</h4>
+                  </div>
+                </div>
+                <div class="ranck-bottom-cell">
+                  <div class="ranck-bottom-text">
+                    <h4>10º - 32</h4>
+                  </div>
+                  <div class="ranck-bottom-cell-profile">
+                    <div class="ranck-bottom-cell-profile-circle"></div>
+                  </div>
+                  <div class="ranck-bottom-text">
+                    <h4>Nome</h4>
+                  </div>
+                </div>
+                <div class="ranck-bottom-cell">
+                  <div class="ranck-bottom-text">
+                    <h4>11º - 30</h4>
+                  </div>
+                  <div class="ranck-bottom-cell-profile">
+                    <div class="ranck-bottom-cell-profile-circle"></div>
+                  </div>
+                  <div class="ranck-bottom-text">
+                    <h4>Nome</h4>
+                  </div>
+                </div>
 
-		{{ form.as_p }}
-
-		<button type="submit">Salvar</button>
-
-	</form>
-
-</body>
-</html>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+{% endblock content %}
