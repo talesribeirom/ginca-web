@@ -86,12 +86,12 @@ def list_ranking(request):
 def apply_bonus(request, id_user):
     if request.user.is_superuser:
         user = User.objects.get(pk=id_user)
-        form = Apply_Score_Form(request.POST or None, instance=user)
+        form = Apply_Score_Form(request.POST)
         scores = Score.objects.all()
 
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('url_ranking')
 
         return render(request, 'apply-bonus.html', {'form': form, 'user': user, 'scores': scores})
     else:
@@ -101,7 +101,7 @@ def apply_bonus(request, id_user):
 def apply_penalty(request, id_user):
 	if request.user.is_superuser:
 		user = User.objects.get(pk=id_user)
-		form = Apply_Score_Form(request.POST or None, instance=user)
+		form = Apply_Score_Form(request.POST)
 
 		if form.is_valid():
 			form.save()
@@ -116,7 +116,7 @@ def apply_score(request, id_user, slug):
 	if request.user.is_superuser:
 		if slug == 'bonus':
 			user = User.objects.get(pk=id_user)
-			form = Apply_Score_Form(request.POST or None, instance=user)
+			form = Apply_Score_Form(request.POST)
 
 			if form.is_valid():
 				form.save()

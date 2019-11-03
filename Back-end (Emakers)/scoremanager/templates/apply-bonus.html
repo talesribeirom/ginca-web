@@ -10,26 +10,26 @@
         <div class="bonificar-title">
             <h1>BONIFICAR</h1>
         </div>
-        
+        <input name="user" id="id_user" value="{{user.id}}" type="hidden">
         <div class="bonificar-select">
             <select name="score" required id="id_score">
             {% for score in scores %}
-                <option value="{{score.id}}">{{score.type_score}}</option>
+                <option value="{{score.id}}">{{score.type_score}} - {{score.score_description}}</option>
             {% endfor %}
             </select>
         </div>
         <div class="bonificar-pontos">
-            <h3>{{user.username}} será bonificado com X pontos</h3>
+            <h3>{{user.username}} será bonificado com  pontos</h3>
         </div>
-        <div class="bonificar-message">
-            <input type="text" placeholder="Adicione comentários aqui..." name="bonifica-comment">
+        <div class="bonificar-message" >
+            <input type="text" placeholder="Adicione comentários aqui..." id="id_score_comment" name="score_comment">
         </div>
         <div class="bonificar-buttons">
             <div class="bonificar-cancel">
             <button>CANCELAR</button>
             </div>
             <div class="bonificar-confirm">
-            <button>CONFIRMAR</button>
+            <button type="submit">CONFIRMAR</button>
             </div>
         </div>
         </div>
