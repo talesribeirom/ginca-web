@@ -14,6 +14,8 @@ from .models import (
 	User,
 	User_has_score
 )
+# from django.db.models import Sum
+from operator import itemgetter
 
 
 @login_required
@@ -57,10 +59,24 @@ def delete_score(request, id_score):
 	else:
 		return redirect('index')
 
+def get_ranking():
+	users = User.objects.all()
+	total_score_users = {}
+	for user in users:
+		# total_score_users[user.id] = user.user_has_scores.all().aggregate(Sum('score'))['score__sum']
+		sum_score_user = 0
+		for user_has_score in user.user_has_scores.all():
+			sum_score_user += user_has_score.score.equivalent_score
+		total_score_users[user.username] = sum_score_user
+
+	ranking = sorted(total_score_users.items(), key=itemgetter(1), reverse=True)
+
+	return ranking;
+
 @login_required
-def ranking(request):
-    user = User.objects.get(id=1)
-    return render(request, 'ranking.html', {'user_has_scores': user.user_has_scores.all()})
+def list_ranking(request):
+	ranking = get_ranking()
+	return render(request, 'ranking.html', {'ranking': ranking})
 
 
 # @login_required

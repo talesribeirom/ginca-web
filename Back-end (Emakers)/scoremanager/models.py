@@ -14,6 +14,9 @@ class Score(models.Model):
     def __str__(self):
         return self.type_score
 
+    def __add__(self, other_score):
+        return self.equivalent_score + other_score.equivalent_score
+
 class User_has_score(models.Model):
     user = models.ForeignKey(User, verbose_name='Usuário', related_name='user_has_scores', on_delete=models.CASCADE)
     score = models.ForeignKey(Score, verbose_name='Pontuação', related_name='users_has_score', on_delete=models.PROTECT)
