@@ -48,6 +48,8 @@ def score_detail(request, id_score):
 	score = get_object_or_404(Score, pk=id_score)
 	return render(request, 'detail-score.html', {'score': score})
 
+
+
 @login_required
 def delete_score(request, id_score):
 	if request.user.is_superuser:
@@ -63,33 +65,34 @@ def ranking(request):
     return render(request, 'ranking.html', {'user_has_scores': user.user_has_scores.all()})
 
 
-# @login_required
-# def apply_bonus(request, id_user):
-# 	if request.user.is_superuser:
-# 		user = User.objects.get(pk=id_user)
-# 		form = Apply_Score_Form(request.POST or None, instance=user)
+@login_required
+def apply_bonus(request, id_user):
+    if request.user.is_superuser:
+        user = User.objects.get(pk=id_user)
+        form = Apply_Score_Form(request.POST or None, instance=user)
+        scores = Score.objects.all()
 
-# 		if form.is_valid():
-# 			form.save()
-# 			return redirect('index')
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+
+        return render(request, 'apply-bonus.html', {'form': form, 'user': user, 'scores': scores})
+    else:
+        return redirect('index')
+
+@login_required
+def apply_penalty(request, id_user):
+	if request.user.is_superuser:
+		user = User.objects.get(pk=id_user)
+		form = Apply_Score_Form(request.POST or None, instance=user)
+
+		if form.is_valid():
+			form.save()
+			return redirect('index')
 		
-# 		return render(request, 'apply_bonus.html', {'form': form, 'user': user})
-# 	else:
-# 		return redirect('index')
-
-# @login_required
-# def apply_penalty(request, id_user):
-# 	if request.user.is_superuser:
-# 		user = User.objects.get(pk=id_user)
-# 		form = Apply_Score_Form(request.POST or None, instance=user)
-
-# 		if form.is_valid():
-# 			form.save()
-# 			return redirect('index')
-		
-# 		return render(request, 'apply_penalty.html', {'form': form, 'user': user})
-# 	else:
-# 		return redirect('index')
+		return render(request, 'apply-penalty.html', {'form': form, 'user': user})
+	else:
+		return redirect('index')
 
 @login_required
 def apply_score(request, id_user, slug):

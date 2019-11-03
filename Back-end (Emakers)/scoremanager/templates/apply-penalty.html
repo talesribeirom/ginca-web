@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<div id="penalizar" class="tabcontent">
+    <div class="penalizarContent">
+        <div class="penalizarBody">
+        <div class="penalizar-title">
+            <h1>PENALIZAR</h1>
+        </div>
+        <div class="penalizar-select">
+            <select name="penalizacoes" id="penalizacao">
+            <option value="pena1">P09 O participante não estava presente na atividade</option>
+            <option value="pena2">P01 O participante desrespeitou outro participante durante a atividade</option>
+            </select>
+        </div>
+        <div class="penalizar-pontos">
+            <h3>Fulano será penalizado com X pontos</h3>
+        </div>
+        <div class="penalizar-message">
+            <input type="text" placeholder="Adicione comentários aqui..." name="penaliza-comment">
+        </div>
+        <div class="penalizar-buttons">
+            <div class="penalizar-cancel">
+            <button>CANCELAR</button>
+            </div>
+            <div class="penalizar-confirm">
+            <button>CONFIRMAR</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+{% endif %}
+{% endblock content %}
