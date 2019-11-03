@@ -7,7 +7,7 @@ from .views import (
 	apply_bonus,
 	apply_penalty,
 	apply_score,
-	ranking
+	list_ranking
 )
 
 
@@ -19,5 +19,5 @@ urlpatterns = [
     path('bonus/<int:id_user>/', apply_bonus, name='url_bonus'),
     path('penalty/<int:id_user>/',apply_penalty, name='url_penalty'),
     path('ponctuate/<int:id_user>/<slug:slug>/', apply_score, name='url_ponctuate'),
-    path('ranking/', ranking, name='url_ranking')
+    path('ranking/', list_ranking, name='url_ranking')
 ]
