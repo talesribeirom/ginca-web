@@ -32,12 +32,12 @@
         <!--<img src="assets/white.jpg" alt="Perfil">-->
       </div>
       <div class="profile-name">
-        <p>Fulano de Tal</p>
+        <p>Ginca Web</p>
       </div>
       <div class="dropdown">
         <img class="expand-drop-img" src="assets/expand.png">
         <div class="dropdown-content">
-          <a href="#">
+          <a href="profile.html">
             <img src="assets/perfil.svg" alt="">
             <p>Perfil</p>
           </a>
@@ -53,9 +53,9 @@
                 <div class="slider round"></div>
               </label>
             </div>
-            
+
           </div>
-          
+
           <a href="#">
             <img src="assets/configuracoes.svg" alt="">
             <p>Configurações</p>
@@ -91,7 +91,7 @@
                   <div class="position-3">
                     <div class="position-3-content">
                       <div class="position-3-text">
-                          <h4>2º - 114</h4>
+                        <h4>2º - 114</h4>
                       </div>
                       <div class="position-3-content-profile">
                         <div class="position-3-content-profile-circle">
@@ -110,7 +110,7 @@
                       </div>
                       <div class="position-1-content-profile">
                         <div class="position-1-content-profile-circle">
-                         <img src="assets/foto_homem.svg" alt="Perfil">
+                          <img src="assets/foto_homem.svg" alt="Perfil">
                         </div>
                       </div>
                       <div class="position-1-text">
@@ -164,8 +164,10 @@
         <div class="participanteContent">
           <div class="participanteBody">
             <div class="participante-Buttons">
-              <button type="button" id="btn-user" class="btn-user"><img src="assets/membros_add.svg" width="15px"> Cadastrar Usuário</button>
-              <button type="button" id="btn-score" class="btn-score"><img src="assets/caixa_add_quadrada.svg" width="15px"> Cadastrar Pontuação</button>
+              <button type="button" id="btn-user" class="btn-user"><img src="assets/membros_add.svg" width="15px">
+                Cadastrar Usuário</button>
+              <button type="button" id="btn-score" class="btn-score"><img src="assets/caixa_add_quadrada.svg"
+                  width="15px"> Cadastrar Pontuação</button>
             </div>
             <div class="participante-table">
               <div class="table-title">
@@ -208,7 +210,7 @@
                     </div>
                   </div>
                 </div>
-                  <!-- Conteudo do Modal adcionar Pontuação -->
+                <!-- Conteudo do Modal adcionar Pontuação -->
                 <div id="myModalScore" class="modal">
                   <div class="modal-content">
                     <div class="modal-top">
@@ -257,7 +259,7 @@
                             <div class="row-table-content">
                               <h4>Nome</h4>
                               <img src="assets/ordenar_alfabeto.svg" width="18px">
-                            </div> 
+                            </div>
                           </div>
                         </th>
                         <th>Função<img src="assets/ordenar_alfabeto.svg" width="18px"></th>
@@ -282,8 +284,10 @@
                         <td>342</td>
                         <td>
                           <div class="row-table-option">
-                            <img src="assets/caixa_add_redonda.svg">
-                            <img src="assets/caixa_remove_redonda.svg">
+                            <input type="image" src="assets/caixa_add_redonda.svg"
+                              onclick="openPage(event,'bonificar')">
+                            <input type="image" src="assets/caixa_remove_redonda.svg"
+                              onclick="openPage(event,'penalizar')">
                             <img src="assets/configuracoes.svg">
                           </div>
                         </td>
@@ -304,8 +308,10 @@
                         <td>350</td>
                         <td>
                           <div class="row-table-option">
-                            <img src="assets/caixa_add_redonda.svg">
-                            <img src="assets/caixa_remove_redonda.svg">
+                            <input type="image" src="assets/caixa_add_redonda.svg"
+                              onclick="openPage(event,'bonificar')">
+                            <input type="image" src="assets/caixa_remove_redonda.svg"
+                              onclick="openPage(event,'penalizar')">
                             <img src="assets/configuracoes.svg">
                           </div>
                         </td>
@@ -326,8 +332,10 @@
                         <td>383</td>
                         <td>
                           <div class="row-table-option">
-                            <img src="assets/caixa_add_redonda.svg">
-                            <img src="assets/caixa_remove_redonda.svg">
+                            <input type="image" src="assets/caixa_add_redonda.svg"
+                              onclick="openPage(event,'bonificar')">
+                            <input type="image" src="assets/caixa_remove_redonda.svg"
+                              onclick="openPage(event,'penalizar')">
                             <img src="assets/configuracoes.svg">
                           </div>
                         </td>
@@ -342,14 +350,16 @@
                             <div class="row-table-content">
                               <h5>Gabriel</h5>
                             </div>
-                            </div>
+                          </div>
                         </td>
                         <td>Programador Back</td>
                         <td>383</td>
                         <td>
                           <div class="row-table-option">
-                            <img src="assets/caixa_add_redonda.svg">
-                            <img src="assets/caixa_remove_redonda.svg">
+                            <input type="image" src="assets/caixa_add_redonda.svg"
+                              onclick="openPage(event,'bonificar')">
+                            <input type="image" src="assets/caixa_remove_redonda.svg"
+                              onclick="openPage(event,'penalizar')">
                             <img src="assets/configuracoes.svg">
                           </div>
                         </td>
@@ -547,6 +557,66 @@
                     </tbody>
                   </table>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="bonificar" class="tabcontent">
+        <div class="bonificarContent">
+          <div class="bonificarBody">
+            <div class="bonificar-title">
+              <h1>BONIFICAR</h1>
+            </div>
+            <div class="bonificar-select">
+              <select name="bonificacoes" id="bonificacao">
+                <option value="pont1">B17 O participante realizou as atividades antes do prazo</option>
+                <option value="pont2">B01 O participante demonstrou habilidade na atividade</option>
+              </select>
+            </div>
+            <div class="bonificar-pontos">
+              <h3>Fulano será bonificado com X pontos</h3>
+            </div>
+            <div class="bonificar-message">
+              <input type="text" placeholder="Adicione comentários aqui..." name="bonifica-comment">
+            </div>
+            <div class="bonificar-buttons">
+              <div class="bonificar-cancel">
+                <button>CANCELAR</button>
+              </div>
+              <div class="bonificar-confirm">
+                <button>CONFIRMAR</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="penalizar" class="tabcontent">
+        <div class="penalizarContent">
+          <div class="penalizarBody">
+            <div class="penalizar-title">
+              <h1>PENALIZAR</h1>
+            </div>
+            <div class="penalizar-select">
+              <select name="penalizacoes" id="penalizacao">
+                <option value="pena1">P09 O participante não estava presente na atividade</option>
+                <option value="pena2">P01 O participante desrespeitou outro participante durante a atividade</option>
+              </select>
+            </div>
+            <div class="penalizar-pontos">
+              <h3>Fulano será penalizado com X pontos</h3>
+            </div>
+            <div class="penalizar-message">
+              <input type="text" placeholder="Adicione comentários aqui..." name="penaliza-comment">
+            </div>
+            <div class="penalizar-buttons">
+              <div class="penalizar-cancel">
+                <button>CANCELAR</button>
+              </div>
+              <div class="penalizar-confirm">
+                <button>CONFIRMAR</button>
               </div>
             </div>
           </div>
