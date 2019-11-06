@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ginca Web</title>
+  <link rel="shortcut icon" href="assets/ico-title.png" type="image/x-icon">
+
+  <!--Estilo Principal-->
+  <link rel="stylesheet" href="index.css">
+
+  <!--Kits FontAwesome-->
+  <script src="https://kit.fontawesome.com/3388b00aea.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body id="body">
+  <nav>
+    <div class="logo">
+      <img src="assets/EmakersJr.png" alt="EmakersJr">
+    </div>
+    <div class="tittle">
+      <h2>GINCA WEB</h2>
+    </div>
+    <div class="notification">
+      <img src="assets/notification.svg">
+    </div>
+    <div class="profile">
+      <div class="profile-img">
+        <!--<img src="assets/white.jpg" alt="Perfil">-->
+      </div>
+      <div class="profile-name">
+        <p>Fulano de Tal</p>
+      </div>
+      <div class="dropdown">
+        <img class="expand-drop-img" src="assets/expand.png">
+        <div class="dropdown-content">
+          <a href="#">
+            <p>Perfil</p>
+          </a>
+          <!--Modo Noturno-->
+          <div class="night-mode">
+            <p>Modo Noturno</p>
+            <label class="switch" for="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+          
+          <a href="#">
+            <p>Configurações</p>
+          </a>
+          <a href="#">
+            <p>Sair</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="tab">
+      <button class="tablinks" onclick="openPage(event, 'Dash')" title="Início" id="defaultopenPage"><img
+          src="assets/home.svg"></button>
+      <button class="tablinks" onclick="openPage(event, 'participante')" title="Participantes"><img
+          src="assets/membros.svg"></button>
+      <button class="tablinks" onclick="openPage(event, 'ranck')" title="Ranck"><img src="assets/trofeu.svg"></button>
+      <button class="tablinks" onclick="openPage(event, 'eventos')" title="Eventos" id="button-end"><img
+          src="assets/eventos.svg"></button>
+    </div>
+    <div class="content">
+      <div class="profile-body">
+          <div class="profile-content">
+            <div class="profile-img-content">
+                <div class="img-profile">
+                  <img src="assets/foto_jovem.svg" alt="">
+                </div>
+                <div class="profile-button">
+                    <label for="img">Alterar foto</label>
+                    <input type="file" name="" id="img">
+                </div>
+            </div>
+            <div class="profile-info-content">
+              <div class="info-box">
+                <div class="row">
+                  <label for="info-name"></label>
+                  <input type="text" id="info-name">
+                  <img src="assets/caneta_edit.svg" alt="">
+                </div>
+                <div class="row">
+                  <label for="info-function"></label>
+                  <input type="text" id="info-function">
+                  <img src="assets/caneta_edit.svg" alt="">
+                </div>
+                <div class="row">
+                  <label for="info-ema"></label>
+                  <input type="email" id="info-ema">
+                  <img src="assets/caneta_edit.svg" alt="">
+                </div>
+                <div class="row">
+                  <label for="info-password"></label>
+                  <input type="password" id="info-password">
+                  <img src="assets/caneta_edit.svg" alt="">
+                </div>
+                <div class="row">
+                  <button type="button" class="profile-info-cancel">Cancelar</button>
+                  <button type="submit"class="profile-info-confirm">Confirmar</button>
+                </div>
+              </div>
+            </div>
+            <div class="profile-logo-content">
+              <img src="assets/Logo_completa_secundaria_semfundo.png" alt="">
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Script para Seleção de tema (Day mode/Dark mode)-->
+  <script src="scripts/theme-selector.js"></script>
+
+  <!--Script para abrir os modais da tela de Participantes-->
+  <script src="scripts/active-modal.js"></script>
+</body>
+
+</html>
