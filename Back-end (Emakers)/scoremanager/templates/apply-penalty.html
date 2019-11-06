@@ -10,33 +10,49 @@
         <div class="penalizar-title">
             <h1>PENALIZAR</h1>
         </div>
-        <input name="user" id="id_user" value="{{user.id}}" type="hidden">
+        <input name="user" id="id_user" value="{{userAux.id}}" type="hidden">
         <div class="penalizar-select">
             <select name="score" required id="id_score">
             {% for score in scores %}
-                <option value="{{score.id}}">{{score.type_score}} - {{score.score_description}}</option>
+            {% if score.score_specification == "P" %}
+                <option value='{"score_id":"{{score.id}}","equivalent_score":"{{score.equivalent_score}}"}'>{{score.type_score}} - {{score.score_description}}</option>
+            {% endif %}
             {% endfor %}
             </select>
         </div>
         <div class="penalizar-pontos">
-            <h3>{{user.username}} será penalizado com X pontos</h3>
+            <h3>{{userAux.username}} será penalizadx com <span value="{{score.id}}" id="print_equivalent_score"></span> pontos</h3>
         </div>
         <div class="penalizar-message">
-            <input type="text" placeholder="Adicione comentários aqui..." id="id_score_comment"  name="score_comment">
+            <input type="text" placeholder="Adicione comentários aqui..." id="id_score_comment" required name="score_comment">
         </div>
+        <input type="hidden" name="admin_username" maxlength="100" value="{{user.username}}" id="id_admin_username">
         <div class="penalizar-buttons">
             <div class="penalizar-cancel">
-            <button onclick="location.href={% url 'url_participants' %}">CANCELAR</button>
+                <button onclick="location.href={% url 'url_participants' %}">CANCELAR</button>
             </div>
             <div class="penalizar-confirm">
             <button type="submit">CONFIRMAR</button>
             </div>
         </div>
+       
         </div>
     </div>
     </div>
     </div>
 </div>
 </form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script>
+      function changeScore() {
+        var score_data = $.parseJSON($('#id_score option:selected').val()); // armazendando em variavel
+        document.getElementById("print_equivalent_score").innerHTML = score_data['equivalent_score'];
+      }
+      $( document ).ready(function() {
+          $( window ).on('change', changeScore);
+          $( window ).on('load', changeScore);
+      });
+</script>
 {% endif %}
 {% endblock content %}
