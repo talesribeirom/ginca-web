@@ -22,6 +22,7 @@
     --button-hover: #ae8eba;
     --drop-hover: #333;
     --profile-name: black;
+    --background-image: url('../assets/background2.png');
 }
 
 /* Sera encaixado o tema dark do site */
@@ -44,6 +45,7 @@
     --button-hover: #333; 
     --drop-hover: whitesmoke;
     --profile-name: #2F1737;
+    --background-image: #121212;
 }
 
 /* Reset de Elementos */
@@ -84,7 +86,7 @@ nav .logo img {
 /* Refere a Texto "Ginca Web" presente na Nav */
 
 nav .tittle {
-    width: 61%;
+    width: 68%;
     height: 10vh;
     display: flex;
     justify-content: center;
@@ -466,7 +468,6 @@ input:checked + .slider:before {
     color: var(--primary-color);
 }
 
-
 /* Definição das divs do corpo *********************************************** */
 
 /* Parte destinado a Pagina DashBoard *********************************** */
@@ -750,7 +751,8 @@ input:checked + .slider:before {
     width: 80%;
     height: 97%;
     border-radius: 7px;
-    background: var(--primary-color-lite);
+    background: var(--background-image);
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -940,11 +942,8 @@ table .content-title {
     border-radius: 5px;
     background-color: var(--secundary-color);
     margin: auto;
-    margin-top: 5%;
-    padding-top: 1%;
-    padding-right: 1%;
-    padding-bottom: 18%;
-    padding-left: 1%;
+    margin-top: 12%;
+    padding: 1%;
     border: none;
     width: 80%;
     height: 50%;
@@ -1020,7 +1019,7 @@ table .content-title {
 .modal-bottom-field p {
     margin: 0;
     font-family: var(--font);
-    font-size: 17px;
+    font-size: 25px;
     font-weight: 600;
     color: var(--drop-hover);
     letter-spacing: 2px;
@@ -1034,38 +1033,8 @@ table .content-title {
     border-bottom: 2px var(--drop-hover) solid;
 }
 
-.modal-bottom-field input[type="date"] {
-    width: 14%;
-    height: 30%;
-    margin: 1% 0;
-    border: none;
-    border-bottom: 2px var(--drop-hover) solid;
-}
-
-.modal-bottom-field input[type="email"] {
-    width: 96%;
-    height: 30%;
-    margin: 1% 0;
-    border: none;
-    border-bottom: 2px var(--drop-hover) solid;
-}
-
-.modal-bottom-field input[type="password"] {
-    width: 96%;
-    height: 30%;
-    margin: 1% 0;
-    border: none;
-    border-bottom: 2px var(--drop-hover) solid;
-}
-
 .modal-bottom-field input[type="text"]::placeholder {
-    font-size: 15px;
-    opacity: 0.5;
-    font-weight: 600;
-}
-
-.modal-bottom-field input[type="email"]::placeholder {
-    font-size: 15px;
+    font-size: 25px;
     opacity: 0.5;
     font-weight: 600;
 }
@@ -1569,6 +1538,8 @@ table .eventos-tablehead {
 .profile-logo-content img {
     width: 70%;
 }
+
+/* Parte destinada a página de bonificação  ********************************************* */
 
 .bonificarBody {
     width: 60%;
