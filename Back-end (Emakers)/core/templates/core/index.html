@@ -1,9 +1,7 @@
 {% extends 'core/base.html' %}
-
 {% load static %}
-
 {% block content %}
-{% if user.is_authenticated %}
+  {% if user.is_authenticated %}
     <div class="content">
       <div id="Dash" class="tabcontent">
         <div class="dashContent">
@@ -17,22 +15,22 @@
                   <div class="position-3">
                     <div class="position-3-content">
                       <div class="position-3-text">
-                          <h4>2º - 114</h4>
+                          <h4>2º - {{ ranking.1.1 }}</h4> 
                       </div>
                       <div class="position-3-content-profile">
                         <div class="position-3-content-profile-circle">
                           <img src="{% static 'assets/foto_mulher.svg' %}" alt="Perfil">
                         </div>
-                      </div>
+                      </div>                      
                       <div class="position-3-text">
-                        <h5>Ciclano</h5>
+                        <h5>{{ ranking.1.0 }}</h5>
                       </div>
                     </div>
                   </div>
                   <div class="position-1">
                     <div class="position-1-content">
                       <div class="position-1-text">
-                        <h4>1º - 250</h4>
+                        <h4>1º - {{ ranking.0.1 }}</h4>
                       </div>
                       <div class="position-1-content-profile">
                         <div class="position-1-content-profile-circle">
@@ -40,14 +38,14 @@
                         </div>
                       </div>
                       <div class="position-1-text">
-                        <h5>Fulano</h5>
+                        <h5>{{ ranking.0.0 }}</h5>
                       </div>
                     </div>
                   </div>
                   <div class="position-2">
                     <div class="position-2-content">
                       <div class="position-2-text">
-                        <h4>3º - 53</h4>
+                        <h4>3º - {{ ranking.2.1 }}</h4>
                       </div>
                       <div class="position-2-content-profile">
                         <div class="position-2-content-profile-circle">
@@ -55,13 +53,13 @@
                         </div>
                       </div>
                       <div class="position-2-text">
-                        <h5>Beltrano</h5>
+                        <h5>{{ ranking.2.0 }}</h5>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </div>            
             <div class="dash-bottom">
               <div class="bottom-content">
                 <div class="bottom-content-myposition">
@@ -69,7 +67,11 @@
                     <h3>Sua posição</h2>
                   </div>
                   <div class="myposition-text">
-                    <h5>23º - 14</h5>
+                    <h5>{% for username, total_score_user in ranking %}
+                          {% if username == user.username %}
+                            {{ forloop.counter }}º - {{ total_score_user }}
+                          {% endif %}
+                        {% endfor %}</h5>
                   </div>
                   <div class="myposition-profile">
                     <div class="myposition-profile-circle">
@@ -77,19 +79,11 @@
                     </div>
                   </div>
                   <div class="myposition-text">
-                    <h4>Administrador</h4>
+                    <h4>{{ user.username }}</h4>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="ranck" class="tabcontent">
-        <div class="ranckContent">
-          <div class="ranckBody">
-            <h3>Ranck</h3>
           </div>
         </div>
       </div>
@@ -111,5 +105,5 @@
       </div>
     </div>
   </div>
-{% endif %}
+  {% endif %}
 {% endblock %}

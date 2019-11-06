@@ -11,18 +11,18 @@ from .forms import (
 from .models import User
 
 
-@login_required
-def create_user(request):
-	if request.user.is_superuser:
-		form = User_Creation_Form(request.POST or None)
+# @login_required
+# def create_user(request):
+# 	if request.user.is_superuser:
+# 		form = User_Creation_Form(request.POST or None)
 
-		if form.is_valid():
-			form.save()
-			return redirect('index')
+# 		if form.is_valid():
+# 			form.save()
+# 			return redirect('index')
 
-		return render(request, 'new-user.html', {'form': form})
-	else:
-		return redirect('index')
+# 		return render(request, 'new-user.html', {'form': form})
+# 	else:
+# 		return redirect('index')
 
 @login_required
 def update_user(request, id_user):
