@@ -2,30 +2,34 @@
 {% load static %}
 {% block content %}
 {% if user.is_authenticated %}
+<form method="POST"> 
+{% csrf_token %}
 <div id="penalizar" class="tabcontent">
     <div class="penalizarContent">
         <div class="penalizarBody">
         <div class="penalizar-title">
             <h1>PENALIZAR</h1>
         </div>
+        <input name="user" id="id_user" value="{{user.id}}" type="hidden">
         <div class="penalizar-select">
-            <select name="penalizacoes" id="penalizacao">
-            <option value="pena1">P09 O participante não estava presente na atividade</option>
-            <option value="pena2">P01 O participante desrespeitou outro participante durante a atividade</option>
+            <select name="score" required id="id_score">
+            {% for score in scores %}
+                <option value="{{score.id}}">{{score.type_score}} - {{score.score_description}}</option>
+            {% endfor %}
             </select>
         </div>
         <div class="penalizar-pontos">
-            <h3>Fulano será penalizado com X pontos</h3>
+            <h3>{{user.username}} será penalizado com X pontos</h3>
         </div>
         <div class="penalizar-message">
-            <input type="text" placeholder="Adicione comentários aqui..." name="penaliza-comment">
+            <input type="text" placeholder="Adicione comentários aqui..." id="id_score_comment"  name="score_comment">
         </div>
         <div class="penalizar-buttons">
             <div class="penalizar-cancel">
-            <button>CANCELAR</button>
+            <button onclick="location.href={% url 'url_participants' %}">CANCELAR</button>
             </div>
             <div class="penalizar-confirm">
-            <button>CONFIRMAR</button>
+            <button type="submit">CONFIRMAR</button>
             </div>
         </div>
         </div>
@@ -33,5 +37,6 @@
     </div>
     </div>
 </div>
+</form>
 {% endif %}
 {% endblock content %}
