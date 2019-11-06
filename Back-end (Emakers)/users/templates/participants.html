@@ -144,8 +144,8 @@
                 <td>383</td>
                 <td>
                   <div class="row-table-option">
-                    <img src="{% static 'assets/caixa_add_redonda.svg' %}">
-                    <img src="{% static 'assets/caixa_remove_redonda.svg' %}">
+                    <img onclick="location.href='/bonus/{{user.id}}'" src="{% static 'assets/caixa_add_redonda.svg' %}">
+                    <img onclick="location.href='/penalty/{{user.id}}'" src="{% static 'assets/caixa_remove_redonda.svg' %}">
                     <img src="{% static 'assets/configuracoes.svg' %}">
                   </div>
                 </td>

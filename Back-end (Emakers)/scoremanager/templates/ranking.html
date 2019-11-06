@@ -10,130 +10,22 @@
               <h2>RANKING</h2>
             </div>
             <div class="ranck-bottom">
+            {% for username, total_score_user in ranking %}
               <div class="ranck-bottom-cell">
                 <div class="ranck-bottom-text">
-                  <h4>1º - 300</h4>
+                  <h4>{{ forloop.counter }}º</h4>
+                </div>
+                <div class="ranck-bottom-text">
+                  <h4>{{ total_score_user }}</h4>
                 </div>
                 <div class="ranck-bottom-cell-profile">
                   <div class="ranck-bottom-cell-profile-circle"></div>
                 </div>
                 <div class="ranck-bottom-text">
-                  <h4>Nome</h4>
+                  <h4>{{ username }}</h4>
                 </div>
               </div>
-              <div class="ranck-bottom-cell">
-                <div class="ranck-bottom-text">
-                  <h4>2º - 150</h4>
-                </div>
-                <div class="ranck-bottom-cell-profile">
-                  <div class="ranck-bottom-cell-profile-circle"></div>
-                </div>
-                <div class="ranck-bottom-text">
-                  <h4>Nome</h4>
-                </div>
-              </div>
-              <div class="ranck-bottom-cell">
-                <div class="ranck-bottom-text">
-                  <h4>3º - 102</h4>
-                </div>
-                <div class="ranck-bottom-cell-profile">
-                  <div class="ranck-bottom-cell-profile-circle"></div>
-                </div>
-                <div class="ranck-bottom-text">
-                  <h4>Nome</h4>
-                </div>
-              </div>
-              <div class="ranck-bottom-cell">
-                <div class="ranck-bottom-text">
-                  <h4>4º - 52</h4>
-                </div>
-                <div class="ranck-bottom-cell-profile">
-                  <div class="ranck-bottom-cell-profile-circle"></div>
-                </div>
-                <div class="ranck-bottom-text">
-                  <h4>Nome</h4>
-                </div>
-              </div>
-              <div class="ranck-bottom-cell">
-                <div class="ranck-bottom-text">
-                  <h4>5º - {% for user_has_score in user_has_scores %}
-                              {{ user_has_score.score.equivalent_score }} +
-                           {% endfor %}</h4>
-                </div>
-                <div class="ranck-bottom-cell-profile">
-                  <div class="ranck-bottom-cell-profile-circle"></div>
-                </div>
-                <div class="ranck-bottom-text">
-                  <h4>Nome</h4>
-                </div>
-              </div>
-              <div class="ranck-bottom-cell">
-                <div class="ranck-bottom-text">
-                  <h4>6º - 50</h4>
-                </div>
-                <div class="ranck-bottom-cell-profile">
-                  <div class="ranck-bottom-cell-profile-circle"></div>
-                </div>
-                <div class="ranck-bottom-text">
-                  <h4>Nome</h4>
-                </div>
-              </div>
-              <div class="ranck-bottom-cell">
-                <div class="ranck-bottom-text">
-                  <h4>7º - 48</h4>
-                </div>
-                <div class="ranck-bottom-cell-profile">
-                  <div class="ranck-bottom-cell-profile-circle"></div>
-                </div>
-                <div class="ranck-bottom-text">
-                  <h4>Nome</h4>
-                </div>
-              </div>
-              <div class="ranck-bottom-cell">
-                <div class="ranck-bottom-text">
-                  <h4>8º - 45</h4>
-                </div>
-                <div class="ranck-bottom-cell-profile">
-                  <div class="ranck-bottom-cell-profile-circle"></div>
-                </div>
-                <div class="ranck-bottom-text">
-                  <h4>Nome</h4>
-                </div>
-              </div>
-              <div class="ranck-bottom-cell">
-                <div class="ranck-bottom-text">
-                  <h4>9º - 44</h4>
-                </div>
-                <div class="ranck-bottom-cell-profile">
-                  <div class="ranck-bottom-cell-profile-circle"></div>
-                </div>
-                <div class="ranck-bottom-text">
-                  <h4>Nome</h4>
-                </div>
-              </div>
-              <div class="ranck-bottom-cell">
-                <div class="ranck-bottom-text">
-                  <h4>10º - 32</h4>
-                </div>
-                <div class="ranck-bottom-cell-profile">
-                  <div class="ranck-bottom-cell-profile-circle"></div>
-                </div>
-                <div class="ranck-bottom-text">
-                  <h4>Nome</h4>
-                </div>
-              </div>
-              <div class="ranck-bottom-cell">
-                <div class="ranck-bottom-text">
-                  <h4>11º - 30</h4>
-                </div>
-                <div class="ranck-bottom-cell-profile">
-                  <div class="ranck-bottom-cell-profile-circle"></div>
-                </div>
-                <div class="ranck-bottom-text">
-                  <h4>Nome</h4>
-                </div>
-              </div>
-
+            {% endfor %}
             </div>
           </div>
         </div>
