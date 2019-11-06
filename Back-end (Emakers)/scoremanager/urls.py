@@ -1,12 +1,13 @@
 from django.urls import path
 from .views import (
 	create_score,
+    list_events,
 	score_detail,
 	update_score,
 	delete_score,
 	apply_bonus,
 	apply_penalty,
-	# apply_score,
+	apply_score,
 	list_ranking
 )
 
@@ -18,6 +19,7 @@ urlpatterns = [
     path('remove_score/<int:id_score>/', delete_score, name='url_remove_score'),
     path('bonus/<int:id_user>/', apply_bonus, name='url_bonus'),
     path('penalty/<int:id_user>/',apply_penalty, name='url_penalty'),
-    # path('ponctuate/<int:id_user>/<slug:slug>/', apply_score, name='url_ponctuate'),
-    path('ranking/', list_ranking, name='url_ranking')
+    path('ponctuate/<int:id_user>/<slug:slug>/', apply_score, name='url_ponctuate'),
+    path('ranking/', list_ranking, name='url_ranking'),
+    path('events/', list_events, name='url_events')
 ]

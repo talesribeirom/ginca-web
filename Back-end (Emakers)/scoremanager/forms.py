@@ -7,7 +7,7 @@ from .models import (
 class Score_Form(forms.ModelForm):
     class Meta:
         model = Score
-        fields = ['type_score', 'score_description', 'equivalent_score']
+        fields = ['type_score', 'score_description', 'equivalent_score', 'score_specification']
 
     def save(self, commit=True):
         score = super().save(commit=False)
@@ -18,4 +18,4 @@ class Score_Form(forms.ModelForm):
 class Apply_Score_Form(forms.ModelForm):
 	class Meta:
 		model = User_has_score
-		fields = ['user', 'score', 'score_comment']
+		fields = ['user', 'score', 'score_comment', 'admin_username']

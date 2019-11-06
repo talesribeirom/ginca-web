@@ -82,7 +82,7 @@ def list_ranking(request):
 @login_required
 def apply_bonus(request, id_user):
 	if request.user.is_superuser:
-		user = User.objects.get(pk=id_user)
+		userAux = User.objects.get(pk=id_user)
 		form = Apply_Score_Form(request.POST)
 		scores = Score.objects.all()
 
@@ -97,45 +97,57 @@ def apply_bonus(request, id_user):
 			form.save()
 			return redirect('url_participants')
 
-		return render(request, 'apply-bonus.html', {'form': form, 'user': user, 'scores': scores})
+		return render(request, 'apply-bonus.html', {'form': form, 'userAux': userAux, 'scores': scores})
 	else:
 		return redirect('index')
 
 @login_required
 def apply_penalty(request, id_user):
     if request.user.is_superuser:
-        user = User.objects.get(pk=id_user)
+        userAux = User.objects.get(pk=id_user)
         form = Apply_Score_Form(request.POST)
         scores = Score.objects.all()
 
+        if request.POST:
+            mutable = request.POST._mutable
+            request.POST._mutable = True
+            score_data = json.loads(form.data['score'])
+            form.data['score'] = score_data['score_id']
+            request.POST._mutable = mutable
+
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('url_participants')
 
-        return render(request, 'apply-penalty.html', {'form': form, 'user': user, 'scores': scores})
+        return render(request, 'apply-penalty.html', {'form': form, 'userAux': userAux, 'scores': scores})
     else:
         return redirect('index')
 
-# @login_required
-# def apply_score(request, id_user, slug):
-# 	if request.user.is_superuser:
-# 		if slug == 'bonus':
-# 			user = User.objects.get(pk=id_user)
-# 			form = Apply_Score_Form(request.POST)
+@login_required
+def apply_score(request, id_user, slug):
+	if request.user.is_superuser:
+		if slug == 'bonus':
+			user = User.objects.get(pk=id_user)
+			form = Apply_Score_Form(request.POST)
 
-# 			if form.is_valid():
-# 				form.save()
-# 				return redirect('index')
+			if form.is_valid():
+				form.save()
+				return redirect('index')
 			
-# 			return render(request, 'apply-score.html', {'form': form, 'user': user})
-# 		else:
-# 			user = User.objects.get(pk=id_user)
-# 			form = Apply_Score_Form(request.POST or None, instance=user)
+			return render(request, 'apply-score.html', {'form': form, 'user': user})
+		else:
+			user = User.objects.get(pk=id_user)
+			form = Apply_Score_Form(request.POST or None, instance=user)
 
-# 			if form.is_valid():
-# 				form.save()
-# 				return redirect('index')
+			if form.is_valid():
+				form.save()
+				return redirect('index')
 			
-# 			return render(request, 'apply-score.html', {'form': form, 'user': user})
-# 	else:
-# 		return redirect('index')
+			return render(request, 'apply-score.html', {'form': form, 'user': user})
+	else:
+		return redirect('index')
+
+@login_required
+def list_events(request):
+    events = User_has_score.objects.all()
+    return render(request, 'events.html', {'events': events})
