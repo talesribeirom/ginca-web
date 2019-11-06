@@ -16,6 +16,7 @@ from .models import (
 )
 # from django.db.models import Sum
 from operator import itemgetter
+import json
 
 
 @login_required
@@ -50,8 +51,6 @@ def score_detail(request, id_score):
 	score = get_object_or_404(Score, pk=id_score)
 	return render(request, 'detail-score.html', {'score': score})
 
-
-
 @login_required
 def delete_score(request, id_score):
 	if request.user.is_superuser:
@@ -80,22 +79,27 @@ def list_ranking(request):
 	ranking = get_ranking()
 	return render(request, 'ranking.html', {'ranking': ranking})
 
-
-
 @login_required
 def apply_bonus(request, id_user):
-    if request.user.is_superuser:
-        user = User.objects.get(pk=id_user)
-        form = Apply_Score_Form(request.POST)
-        scores = Score.objects.all()
+	if request.user.is_superuser:
+		user = User.objects.get(pk=id_user)
+		form = Apply_Score_Form(request.POST)
+		scores = Score.objects.all()
 
-        if form.is_valid():
-            form.save()
-            return redirect('index')
+		if request.POST:
+			mutable = request.POST._mutable
+			request.POST._mutable = True
+			score_data = json.loads(form.data['score'])
+			form.data['score'] = score_data['score_id']
+			request.POST._mutable = mutable
 
-        return render(request, 'apply-bonus.html', {'form': form, 'user': user, 'scores': scores})
-    else:
-        return redirect('index')
+		if form.is_valid():
+			form.save()
+			return redirect('url_participants')
+
+		return render(request, 'apply-bonus.html', {'form': form, 'user': user, 'scores': scores})
+	else:
+		return redirect('index')
 
 @login_required
 def apply_penalty(request, id_user):
@@ -112,26 +116,26 @@ def apply_penalty(request, id_user):
     else:
         return redirect('index')
 
-@login_required
-def apply_score(request, id_user, slug):
-	if request.user.is_superuser:
-		if slug == 'bonus':
-			user = User.objects.get(pk=id_user)
-			form = Apply_Score_Form(request.POST)
+# @login_required
+# def apply_score(request, id_user, slug):
+# 	if request.user.is_superuser:
+# 		if slug == 'bonus':
+# 			user = User.objects.get(pk=id_user)
+# 			form = Apply_Score_Form(request.POST)
 
-			if form.is_valid():
-				form.save()
-				return redirect('index')
+# 			if form.is_valid():
+# 				form.save()
+# 				return redirect('index')
 			
-			return render(request, 'apply-score.html', {'form': form, 'user': user})
-		else:
-			user = User.objects.get(pk=id_user)
-			form = Apply_Score_Form(request.POST or None, instance=user)
+# 			return render(request, 'apply-score.html', {'form': form, 'user': user})
+# 		else:
+# 			user = User.objects.get(pk=id_user)
+# 			form = Apply_Score_Form(request.POST or None, instance=user)
 
-			if form.is_valid():
-				form.save()
-				return redirect('index')
+# 			if form.is_valid():
+# 				form.save()
+# 				return redirect('index')
 			
-			return render(request, 'apply-score.html', {'form': form, 'user': user})
-	else:
-		return redirect('index')
+# 			return render(request, 'apply-score.html', {'form': form, 'user': user})
+# 	else:
+# 		return redirect('index')
