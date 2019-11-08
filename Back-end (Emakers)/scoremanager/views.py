@@ -3,6 +3,7 @@ from django.shortcuts import (
 	render,
 	redirect
 )
+from django.http import HttpResponseNotFound
 from django.contrib.auth.decorators import login_required
 from .forms import (
 	Score_Form,
@@ -13,7 +14,6 @@ from .models import (
 	User,
 	User_has_score
 )
-# from django.db.models import Sum
 from operator import itemgetter
 import json
 
@@ -21,7 +21,6 @@ def get_ranking():
 	users = User.objects.all()
 	total_score_users = {}
 	for user in users:
-		# total_score_users[user.id] = user.user_has_scores.all().aggregate(Sum('score'))['score__sum']
 		sum_score_user = 0
 		for user_has_score in user.user_has_scores.all():
 			sum_score_user += user_has_score.score.equivalent_score
@@ -56,7 +55,7 @@ def apply_bonus(request, id_user):
 
 		return render(request, 'apply-bonus.html', {'form': form, 'userAux': userAux, 'scores': scores})
 	else:
-		return redirect('index')
+		return HttpResponseNotFound()
 
 @login_required
 def apply_penalty(request, id_user):
@@ -78,7 +77,7 @@ def apply_penalty(request, id_user):
 
         return render(request, 'apply-penalty.html', {'form': form, 'userAux': userAux, 'scores': scores})
     else:
-        return redirect('index')
+        return HttpResponseNotFound()
 
 @login_required
 def list_events(request):

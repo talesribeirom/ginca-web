@@ -2,6 +2,7 @@ from django.shortcuts import (
 	render,
 	redirect	
 )
+from django.http import HttpResponseNotFound
 from django.contrib.auth.decorators import login_required
 from .forms import (
 	User_Creation_Form,
@@ -17,18 +18,21 @@ from scoremanager.models import Score
 
 @login_required
 def list_users(request):
-    users = User.objects.all().order_by('username')
-    form = User_Creation_Form(request.POST or None)
-    score = Score_Form(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('url_participants')
+    if request.user.is_superuser:
+        users = User.objects.all().order_by('username')
+        form = User_Creation_Form(request.POST or None)
+        score = Score_Form(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('url_participants')
 
-    if score.is_valid():
-        score.save()
-        return redirect('url_participants')
+        if score.is_valid():
+            score.save()
+            return redirect('url_participants')
 
-    return render(request, 'participants.html', {'users': users, 'form': form, 'score': score})
+        return render(request, 'participants.html', {'users': users, 'form': form, 'score': score})
+    else:
+        return HttpResponseNotFound()
 
 @login_required
 def profile_user(request):
