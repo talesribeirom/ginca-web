@@ -22,6 +22,11 @@
     --button-hover: #ae8eba;
     --drop-hover: #333;
     --profile-name: black;
+    --background-image: url('../assets/background2.png');
+    --table-color-text: black;
+    --table-color-background: whitesmoke;
+    --ranck-bottom: #2F1737;
+    --eventos-text: #5e2075;
 }
 
 /* Sera encaixado o tema dark do site */
@@ -44,6 +49,11 @@
     --button-hover: #333; 
     --drop-hover: whitesmoke;
     --profile-name: #2F1737;
+    --background-image: #121212;
+    --table-color-text: #DFE1E1;
+    --table-color-background: #121212;
+    --ranck-bottom: #121212;
+    --eventos-text: whitesmoke;
 }
 
 /* Reset de Elementos */
@@ -84,7 +94,7 @@ nav .logo img {
 /* Refere a Texto "Ginca Web" presente na Nav */
 
 nav .tittle {
-    width: 61%;
+    width: 68%;
     height: 10vh;
     display: flex;
     justify-content: center;
@@ -466,7 +476,6 @@ input:checked + .slider:before {
     color: var(--primary-color);
 }
 
-
 /* Definição das divs do corpo *********************************************** */
 
 /* Parte destinado a Pagina DashBoard *********************************** */
@@ -750,7 +759,8 @@ input:checked + .slider:before {
     width: 80%;
     height: 97%;
     border-radius: 7px;
-    background: var(--primary-color-lite);
+    background: var(--background-image);
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -847,6 +857,7 @@ input:checked + .slider:before {
     font-size: 14px;
     border: none;
     cursor: pointer;
+    color: #Fcfeff;
 }
 
 .participante-Buttons .btn-score {
@@ -897,7 +908,7 @@ input:checked + .slider:before {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    background: whitesmoke; /* Cor cinza Claro */
+    background: var(--table-color-background); /* Cor cinza Claro */
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -905,7 +916,7 @@ input:checked + .slider:before {
 .table-content .table-content-field {
     width: 100%;
     height: 95%;
-    background: whitesmoke; /* Cor cinza Claro */
+    background: var(--table-color-background); /* Cor cinza Claro */
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     overflow: scroll;
@@ -917,7 +928,7 @@ input:checked + .slider:before {
     border: none;
 }
 
-table .content-title {
+.table-content-field table .content-title {
     background: var(--secundary-color);
 }
 
@@ -1035,39 +1046,39 @@ table .content-title {
 }
 
 .modal-bottom-field input[type="date"] {
-    width: 14%;
-    height: 30%;
-    margin: 1% 0;
-    border: none;
-    border-bottom: 2px var(--drop-hover) solid;
+  width: 14%;
+  height: 30%;
+  margin: 1% 0;
+  border: none;
+  border-bottom: 2px var(--drop-hover) solid;
 }
 
 .modal-bottom-field input[type="email"] {
-    width: 96%;
-    height: 30%;
-    margin: 1% 0;
-    border: none;
-    border-bottom: 2px var(--drop-hover) solid;
+  width: 96%;
+  height: 30%;
+  margin: 1% 0;
+  border: none;
+  border-bottom: 2px var(--drop-hover) solid;
 }
 
 .modal-bottom-field input[type="password"] {
-    width: 96%;
-    height: 30%;
-    margin: 1% 0;
-    border: none;
-    border-bottom: 2px var(--drop-hover) solid;
+  width: 96%;
+  height: 30%;
+  margin: 1% 0;
+  border: none;
+  border-bottom: 2px var(--drop-hover) solid;
 }
 
 .modal-bottom-field input[type="text"]::placeholder {
-    font-size: 15px;
-    opacity: 0.5;
-    font-weight: 600;
+  font-size: 15px;
+  opacity: 0.5;
+  font-weight: 600;
 }
 
 .modal-bottom-field input[type="email"]::placeholder {
-    font-size: 15px;
-    opacity: 0.5;
-    font-weight: 600;
+  font-size: 15px;
+  opacity: 0.5;
+  font-weight: 600;
 }
 
 .modal-bottom-field {
@@ -1121,7 +1132,7 @@ table .content-title {
 .row-table h4 {
     margin: 0;
     font-family: var(--font);
-    color: var(--profile-name);
+    color: var(--table-color-text);
     font-weight: bold;
     font-size: 30px;
     letter-spacing: 1px;
@@ -1132,15 +1143,16 @@ table .content-title {
 .row-table h5 {
     margin: 0;
     font-family: var(--font);
-    color: var(--profile-name);
+    color:var(--table-color-text);
     font-size: 24px;
     font-weight: 500;
     text-align: center;
 }
 
-table th {
+.table-content-field table th {
     font-family: var(--font);
-    color: var(--profile-name);
+    color: var(--table-color-text);
+    background: var(--table-color-background);
     font-weight: bold;
     font-size: 30px;
     letter-spacing: 1px;
@@ -1148,9 +1160,9 @@ table th {
     padding: 7px 0;
 }
 
-table td {
+.table-content-field table td {
     font-family: var(--font);
-    color: var(--profile-name);
+    color: var(--table-color-text);
     font-size: 24px;
     font-weight: 500;
     padding: 7px 0;
@@ -1279,11 +1291,12 @@ td .row-table-option {
 }
 
 .ranck-container .ranck-bottom{
-    background-color: #2F1737;
+    background-color: var(--ranck-bottom);
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     display: grid;
     grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    overflow-y: scroll;
 }
 
 .ranck-bottom .ranck-bottom-cell{
@@ -1348,11 +1361,13 @@ td .row-table-option {
     height: 100%;
     display: flex;
     justify-content: center;
+    background: var(--table-color-background);
     align-items: center;
 }
 
 .eventos-top h2 {
     font-family: var(--font);
+    color: var(--eventos-text);
     font-size: 40px;
     padding: 0;
     margin: 0;
@@ -1366,12 +1381,101 @@ td .row-table-option {
     align-items: center;
 }
 
+/* Modal referente a tela de Eventos */
+
+.eventos-bottom .event-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.2);
+}
+  
+/* Conteudo dos modais */
+.event-modal .event-modal-content {
+    border-radius: 5px;
+    background-color: var(--secundary-color);
+    margin: auto;
+    margin-top: 5%;
+    padding-top: 1%;
+    padding-right: 1%;
+    padding-bottom: 18%;
+    padding-left: 1%;
+    border: none;
+    width: 80%;
+    height: 50%;
+    display: grid;
+    grid-template-rows: 15% 85%;
+}
+
+.event-modal-content .event-modal-top {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 97% 3%;
+}
+
+.event-modal-top .event-modal-top-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.event-modal-top-text .event-modal-top-text-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    border-bottom: 2px var(--drop-hover) solid;
+}
+
+.event-modal-top-text-content p {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--drop-hover);
+    letter-spacing: 2px;
+}
+
+.event-modal-content .event-modal-bottom {
+    width: 100%;
+    height: 100%;
+}
+
+.event-modal-bottom .event-modal-bottom-field {
+    width: 100%;
+    height: 100%;
+    padding: .5% 1%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.event-modal-bottom-field p {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--drop-hover);
+    letter-spacing: 2px;
+}
+
 .eventos-bottom .eventos-tablecontent {
     width: 96%;
     height: 90%;
-    background: var(--secundary-color);
+    background: var(--table-color-background);
     display: flex;
     justify-content: center;
+    overflow-y: scroll;
 }
 
 .eventos-tablecontent table {
@@ -1410,12 +1514,20 @@ table .eventos-tablehead {
     align-items: center;
 }
 
-.table-icons img {
-    margin: 3%;
+.table-icons button {
+    display: block;
+    margin: auto;
+    background-color: inherit;
+    color: var(--secundary-color);
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
 }
 
-.table-icons img:hover {
-    cursor: pointer;
+.table-icons button img {
+    margin: 3%;
 }
 
 /* Tela de configurações *******************************************/
@@ -1569,6 +1681,8 @@ table .eventos-tablehead {
 .profile-logo-content img {
     width: 70%;
 }
+
+/* Parte destinada a página de bonificação  ********************************************* */
 
 .bonificarBody {
     width: 60%;

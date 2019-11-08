@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <form method="POST" action=""> 
+    {% csrf_token %}
+      <div class="content">
+        <div class="profile-body">          
+          <div class="profile-content">
+            <div class="profile-img-content">                
+              <div class="img-profile">
+                <img src="{% static 'assets/foto_jovem.svg' %}" alt="">
+              </div>
+              <div class="profile-button">
+                <label for="img">Alterar foto</label>
+                <input type="file" name="" id="img">
+              </div>
+            </div>
+
+            <div class="profile-info-content">
+              <div class="form-group">
+              {% for field in form %}                         
+              <div class="row">
+                <label for="{{ field.id_for_label }}"></label>
+                {% if field.id_for_label != 'id_password' %}
+                  {% render_field field class="form-control" placeholder=field.label %}
+                {% else %}
+                  <input type="password" name="password" placeholder="Digite a nova senha" required id="id_password">
+                {% endif %}
+                <img src="{% static 'assets/caneta_edit.svg' %}" alt="">                  
+              </div>
+              <div class="{% if field.errors %} invalid {% endif %}">
+                {% for error in field.errors %}
+                  <p class="help-block">{{ error }}</p>
+                {% endfor %}
+              </div>
+              {% endfor %}
+              <div class="row">
+                <button type="button" class="profile-info-cancel" onclick="location.href={% url 'index' %}">Cancelar</button>
+                <button type="submit"class="profile-info-confirm">Confirmar</button>
+              </div>
+             </div>
+            </div>
+
+            <div class="profile-logo-content">
+              <img src="{% static 'assets/Logo_completa_secundaria_semfundo.png' %}" alt="">
+            </div>
+          </form>
+        </div>          
+      </div>    
+     </div>
+   </div>
+  {% endif %}
+{% endblock content %}

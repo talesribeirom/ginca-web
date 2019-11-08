@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'widget_tweaks',
+
     #Apps do Projeto
     'core',
     'users',
@@ -83,8 +85,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ginca',
-        'USER': 'postgres',
-        'PASSWORD': 'FEFEFE1998',
+        'USER': 'ghamorim',
+        'PASSWORD': 'ghamorim',
         'HOST': 'localhost',
         'PORT': '5432',
     }
