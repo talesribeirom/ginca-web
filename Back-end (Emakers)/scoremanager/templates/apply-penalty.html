@@ -14,14 +14,12 @@
         <div class="penalizar-select">
             <select name="score" required id="id_score">
             {% for score in scores %}
-            {% if score.score_specification == "P" %}
                 <option value='{"score_id":"{{score.id}}","equivalent_score":"{{score.equivalent_score}}"}'>{{score.type_score}} - {{score.score_description}}</option>
-            {% endif %}
             {% endfor %}
             </select>
         </div>
         <div class="penalizar-pontos">
-            <h3>{{userAux.username}} será penalizadx com <span value="{{score.id}}" id="print_equivalent_score"></span> pontos</h3>
+            <h3>{{userAux.username}} receberá uma penalização de {% if scores %} <span value="{{score.id}}" id="print_equivalent_score"></span> {% else %} 0 {% endif %} pontos</h3>
         </div>
         <div class="penalizar-message">
             <input type="text" placeholder="Adicione comentários aqui..." id="id_score_comment" required name="score_comment">
@@ -32,7 +30,7 @@
                 <button onclick="location.href={% url 'url_participants' %}">CANCELAR</button>
             </div>
             <div class="penalizar-confirm">
-            <button type="submit">CONFIRMAR</button>
+                <button type="submit">CONFIRMAR</button>
             </div>
         </div>
        

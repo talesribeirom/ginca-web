@@ -41,7 +41,7 @@ def apply_bonus(request, id_user):
 	if request.user.is_superuser:
 		userAux = User.objects.get(pk=id_user)
 		form = Apply_Score_Form(request.POST)
-		scores = Score.objects.all()
+		scores = Score.objects.filter(score_specification='B')
 
 		if request.POST:
 			mutable = request.POST._mutable
@@ -63,7 +63,7 @@ def apply_penalty(request, id_user):
     if request.user.is_superuser:
         userAux = User.objects.get(pk=id_user)
         form = Apply_Score_Form(request.POST)
-        scores = Score.objects.all()
+        scores = Score.objects.filter(score_specification='P')
 
         if request.POST:
             mutable = request.POST._mutable

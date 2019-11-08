@@ -2,9 +2,9 @@
 {% load static %}
 {% block content %}
 {% if user.is_authenticated %}
-    <form method="POST"> 
-    {% csrf_token %}
-    <div id="bonificar" class="tabcontent">
+<form method="POST"> 
+{% csrf_token %}
+<div id="bonificar" class="tabcontent">
     <div class="bonificarContent">
         <div class="bonificarBody">
         <div class="bonificar-title">
@@ -14,14 +14,12 @@
         <div class="bonificar-select">
             <select name="score" required id="id_score" onChange="changeScore">
             {% for score in scores %}
-                {% if score.score_specification == "B" %}
-                    <option value='{"score_id":"{{score.id}}","equivalent_score":"{{score.equivalent_score}}"}'>{{score.type_score}} - {{score.score_description}}</option>
-                {% endif %}
+                <option value='{"score_id":"{{score.id}}","equivalent_score":"{{score.equivalent_score}}"}'>{{score.type_score}} - {{score.score_description}}</option>
             {% endfor %}
             </select>
         </div>
         <div class="bonificar-pontos">
-            <h3>{{userAux.username}} será bonificadx com <span value="{{score.id}}" id="print_equivalent_score"></span> pontos</h3>
+            <h3>{{userAux.username}} receberá uma bonificação de {% if scores %} <span value="{{score.id}}" id="print_equivalent_score"></span> {% else %} 0 {% endif %} pontos</h3>
         </div>
         <div class="bonificar-message" >
             <input type="text" placeholder="Adicione comentários aqui..." required id="id_score_comment" name="score_comment">
@@ -29,10 +27,10 @@
         <input type="hidden" name="admin_username" maxlength="100" value="{{user.username}}" id="id_admin_username">
         <div class="bonificar-buttons">
             <div class="bonificar-cancel">
-            <button onclick="location.href={% url 'url_participants' %}">CANCELAR</button>
+                <button onclick="location.href={% url 'url_participants' %}">CANCELAR</button>
             </div>
             <div class="bonificar-confirm">
-            <button type="submit">CONFIRMAR</button>
+                <button type="submit">CONFIRMAR</button>
             </div>
         </div>
         </div>
