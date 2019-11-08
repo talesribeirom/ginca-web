@@ -512,6 +512,26 @@
                 <h2>REGISTRO DE EVENTOS</h2>
               </div>
               <div class="eventos-bottom">
+                  <!--Conteudo do modal da mensagem de pontuacao-->
+                <div id="myModalMessage" class="event-modal">
+                  <div class="event-modal-content">
+                    <div class="event-modal-top">
+                      <div class="event-modal-top-text">
+                        <div class="event-modal-top-text-content">
+                          <p>Mensagem da Pontuação</p>
+                        </div>
+                      </div>
+                      <div class="event-modal-top-close">
+                        <span class="close">&times;</span>
+                      </div>
+                    </div>
+                    <div class="event-modal-bottom">
+                      <div class="event-modal-bottom-field">
+                        <p>Teste</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="eventos-tablecontent">
                   <table>
                     <thead>
@@ -531,9 +551,7 @@
                         <td>01/10/2019 - 17:46</td>
                         <td>
                           <div class="table-icons">
-                            <img src="assets/razao.svg" alt="">
-                            <img src="assets/aviso.svg" alt="" width="18px">
-                            <img src="assets/desfazer.svg" alt="">
+                            <button type="button" id="btn-msg" class="btn-msg"><img src="assets/razao.svg" alt=""></button>
                           </div>
                         </td>
                       </tr>
@@ -545,7 +563,6 @@
                         <td>
                           <div class="table-icons">
                             <img src="assets/razao.svg" alt="">
-                            <img src="assets/desfazer.svg" alt="">
                           </div>
                         </td>
                       </tr>
