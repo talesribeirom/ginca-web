@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ginca-Web</title>
+  <link rel="shortcut icon" href="assets/ico-title.png" type="image/x-icon">
+
+  <!--Estilo da Tela de login-->
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="imgcontainer">
+      <img src="assets/Logo_lateral_secundaria_semfundo.png" alt="EmakersJr">
+    </div>
+    <div class="formulario">
+      <form name="login" onsubmit="return false" method="post">
+        <div class="user">
+          <input type="text" placeholder="Usuário" name="uname" required>
+        </div>
+        <div class="password">
+          <input type="password" placeholder="Senha" name="pswrd" required>
+        </div>
+        <div class="submit">
+          <button type="submit" onclick="validate()">LOGIN</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function validate() {
+      var un = document.login.uname.value;
+      var pw = document.login.pswrd.value;
+      if (un == "admin" && pw == "admin") {
+        window.location.href = "index.html";
+        return false;
+      }
+      else {
+        alert("Usuário não autorizado");
+        window.location.href = "login.html";
+        return false;
+      }
+    }
+  </script>
+</body>
+
+</html>
