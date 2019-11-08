@@ -10,13 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ginca Web</title>
-    <link rel="shortcut icon" href="assets/ico-title.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'assets/ico-title.png' %}" type="image/x-icon">
 
     <!--Estilo Principal-->
     <link rel="stylesheet" href="{% static 'core/index.css' %}">
 
-    <!--Kits FontAwesome-->
-    <script src="https://kit.fontawesome.com/3388b00aea.js" crossorigin="anonymous"></script>
 </head>
 
 <body id="body">
@@ -28,9 +26,6 @@
       <div class="tittle">
           <h2>GINCA WEB</h2>
       </div>
-      <div class="notification">
-          <img src="{% static 'assets/notification.svg' %}">
-      </div>
       <div class="profile">
           <div class="profile-img">
               <!--<img src="assets/white.jpg" alt="Perfil">-->
@@ -39,27 +34,36 @@
               <p>{{ user.username }}</p>
           </div>
           <div class="dropdown">
-              <img class="expand-drop-img" src="{% static 'assets/expand.png' %}">
-              <div class="dropdown-content">
+            <img class="expand-drop-img" src="{% static 'assets/expand.png' %}">
+            <div class="dropdown-content">
               <a href="{% url 'url_my_profile' %}">
-                  <p>Perfil</p>
+                <img src="{% static 'assets/perfil.svg' %}" alt="">
+                <p>Perfil</p>
               </a>
               <!--Modo Noturno-->
               <div class="night-mode">
+                <div class="night-mode-text">
+                  <img src="{% static 'assets/night.svg' %}" alt="">
                   <p>Modo Noturno</p>
+                </div>
+                <div class="night-mode-select">
                   <label class="switch" for="checkbox">
-                  <input type="checkbox" id="checkbox" />
-                  <div class="slider round"></div>
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
                   </label>
+                </div>
+    
               </div>
-          
+    
               <a href="#">
-                  <p>Configurações</p>
+                <img src="{% static 'assets/configuracoes.svg' %}" alt="">
+                <p>Configurações</p>
               </a>
-              <a href="{% url 'logout' %}">
-                  <p>Sair</p>
+              <a href="#">
+                <img src="{% static 'assets/sair.svg' %}" alt="">
+                <p>Sair</p>
               </a>
-              </div>
+            </div>
           </div>
         </div>
     </nav>
