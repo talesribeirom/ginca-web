@@ -22,11 +22,7 @@
     --button-hover: #ae8eba;
     --drop-hover: #333;
     --profile-name: black;
-    --background-image: url('../assets/background2.png');
-    --table-color-text: black;
-    --table-color-background: whitesmoke;
-    --ranck-bottom: #2F1737;
-    --eventos-text: #5e2075;
+    --background-image: url('assets/background2.png');
 }
 
 /* Sera encaixado o tema dark do site */
@@ -50,10 +46,6 @@
     --drop-hover: whitesmoke;
     --profile-name: #2F1737;
     --background-image: #121212;
-    --table-color-text: #DFE1E1;
-    --table-color-background: #121212;
-    --ranck-bottom: #121212;
-    --eventos-text: whitesmoke;
 }
 
 /* Reset de Elementos */
@@ -908,7 +900,7 @@ input:checked + .slider:before {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    background: var(--table-color-background); /* Cor cinza Claro */
+    background: whitesmoke; /* Cor cinza Claro */
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -916,7 +908,7 @@ input:checked + .slider:before {
 .table-content .table-content-field {
     width: 100%;
     height: 95%;
-    background: var(--table-color-background); /* Cor cinza Claro */
+    background: whitesmoke; /* Cor cinza Claro */
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     overflow: scroll;
@@ -928,7 +920,7 @@ input:checked + .slider:before {
     border: none;
 }
 
-.table-content-field table .content-title {
+table .content-title {
     background: var(--secundary-color);
 }
 
@@ -951,11 +943,8 @@ input:checked + .slider:before {
     border-radius: 5px;
     background-color: var(--secundary-color);
     margin: auto;
-    margin-top: 5%;
-    padding-top: 1%;
-    padding-right: 1%;
-    padding-bottom: 18%;
-    padding-left: 1%;
+    margin-top: 12%;
+    padding: 1%;
     border: none;
     width: 80%;
     height: 50%;
@@ -1031,7 +1020,7 @@ input:checked + .slider:before {
 .modal-bottom-field p {
     margin: 0;
     font-family: var(--font);
-    font-size: 17px;
+    font-size: 25px;
     font-weight: 600;
     color: var(--drop-hover);
     letter-spacing: 2px;
@@ -1045,40 +1034,10 @@ input:checked + .slider:before {
     border-bottom: 2px var(--drop-hover) solid;
 }
 
-.modal-bottom-field input[type="date"] {
-  width: 14%;
-  height: 30%;
-  margin: 1% 0;
-  border: none;
-  border-bottom: 2px var(--drop-hover) solid;
-}
-
-.modal-bottom-field input[type="email"] {
-  width: 96%;
-  height: 30%;
-  margin: 1% 0;
-  border: none;
-  border-bottom: 2px var(--drop-hover) solid;
-}
-
-.modal-bottom-field input[type="password"] {
-  width: 96%;
-  height: 30%;
-  margin: 1% 0;
-  border: none;
-  border-bottom: 2px var(--drop-hover) solid;
-}
-
 .modal-bottom-field input[type="text"]::placeholder {
-  font-size: 15px;
-  opacity: 0.5;
-  font-weight: 600;
-}
-
-.modal-bottom-field input[type="email"]::placeholder {
-  font-size: 15px;
-  opacity: 0.5;
-  font-weight: 600;
+    font-size: 25px;
+    opacity: 0.5;
+    font-weight: 600;
 }
 
 .modal-bottom-field {
@@ -1132,7 +1091,7 @@ input:checked + .slider:before {
 .row-table h4 {
     margin: 0;
     font-family: var(--font);
-    color: var(--table-color-text);
+    color: var(--profile-name);
     font-weight: bold;
     font-size: 30px;
     letter-spacing: 1px;
@@ -1143,16 +1102,15 @@ input:checked + .slider:before {
 .row-table h5 {
     margin: 0;
     font-family: var(--font);
-    color:var(--table-color-text);
+    color: var(--profile-name);
     font-size: 24px;
     font-weight: 500;
     text-align: center;
 }
 
-.table-content-field table th {
+table th {
     font-family: var(--font);
-    color: var(--table-color-text);
-    background: var(--table-color-background);
+    color: var(--profile-name);
     font-weight: bold;
     font-size: 30px;
     letter-spacing: 1px;
@@ -1160,9 +1118,9 @@ input:checked + .slider:before {
     padding: 7px 0;
 }
 
-.table-content-field table td {
+table td {
     font-family: var(--font);
-    color: var(--table-color-text);
+    color: var(--profile-name);
     font-size: 24px;
     font-weight: 500;
     padding: 7px 0;
@@ -1291,7 +1249,7 @@ td .row-table-option {
 }
 
 .ranck-container .ranck-bottom{
-    background-color: var(--ranck-bottom);
+    background-color: #2F1737;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     display: grid;

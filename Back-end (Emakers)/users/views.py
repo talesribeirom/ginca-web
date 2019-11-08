@@ -32,11 +32,11 @@ def list_users(request):
 
 @login_required
 def profile_user(request):
-    user = User.objects.get(pk=request.user.id)
-    form = User_Change_Form(request.POST or None, instance=user)
+    userAtual = User.objects.get(pk=request.user.id)
+    form = User_Change_Form(request.POST or None, instance=userAtual)
 
     if form.is_valid():
         form.save()
         return redirect('index')
 
-    return render(request, 'profile.html', {'user': user, 'form': form})
+    return render(request, 'profile.html', {'userAtual': userAtual, 'form': form})
