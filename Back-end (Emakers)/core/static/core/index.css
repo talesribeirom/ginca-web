@@ -1386,6 +1386,7 @@ td .row-table-option {
     background: var(--table-color-background);
     display: flex;
     justify-content: center;
+    overflow-y: scroll;
 }
 
 .eventos-tablecontent table {
