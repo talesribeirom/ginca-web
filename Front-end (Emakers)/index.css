@@ -1254,6 +1254,7 @@ td .row-table-option {
     border-bottom-right-radius: 3px;
     display: grid;
     grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    overflow-y: scroll;
 }
 
 .ranck-bottom .ranck-bottom-cell{
