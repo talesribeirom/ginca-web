@@ -950,8 +950,11 @@ input:checked + .slider:before {
     border-radius: 5px;
     background-color: var(--secundary-color);
     margin: auto;
-    margin-top: 12%;
-    padding: 1%;
+    margin-top: 5%;
+    padding-top: 1%;
+    padding-right: 1%;
+    padding-bottom: 18%;
+    padding-left: 1%;
     border: none;
     width: 80%;
     height: 50%;
@@ -1027,7 +1030,7 @@ input:checked + .slider:before {
 .modal-bottom-field p {
     margin: 0;
     font-family: var(--font);
-    font-size: 25px;
+    font-size: 17px;
     font-weight: 600;
     color: var(--drop-hover);
     letter-spacing: 2px;
@@ -1041,10 +1044,40 @@ input:checked + .slider:before {
     border-bottom: 2px var(--drop-hover) solid;
 }
 
+.modal-bottom-field input[type="date"] {
+  width: 14%;
+  height: 30%;
+  margin: 1% 0;
+  border: none;
+  border-bottom: 2px var(--drop-hover) solid;
+}
+
+.modal-bottom-field input[type="email"] {
+  width: 96%;
+  height: 30%;
+  margin: 1% 0;
+  border: none;
+  border-bottom: 2px var(--drop-hover) solid;
+}
+
+.modal-bottom-field input[type="password"] {
+  width: 96%;
+  height: 30%;
+  margin: 1% 0;
+  border: none;
+  border-bottom: 2px var(--drop-hover) solid;
+}
+
 .modal-bottom-field input[type="text"]::placeholder {
-    font-size: 25px;
-    opacity: 0.5;
-    font-weight: 600;
+  font-size: 15px;
+  opacity: 0.5;
+  font-weight: 600;
+}
+
+.modal-bottom-field input[type="email"]::placeholder {
+  font-size: 15px;
+  opacity: 0.5;
+  font-weight: 600;
 }
 
 .modal-bottom-field {
