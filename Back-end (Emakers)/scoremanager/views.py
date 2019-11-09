@@ -113,9 +113,9 @@ def list_events(request):
     # Se o usuário for administrador: lista todos eventos
     # Senão: lista somente os eventos relacionados a ele
     if request.user.is_superuser:
-      events_list = User_has_score.objects.all()
+        events_list = User_has_score.objects.all()
     else:  
-      events_list = User_has_score.objects.filter(user=request.user)
+        events_list = User_has_score.objects.filter(user=request.user)
      
     paginator = Paginator(events_list, 9)
 

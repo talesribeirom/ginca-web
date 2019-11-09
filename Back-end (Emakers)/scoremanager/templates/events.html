@@ -10,26 +10,7 @@
           <h2>REGISTRO DE EVENTOS</h2>
         </div>
         <div class="eventos-bottom">
-          <!--Conteudo do modal da mensagem de pontuacao-->
-          <div id="myModalMessage" class="event-modal">
-            <div class="event-modal-content">
-              <div class="event-modal-top">
-                <div class="event-modal-top-text">
-                  <div class="event-modal-top-text-content">
-                    <p>Mensagem da Pontuação</p>
-                  </div>
-                </div>
-                <div class="event-modal-top-close">
-                  <span class="close">&times;</span>
-                </div>
-              </div>
-              <div class="event-modal-bottom">
-                <div class="event-modal-bottom-field">
-                  <p>Teste</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          
           <div class="eventos-tablecontent">
             <table>
               <thead>
@@ -53,6 +34,26 @@
                       <button type="button" id="btn-msg" class="btn-msg"><img src="{% static 'assets/razao.svg' %}"
                           alt=""></button>
                     </div>
+                    <!--Conteudo do modal da mensagem de pontuacao-->
+                    <div id="myModalMessage" class="event-modal">
+                        <div class="event-modal-content">
+                        <div class="event-modal-top">
+                            <div class="event-modal-top-text">
+                            <div class="event-modal-top-text-content">
+                                <p>Mensagem da Pontuação</p>
+                            </div>
+                            </div>
+                            <div class="event-modal-top-close">
+                            <span class="close">&times;</span>
+                            </div>
+                        </div>
+                        <div class="event-modal-bottom">
+                            <div class="event-modal-bottom-field">
+                            <p>{{event.score_comment}}</p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                   </td>
                 </tr>
                 {% endfor %}
@@ -64,7 +65,7 @@
           <span class="step-links">
             {% if events.has_previous %}
             
-            <a href="?page={{ events.previous_page_number }}"> anterior</a>
+                <a href="?page={{ events.previous_page_number }}"> anterior</a>
             {% endif %}
 
             <span class="current">
