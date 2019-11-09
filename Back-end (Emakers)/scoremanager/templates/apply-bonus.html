@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<form method="POST"> 
+{% csrf_token %}
+<div id="bonificar" class="tabcontent">
+    <div class="bonificarContent">
+        <div class="bonificarBody">
+        <div class="bonificar-title">
+            <h1>BONIFICAR</h1>
+        </div>
+        <input name="user" id="id_user" value="{{userAux.id}}" type="hidden">
+        <div class="bonificar-select">
+            <select name="score" required id="id_score" onChange="changeScore">
+            {% for score in scores %}
+                <option value='{"score_id":"{{score.id}}","equivalent_score":"{{score.equivalent_score}}"}'>{{score.type_score}} - {{score.score_description}}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div class="bonificar-pontos">
+            <h3>{{userAux.username}} receberá uma bonificação de {% if scores %} <span value="{{score.id}}" id="print_equivalent_score"></span> {% else %} 0 {% endif %} pontos</h3>
+        </div>
+        <div class="bonificar-message" >
+            <input type="text" placeholder="Adicione comentários aqui..." required id="id_score_comment" name="score_comment">
+        </div>
+        <input type="hidden" name="admin_username" maxlength="100" value="{{user.username}}" id="id_admin_username">
+        <div class="bonificar-buttons">
+            <div class="bonificar-cancel">
+                <button onclick="location.href={% url 'url_participants' %}">CANCELAR</button>
+            </div>
+            <div class="bonificar-confirm">
+                <button type="submit">CONFIRMAR</button>
+            </div>
+        </div>
+        </div>
+        
+    </div>
+    </div>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script>
+      function changeScore() {
+        var score_data = $.parseJSON($('#id_score option:selected').val()); // armazendando em variavel
+        document.getElementById("print_equivalent_score").innerHTML = score_data['equivalent_score'];
+      }
+      $( document ).ready(function() {
+          $( window ).on('change', changeScore);
+          $( window ).on('load', changeScore);
+      });
+    </script>
+{% endif %}
+{% endblock content %}

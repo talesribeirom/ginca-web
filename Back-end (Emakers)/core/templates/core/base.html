@@ -1,0 +1,99 @@
+<!--
+    Arquivo HTML base para todas as telas
+-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ginca Web</title>
+    <link rel="shortcut icon" href="{% static 'assets/ico-title.png' %}" type="image/x-icon">
+
+    <!--Estilo Principal-->
+    <link rel="stylesheet" href="{% static 'core/index.css' %}">
+
+</head>
+
+<body id="body">
+  {% if user.is_authenticated %} 
+  <nav>
+      <div class="logo">
+          <img src="{% static 'assets/EmakersJr.png' %}" alt="EmakersJr">
+      </div>
+      <div class="tittle">
+          <h2>GINCA WEB</h2>
+      </div>
+      <div class="profile">
+          <div class="profile-img">
+              <!--<img src="assets/white.jpg" alt="Perfil">-->
+          </div>
+          <div class="profile-name">
+              <p>{{ user.username }}</p>
+          </div>
+          <div class="dropdown">
+            <img class="expand-drop-img" src="{% static 'assets/expand.png' %}">
+            <div class="dropdown-content">
+              <a href="{% url 'url_my_profile'%}">
+                <img src="{% static 'assets/perfil.svg' %}" alt="">
+                <p>Perfil</p>
+              </a>
+              <!--Modo Noturno-->
+              <div class="night-mode">
+                <div class="night-mode-text">
+                  <img src="{% static 'assets/night.svg' %}" alt="">
+                  <p>Modo Noturno</p>
+                </div>
+                <div class="night-mode-select">
+                  <label class="switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                  </label>
+                </div>
+    
+              </div>
+    
+              <a href="#">
+                <img src="{% static 'assets/configuracoes.svg' %}" alt="">
+                <p>Configurações</p>
+              </a>
+              <a href="{% url 'logout'%}">
+                <img src="{% static 'assets/sair.svg' %}" alt="">
+                <p>Sair</p>
+              </a>
+            </div>
+          </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="tab">
+        <button class="tablinks" onclick="location.href={% url 'index' %}" title="Início" ><img
+            src="{% static 'assets/home.svg' %}"></button>
+        {% if user.is_superuser %}    
+            <button class="tablinks" onclick="location.href={% url 'url_participants' %}" title="Participantes"><img
+                src="{% static 'assets/membros.svg' %}"></button>
+        {% endif %}
+        <button class="tablinks" onclick="location.href={% url 'url_ranking' %}" title="Rank"><img src="{% static 'assets/trofeu.svg' %}"></button>
+        <button class="tablinks" onclick="location.href={% url 'url_events' %}" title="Eventos" id="button-end"><img
+            src="{% static 'assets/eventos.svg' %}"></button> 
+    </div>
+    
+
+    {% block content %}
+    {% endblock %}
+
+  {% endif %}
+
+  <!--Script para Seleção de tema (Day mode/Dark mode)-->
+  <script src="{% static 'scripts/theme-selector.js' %}"></script>
+
+  <!--Script para abrir os modais da tela de Participantes-->
+  <script src="{% static 'scripts/active-modal.js' %}"></script>
+
+  <!--Script para Configurar os pontos-->
+  <script src="{% static 'scripts/config-score.js' %}"></script>
+</body>
+
+</html>

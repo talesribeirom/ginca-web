@@ -1,0 +1,101 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<div id="eventos" class="tabcontent">
+  <div class="eventosContent">
+    <div class="eventosBody">
+      <div class="eventos-container">
+        <div class="eventos-top">
+          <h2>REGISTRO DE EVENTOS</h2>
+        </div>
+        <div class="eventos-bottom">
+          
+          <div class="eventos-tablecontent">
+            <table>
+              <thead>
+                <tr class="eventos-tablehead">
+                  <th>Responsável</th>
+                  <th>Ação</th>
+                  <th>Participante</th>
+                  <th>Data</th>
+                  <th>Razão</th>
+                </tr>
+              </thead>
+              <tbody class="table-body-bottom">
+                {% for event in events %}
+                <tr>
+                  <td>{{event.admin_username}}</td>
+                  <td>{{event.score.equivalent_score}}</td>
+                  <td>{{event.user.username}}</td>
+                  <td>{{event.score_date}}</td>
+                  <td>
+                    <div class="table-icons">
+                      <button type="button" id="btn-msg" class="btn-msg"><img src="{% static 'assets/razao.svg' %}"
+                          alt=""></button>
+                    </div>
+                    <!--Conteudo do modal da mensagem de pontuacao-->
+                    <div id="myModalMessage" class="event-modal">
+                        <div class="event-modal-content">
+                        <div class="event-modal-top">
+                            <div class="event-modal-top-text">
+                            <div class="event-modal-top-text-content">
+                                <p>Mensagem da Pontuação</p>
+                            </div>
+                            </div>
+                            <div class="event-modal-top-close">
+                            <span class="close">&times;</span>
+                            </div>
+                        </div>
+                        <div class="event-modal-bottom">
+                            <div class="event-modal-bottom-field">
+                            <p>{{event.score_comment}}</p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="pagination">
+          <span class="step-links">
+            {% if events.has_previous %}
+            
+                <a href="?page={{ events.previous_page_number }}"> anterior</a>
+            {% endif %}
+
+            <span class="current">
+              {{ events.number }} de {{ events.paginator.num_pages }}.
+            </span>
+
+            {% if events.has_next %}
+            <a href="?page={{ events.next_page_number }}">proximo </a>
+            {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var modalMsg = document.getElementById("myModalMessage");
+  var btnMsg = document.getElementById("btn-msg");
+  var spanMsg = document.getElementsByClassName("close")[0];
+  btnMsg.onclick = function () {
+    modalMsg.style.display = "block";
+  }
+  spanMsg.onclick = function () {
+    modalMsg.style.display = "none";
+  }
+  window.onclick = function (event) {
+    if (event.target == modalMsg) {
+      modalMsg.style.display = "none"
+    }
+  }
+</script>
+{% endif %}
+{% endblock content %}

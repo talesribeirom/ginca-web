@@ -1,0 +1,174 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <div id="participante" class="tabcontent">
+      <div class="participanteContent">
+        <div class="participanteBody">
+          <div class="participante-Buttons">
+            <button type="button" id="btn-user" class="btn-user">
+              <img src="{% static 'assets/membros_add.svg' %}" width="15px"> 
+              Cadastrar Usuário
+            </button>
+            <button type="button" id="btn-score" class="btn-score">
+              <img src="{% static 'assets/caixa_add_quadrada.svg' %}" width="15px"> 
+              Cadastrar Pontuação
+            </button>
+          </div>
+          <div class="participante-table">
+            <div class="table-title">
+              <h3>PARTICIPANTES</h3>
+            </div>
+            <div class="table-content">
+                
+              <!-- Conteudo do Modal adcionar Usuario -->
+          
+              <form method="POST"> 
+              {% csrf_token %}
+              <div id="myModalUser" class="modal">
+                <div class="modal-content">
+                  <div class="modal-top">
+                    <div class="modal-top-text">
+                        <div class="modal-top-text-content">
+                          <p>Cadastrar novo usuário</p>
+                        </div>
+                    </div>
+                    <div class="modal-top-close">
+                        <span class="close">&times;</span>
+                    </div>
+                  </div>
+                  <div class="modal-bottom">
+                    <div class="modal-bottom-field">
+                        <p>Nome:</p>
+                        <input type="text" placeholder="Digite o nome do participante" name="username" maxlength="100" required id="id_username">
+                    </div>
+                    <div class="modal-bottom-field">
+                        <p>Email:</p>
+                        <input type="email" name="email" maxlength="255" required id="id_email" placeholder="Digite o email do participante">
+                    </div>
+                    <div class="modal-bottom-field">
+                        <p>Data de Nascimento:</p>
+                        <input type="date" name="date_of_birth" required id="id_date_of_birth">
+                    </div>
+                    <div class="modal-bottom-field">
+                        <p>Sexo</p>
+                        <div class="modal-bottom-row">
+                          <select name="sex" id="id_sex">
+                            <option value="M" selected>Masculino</option>
+
+                            <option value="F">Feminino</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="modal-bottom-field">
+                        <p> Senha: </p>
+                          <input type="password" name="password1" required id="id_password1">
+                        <p> Confirmação da senha: </p> 
+                          <input type="password" name="password2" required id="id_password2">
+                          <button type="submit">Salvar</button> 
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+                    
+            <!-- Conteudo do Modal adcionar Pontuação -->
+            <form method="POST"> 
+            {% csrf_token %}
+            <div id="myModalScore" class="modal">
+              <div class="modal-content">
+                <div class="modal-top">
+                  <div class="modal-top-text">
+                      <div class="modal-top-text-content">
+                      <p>Cadastrar nova pontuação</p>
+                      </div>
+                  </div>
+                  <div class="modal-top-close">
+                      <span class="close">&times;</span>
+                  </div>
+                </div>
+                <div class="modal-bottom">
+                <div class="modal-bottom-field">
+                  <p>Tipo</p>
+                  <input type="text" name="type_score" placeholder="Digite o tipo da pontuação (Ex.B07, P14)" id="id_type_score">
+                </div>
+                <div class="modal-bottom-field">
+                  <p>Descrição</p>
+                  <textarea rows="4" cols="60" name="score_description" placeholder="Descreva a pontuação (Ex.: O membro teve imprevistos)" id="id_score_description"></textarea>
+                </div>
+                <div class="modal-bottom-field">
+                  <p>Selecione:<p>
+                  <select name="score_specification" id="id_score_specification">
+                    <option value="B" selected>Bônus</option>
+
+                    <option value="P">Penalidade</option>
+                  </select>
+                </div>
+                <div class="modal-bottom-field">
+                  <p>Pontos</p>
+                  <input type="number" name="equivalent_score" required id="id_equivalent_score">
+                </div>
+                <div class="modal-bottom-field">
+                  <button id="btn-save" type="submit">Salvar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </form>
+          <div class="table-content-field">
+            <table id="table">
+              <thead>
+                <tr class="content-title">
+                  <th>
+                    <div class="row-table">
+                      <div class="row-table-check">
+                        <input type="checkbox" id="check-all">
+                        <label id="checklabel" for="check-all"></label>
+                      </div>
+                      <div class="row-table-content">
+                        <h4>Nome</h4>
+                        <img src="{% static 'assets/ordenar_alfabeto.svg' %}" width="18px">
+                      </div> 
+                    </div>
+                  </th>
+                  <th>Email<img src="{% static 'assets/ordenar_alfabeto.svg' %}" width="18px"></th>
+                  <th>Pontos<img src="{% static 'assets/ordenar.svg' %}" width="18px"></th>
+                  <th>Opções</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for user in users %}
+                <tr>
+                <td>
+                  <div class="row-table">
+                    <div class="row-table-check">
+                      <input type="checkbox" id="name03">
+                      <label for="name03"></label>
+                    </div>
+                    <div class="row-table-content">
+                      <h5>{{ user.username }}</h5>
+                    </div>
+                  </div>
+                </td>
+                <td>{{ user.email }}</td>
+                <td>{{ ranking|get_item:user.username }}</td>
+                <td>
+                  <div class="row-table-option">
+                    <img onclick="location.href='/bonus/{{user.id}}'" src="{% static 'assets/caixa_add_redonda.svg' %}">
+                    <img onclick="location.href='/penalty/{{user.id}}'" src="{% static 'assets/caixa_remove_redonda.svg' %}">
+                    <img src="{% static 'assets/configuracoes.svg' %}">
+                  </div>
+                </td>
+                </tr>
+              {% endfor %}
+                    
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock content %}

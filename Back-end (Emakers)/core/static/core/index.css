@@ -1,0 +1,1890 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo&display=swap');
+
+/* by FaBiUsKcomp 2019 */
+
+/* Variaveis */
+
+:root {
+    --font: 'Archivo', sans-serif;
+    --primary-color: #5e2075;
+    --primary-color-lite: #812ca0;
+    --primary-color-dark: #3B1B47;
+    --secundary-color: #Fcfeff;
+    --dark-color: #333;
+    --border: #4C1D5E;
+    --opacity: 0.5;
+    --shadow: 0 4px 8px 13px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --shadow-right: 5px 0 5px -5px #333;
+    --shadow-right-bottom: 5px 10px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --shadow-right-bottom-dark: 5px 4px 8px #5E2075, 0 6px 4px 0 #5E2075;
+    --text-shadow: 5px 5px var(--dark-color);
+    --gradient : linear-gradient(#5e2075, #171519);
+    --button-hover: #ae8eba;
+    --drop-hover: #333;
+    --profile-name: black;
+    --background-image: url('../assets/background2.png');
+    --ranck-color: #2F1737;
+}
+
+/* Sera encaixado o tema dark do site */
+
+[data-theme="dark"] {
+    --font: 'Archivo', sans-serif;
+    --primary-color: #121212;
+    --primary-color-lite: #121212;
+    --primary-color-dark: #121212;
+    --secundary-color: #DFE1E1;
+    --dark-color: #333;
+    --border: black;
+    --opacity: 1;
+    --shadow: 0 4px 8px 13px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --shadow-right: 5px 0 5px -5px #333;
+    --shadow-right-bottom: 5px 10px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --shadow-right-bottom-dark: 5px 10px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --text-shadow: 5px 5px var(--dark-color);
+    --gradient : linear-gradient(#5e2075, #171519);
+    --button-hover: #333; 
+    --drop-hover: whitesmoke;
+    --profile-name: #2F1737;
+    --background-image: #121212;
+    --ranck-color: #121212;
+}
+
+/* Reset de Elementos */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/*  Inicio - Estilização da NavBar e corpo do documento *********************************/
+
+nav {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    background: var(--primary-color);
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+/* Refere as proporções da logo */
+
+.logo {
+    width: 15%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .logo img {
+    width: 68%;
+    margin: 0 20px;
+}
+
+/* Refere a Texto "Ginca Web" presente na Nav */
+
+nav .tittle {
+    width: 68%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav h2 {
+    color: var(--secundary-color);
+    font-family: var(--font);
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Refere a icone de notificação da Nav */
+
+nav .notification {
+    width: 7%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notification img {
+    width: 27%;
+    cursor: pointer;
+}
+
+/* Estilo do perfil presente na NavBar */
+
+nav .profile {
+    color: var(--secundary-color);
+    height: 10vh;
+    width: 17%;
+    margin: 0;
+    padding: 0;
+    box-shadow: var(--shadow-right);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+.profile-img {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: absolute;
+    border-radius: 100%;
+    background: #Fcfeff;
+}
+
+.profile-img img {
+    width: 100%;
+    padding: 0;
+}
+
+.profile .profile-name {
+    padding: 0;
+    background: rgba(190, 187, 187, .5);
+    -moz-opacity: var(--opacity);
+    opacity: var(--opacity);
+    width: 180px;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-name p {
+    font-family: var(--font);
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 20%;
+    color: var(--secundary-color);
+}
+
+/* Inicio de estilização do DropDown */
+
+.profile .dropdown {
+    width: 18%;
+    font-family: var(--font);
+    position: relative;
+    display: inline-block;
+    z-index: 9999;
+}
+
+.dropdown .expand-drop-img {
+    width: 90%;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.dropdown .dropdown-content {
+    font-family: var(--font);
+    margin-top: 5%;
+    width: 180px;
+    height: 20vh;
+    position: absolute;
+    display: none;
+    background-color: var(--secundary-color);
+    min-width: 160px;
+    box-shadow: var(--shadow);
+    z-index: 9999;
+    opacity: 1;
+    left: -150px;
+}
+
+/* Parte do campo modo noturno */
+
+.dropdown-content .night-mode {
+    width: 100%;
+    height: 25%;
+    margin: 0;
+    color: var(--dark-color);
+    display: grid;
+    grid-template-columns: 75% 25%;
+    justify-content: center;
+    align-items: center;
+}
+
+.night-mode-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+
+.night-mode .night-mode-text img {
+    width: 16px;
+    margin-left: 10px;
+}
+
+.night-mode .night-mode-text p {
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 11%;
+}
+
+.night-mode-select {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.night-mode:hover {
+    color: var(--drop-hover); 
+    background: var(--button-hover); 
+}
+
+/* Parte que refere ao switch presente no DropDown */
+
+.switch {
+    display: inline-block;
+    height: 10px;
+    position: relative;
+    width: 20px;
+  }
+  
+  .switch input {
+    display:none;
+  }
+  
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+  
+.slider:before {
+    background-color: var(--profile-name);
+    bottom: 0;
+    content: "";
+    height: 10px;
+    left: 0;
+    position: absolute;
+    transition: .4s;
+    width: 10px;
+}
+  
+input:checked + .slider {
+    background-color: var(--dark-color);
+}
+  
+input:checked + .slider:before {
+    transform: translateX(10px);
+    background-color: var(--secundary-color);
+}
+  
+.slider.round {
+    border-radius: 14px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Estilização do DropDown */
+
+.dropdown-content a { 
+    width: 100%;
+    height: 25%;
+    opacity: 1;
+    color: var(--dark-color);
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+
+.dropdown-content a img {
+    width: 16px;
+    margin-left: 10px;
+}
+
+.dropdown-content a p {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    margin-left: 10%;
+    font-weight: bold;
+}
+
+.dropdown:hover .expand-drop-img {
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);                                                                                                          
+    transform: scaleY(-1);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a:hover {color: var(--drop-hover); background: var(--button-hover);}
+
+/* Inicio da estilização do corpo ******************************************** */
+
+.container {
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 4.5% 95.5%;
+}
+
+/* Tab da Dash */
+
+.tab {
+    background: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab button {
+    display: block;
+    margin: auto;
+    background-color: inherit;
+    color: var(--secundary-color);
+    width: 100%;
+    padding: 15px 10px;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    font-size: 17px;
+    opacity: 1;
+    border-radius: 7px;
+}
+
+/*.tab #defaultopenPage {
+    margin: 150% auto auto auto;
+}
+
+.tab #button-end {
+    margin: auto auto 150% auto;
+}*/
+
+.tab .active {
+    background: var(--button-hover);
+    background-size: 100%;
+}
+
+.tab button:hover {
+    background: var(--button-hover);
+    opacity: 0.6;
+    box-shadow: 0 0.5em 0.5em -0.4em var(--dark-color);
+  transform: translateY(-0.25em);
+}
+
+.tab button img {
+    width: 95%;
+}
+
+/* Inicio do Corpo de cada elemento da Dash **********************************/
+
+.content {
+    width: 100%;
+    height: 90vh;
+    background: url('../assets/fundo-cinza.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: cover;
+    font-family: var(--font);
+}
+
+.dashContent {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.participanteContent {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.ranckContent {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.eventosContent {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+    flex-direction: column;
+}
+
+
+.bonificarContent {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.penalizarContent {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+/* Definição das divs do corpo *********************************************** */
+
+/* Parte destinado a Pagina DashBoard *********************************** */
+
+.dashBody {
+    width: 93%;
+    height: 90%;
+    border: none;
+    border-radius: 7px;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    opacity: 0;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+}
+
+/* Aqui esta sendo dividido em dois pedaços principais */
+
+.dashBody .dash-top {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1%;
+}
+
+.dashBody .dash-bottom {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+}
+
+/* Inicio de Estilização Corpo superior */
+
+.dash-top .top-content {
+    width: 100%;
+    height: 97%;
+    border-radius: 7px;
+    background: var(--primary-color-dark);
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
+
+/*Titulo da pagina superior */
+
+.top-content .top-content-title {
+    width: 50%;
+    height: 80%;
+    background: var(--secundary-color);
+    margin: -3.5% auto 0 auto;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+}
+
+.top-content-title h3 {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 40px;
+    color: var(--profile-name);
+    letter-spacing: 2px;
+}
+
+/* Divisão da parte do rancking */
+
+.top-content .top-content-position {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+}
+
+/* Definindo posição e estilos dos circulos do Ranck */
+
+/* Parte do terceiro lugar */
+
+.top-content-position .position-3 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.position-3 .position-3-content {
+    width: 60%;
+    height: 75%;
+    background: var(--primary-color-dark);
+    display: grid;
+    grid-template-rows: 15% 70% 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-3-content .position-3-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-3-text h4 {
+    color: silver; /* Cor Prata */
+    font-family: var(--font);
+    margin: 0;
+    font-size: 22px;
+}
+
+.position-3-text h5 {
+    color: var(--secundary-color);
+    font-family: var(--font);
+    margin: 0;
+    font-size: 18px;
+}
+
+.position-3-content .position-3-content-profile {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    background: silver; /* Cor Prata */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-3-content-profile .position-3-content-profile-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-3-content-profile-circle img {
+    max-width: 50px;
+}
+
+/* Parte do primeiro lugar */
+
+.top-content-position .position-1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Padrao de Estilo do circulo com os textos */
+
+.position-1 .position-1-content {
+    width: 60%;
+    height: 95%;
+    background: var(--primary-color-dark);
+    display: grid;
+    grid-template-rows: 15% 70% 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-1-content .position-1-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-1-text h4 {
+    color: #FFFF40; /* Cor Amarela */
+    font-family: var(--font);
+    margin: 0;
+    font-size: 30px;
+}
+
+.position-1-text h5 {
+    color: var(--secundary-color);
+    font-family: var(--font);
+    margin: 0;
+    font-size: 18px;
+}
+
+.position-1-content .position-1-content-profile {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background: #FFFF40; /* Cor Amarela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-1-content-profile .position-1-content-profile-circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 100%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-1-content-profile-circle img {
+    max-width: 70px;
+}
+
+/* Parte do segundo lugar */
+
+.top-content-position .position-2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.position-2 .position-2-content {
+    width: 60%;
+    height: 65%;
+    background: var(--primary-color-dark);
+    display: grid;
+    grid-template-rows: 15% 70% 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-2-content .position-2-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-2-text h4 {
+    color: #cd7f32; /* Cor Bronze */
+    font-family: var(--font);
+    margin: 0;
+    font-size: 22px;
+}
+
+.position-2-text h5 {
+    color: var(--secundary-color);
+    font-family: var(--font);
+    margin: 0;
+    font-size: 18px;
+}
+
+.position-2-content .position-2-content-profile {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    background: #cd7f32; /* Cor Bronze */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-2-content-profile .position-2-content-profile-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.position-2-content-profile-circle img {
+    max-width: 40px;
+}
+
+/* Inicio de Estilização Corpo inferior */
+
+.dash-bottom .bottom-content {
+    width: 80%;
+    height: 97%;
+    border-radius: 7px;
+    background: var(--background-image);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Refere ao primeiro quadrado da parte inferior "my position" */
+
+.bottom-content .bottom-content-myposition {
+    width: 25%;
+    height: 90%;
+    border-radius: 7px;
+    background: var(--primary-color-dark);
+    display: grid;
+    grid-template-rows: 20% 10% 50% 20%;
+}
+
+.bottom-content-myposition .myposition-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secundary-color);
+}
+
+.myposition-text h3 {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 25px;
+    color: var(--secundary-color);
+    letter-spacing: 2px;
+}
+
+.myposition-text h5 {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 20px;
+    color: #8080FF; /* Cor Azul claro */
+}
+
+.myposition-text h4 {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 25px;
+    color: #8080FF; /* Cor Azul claro */
+}
+
+.myposition-profile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myposition-profile .myposition-profile-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+/* Parte destinado a Pagina Participantes ********************************** */
+
+.participanteBody{
+    width: 85%;
+    height: 90%;
+    border: none;
+    border-radius: 7px;
+    display: grid;
+    grid-template-rows: 6% 94%;
+    opacity: 0;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+}
+
+/*Botoes superiores da tela de participantes */
+
+.participanteBody .participante-Buttons {
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    font-family: var(--font);
+}
+
+.participante-Buttons .btn-user {
+    padding: 5px 30px;
+    border-radius: 7px; 
+    background-color: green; /* Cor verde */
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    color: #Fcfeff;
+}
+
+.participante-Buttons .btn-score {
+    padding: 5px 30px;
+    border-radius: 7px;
+    margin-left: 3%;
+    background-color: #FFFF40; /* Cor Amarela */
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.participanteBody .participante-table {
+    height: 100%;
+    height: 99%;
+    margin-top: 1%;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 8% 92%;
+    background: var(--secundary-color);
+}
+
+/* Parte que refere a tabela de participantes **********/
+
+.participante-table .table-title {
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-title h3 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--secundary-color);
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.table-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background: whitesmoke; /* Cor cinza Claro */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.table-content .table-content-field {
+    width: 100%;
+    height: 95%;
+    background: whitesmoke; /* Cor cinza Claro */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: scroll;
+}
+
+.table-content-field table {
+    width: 100%;
+    margin: 0;
+    border: none;
+}
+
+table .content-title {
+    background: var(--secundary-color);
+}
+
+/* Modal referente a tela de Participantes */
+
+.table-content .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.2);
+}
+  
+/* Conteudo dos modais */
+.modal .modal-content {
+    border-radius: 5px;
+    background-color: var(--secundary-color);
+    margin: auto;
+    margin-top: 5%;
+    padding-top: 1%;
+    padding-right: 1%;
+    padding-bottom: 18%;
+    padding-left: 1%;
+    border: none;
+    width: 80%;
+    height: 50%;
+    display: grid;
+    grid-template-rows: 15% 85%;
+}
+
+  
+/* Botao dos modais da tela Participantes */
+.close {
+    color: var(--profile-name);
+    font-size: 35px;
+    font-weight: bold;
+}
+  
+.close:hover,
+.close:focus {
+    color: var(--profile-name);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content .modal-top {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 97% 3%;
+}
+
+.modal-top .modal-top-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-top-text .modal-top-text-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    border-bottom: 2px var(--drop-hover) solid;
+}
+
+.modal-top-text-content p {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--drop-hover);
+    letter-spacing: 2px;
+}
+
+.modal-content .modal-bottom {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 33.33% 33.33% 33.33%;
+}
+
+.modal-bottom .modal-bottom-field {
+    width: 100%;
+    height: 100%;
+    padding: .5% 1%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.modal-bottom-field p {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--drop-hover);
+    letter-spacing: 2px;
+}
+
+.modal-bottom-field input[type="text"] {
+    width: 96%;
+    height: 30%;
+    margin: 1% 0;
+    border: none;
+    border-bottom: 2px var(--drop-hover) solid;
+}
+
+.modal-bottom-field input[type="date"] {
+  width: 14%;
+  height: 30%;
+  margin: 1% 0;
+  border: none;
+  border-bottom: 2px var(--drop-hover) solid;
+}
+
+.modal-bottom-field input[type="email"] {
+  width: 96%;
+  height: 30%;
+  margin: 1% 0;
+  border: none;
+  border-bottom: 2px var(--drop-hover) solid;
+}
+
+.modal-bottom-field input[type="password"] {
+  width: 96%;
+  height: 30%;
+  margin: 1% 0;
+  border: none;
+  border-bottom: 2px var(--drop-hover) solid;
+}
+
+
+.modal-bottom-field input[type="text"]::placeholder {
+    font-size: 15px;
+    opacity: 0.5;
+    font-weight: 600;
+}
+
+.modal-bottom-field input[type="email"]::placeholder {
+  font-size: 15px;
+  opacity: 0.5;
+  font-weight: 600;
+}
+
+.modal-bottom-field {
+    width: 100%;
+    height: 100%;
+    color: var(--drop-hover);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.modal-bottom-field .modal-bottom-row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: 0;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.modal-bottom-row input[type="checkbox"] {
+    margin: 0 1%;
+    background: transparent;
+    display: none;
+}
+
+.modal-bottom-row label {
+    margin: 0 1%;
+    width: 13px;
+    height: 13px;
+    border: 2px var(--drop-hover) solid;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.modal-bottom-row input[type="checkbox"]:checked + label {
+    background-color: var(--dark-color);
+    cursor: pointer;
+}
+
+
+/* Ainda falta melhorar essa parte da tela */
+
+.row-table {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.row-table h4 {
+    margin: 0;
+    font-family: var(--font);
+    color: var(--profile-name);
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: 1px;
+    border: none;
+    padding: 10px 0;
+}
+
+.row-table h5 {
+    margin: 0;
+    font-family: var(--font);
+    color: var(--profile-name);
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+}
+
+table th {
+    font-family: var(--font);
+    color: var(--profile-name);
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: 1px;
+    border: none;
+    padding: 7px 0;
+}
+
+table td {
+    font-family: var(--font);
+    color: var(--profile-name);
+    font-size: 24px;
+    font-weight: 500;
+    padding: 7px 0;
+    text-align: center;
+}
+
+.row-table .row-table-check {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-table .row-table-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#table input[type="checkbox"] {
+    display: none;
+    margin: 0;
+}
+
+#table label::before {
+    margin: 0;
+    padding: 0;
+    height:15px;
+    width:15px;
+    border: 2px var(--profile-name) solid;
+    border-radius: 3px;
+    display:block;
+    cursor: pointer;
+}
+
+#table label::after {
+    margin: 0;
+    padding: 0;
+    height:15px;
+    width:15px;
+    border: 2px var(--profile-name) solid;
+    border-radius: 3px;
+    display:block;
+    cursor: pointer;
+}
+
+#table input[type="checkbox"] + label::after {
+    background-color: var(--secundary-color);
+    cursor: pointer;
+    border-radius: 3px;
+    content: '';
+}
+
+#table input[type="checkbox"]:checked + label::after {
+    background-color: var(--dark-color);
+    color: var(--secundary-color);
+    border-radius: 3px;
+    cursor: pointer;
+    content: '';
+    /*'\2713\0020' */
+}
+
+td .row-table-option {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-table-option img {
+    width: 15%;
+    margin: 0 4%;
+    cursor: pointer;
+}
+
+.row-table-option input{
+    width: 15%;
+    margin: 0 4%;
+    cursor: pointer;
+}
+
+/* Parte destinado a Pagina Ranck ********************************************* */
+
+.ranckBody {
+    width: 95%;
+    height: 93%;
+    background: grey;
+    border: none;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+}
+
+.ranckBody .ranck-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 12% 88%;
+}
+
+.ranck-container .ranck-top{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color-dark);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.ranck-top h2{
+    font-family: var(--font);
+    color: var(--secundary-color);
+    font-size: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.ranck-container .ranck-bottom{
+    background-color: var(--ranck-color);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    overflow-y: scroll;
+}
+
+.ranck-bottom .ranck-bottom-cell{
+    margin-top: 15px;
+    height: 100px;
+    display: grid;
+    grid-template-rows: 15% 70% 15%;
+}
+
+.ranck-bottom-cell .ranck-bottom-text{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secundary-color);
+}
+
+.ranck-bottom-cell .ranck-bottom-cell-profile{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ranck-bottom-cell-profile .ranck-bottom-cell-profile-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+/* Parte destinado a Pagina Eventos ********************************************* */
+
+.eventosBody{
+    width: 95%;
+    height: 93%;
+    background: var(--secundary-color);
+    border: none;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+}
+
+.eventosBody .eventos-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 10% 85% 5%;
+}
+
+.eventos-container .eventos-top {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background: var(--table-color-background);
+    align-items: center;
+}
+
+.eventos-top h2 {
+    font-family: var(--font);
+    color: var(--eventos-text);
+    font-size: 38px;
+    padding: 0;
+    margin: 0;
+}
+
+.eventos-container .eventos-bottom {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal referente a tela de Eventos */
+
+.eventos-bottom .event-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.2);
+}
+  
+/* Conteudo dos modais */
+.event-modal .event-modal-content {
+    border-radius: 5px;
+    background-color: var(--secundary-color);
+    margin: auto;
+    margin-top: 5%;
+    padding-top: 1%;
+    padding-right: 1%;
+    padding-bottom: 18%;
+    padding-left: 1%;
+    border: none;
+    width: 80%;
+    height: 50%;
+    display: grid;
+    grid-template-rows: 15% 85%;
+}
+
+.event-modal-content .event-modal-top {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 97% 3%;
+}
+
+.event-modal-top .event-modal-top-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.event-modal-top-text .event-modal-top-text-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    border-bottom: 2px var(--drop-hover) solid;
+}
+
+.event-modal-top-text-content p {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--drop-hover);
+    letter-spacing: 2px;
+}
+
+.event-modal-content .event-modal-bottom {
+    width: 100%;
+    height: 100%;
+}
+
+.event-modal-bottom .event-modal-bottom-field {
+    width: 100%;
+    height: 100%;
+    padding: .5% 1%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.event-modal-bottom-field p {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--drop-hover);
+    letter-spacing: 2px;
+}
+
+.eventos-bottom .eventos-tablecontent {
+    width: 96%;
+    height: 90%;
+    background: var(--table-color-background);
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+.eventos-tablecontent table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+table .eventos-tablehead {
+    background: var(--primary-color);
+    border: none;
+}
+
+.eventos-tablehead th {
+    font-family: var(--font);
+    color: var(--secundary-color);
+    font-weight: bold;
+    font-size: 25px;
+    border: none;
+}
+
+.table-body-bottom tr {
+    border-bottom: 2px var(--primary-color) solid;
+}
+
+.table-body-bottom tr td {
+    font-weight: 800;
+    color: var(--profile-name);
+}
+
+.table-body-bottom tr td .table-icons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-icons button {
+    display: block;
+    margin: auto;
+    background-color: inherit;
+    color: var(--secundary-color);
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.table-icons button img {
+    margin: 3%;
+}
+
+/* Tela de configurações *******************************************/
+
+.profile-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-content {
+    width: 70%;
+    height: 45%;
+    background: var(--secundary-color);
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 25.33% 41.33% 33.33%;
+}
+
+.profile-img-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img-profile {
+    margin-top: 5%;
+    margin-left: 7%;
+    width: calc(9vmin + 110px);
+    height: calc(9vmin + 110px);
+    border-radius: 50%;
+    background: rgb(255, 224, 211);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-profile img {
+    width: calc(5vmin + 70px);
+    height: calc(5vmin + 70px);
+}
+
+.img-profile img:hover {
+    cursor: pointer;
+}
+
+.profile-button {
+    margin-top: 5%;
+    margin-left: 7%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-button input {
+    display: none;
+}
+
+.profile-button label {
+    font: var(--font);
+    padding: calc(.5px + 1vmin) calc(15px + 3vmin);
+    background: #e67e22;
+    color: var(--secundary-color);
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.profile-button label:hover {
+    cursor: pointer;
+}
+
+.profile-info-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-box {
+    width: 95%;
+    height: 70%;
+    background: var(--secundary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.row button {
+    margin: 2% 5%;
+    padding: 10px 20px;
+    font-family: --font;
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--secundary-color);
+}
+
+.row button:hover {
+    cursor: pointer;
+}
+
+.profile-info-cancel {
+    background: grey;
+    border: none;
+}
+
+.profile-info-confirm {
+    background: #2ecc71;
+    border: none;
+}
+
+.profile-info-content input {
+    width: 80%;
+    border: none;
+    border-bottom: 2px rgb(185, 185, 185) solid;
+    margin: 2.5% 0;
+    font-family: var(--font);
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.profile-info-content input:focus {
+    opacity: 0.7;
+    outline: none;
+    padding-left: 2%;
+    border-bottom: 2px rgb(185, 185, 185) solid;
+}
+
+.profile-logo-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-logo-content img {
+    width: 70%;
+}
+
+/* Parte destinada a página de bonificação  ********************************************* */
+
+.bonificarBody {
+    width: 60%;
+    height: 80%;
+    background: whitesmoke;
+    border: none;
+    border-radius: 6px;
+    display: grid;
+    grid-template-rows: 10% 10% 10% 55% 15%;
+    justify-items: center;
+    align-items: center;
+    opacity: 0;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+}
+
+.bonificarBody .bonificar-title{
+    color: #171519;
+    font-weight: bold;
+}
+
+.bonificarBody .bonificar-select select{
+    width: 100%;
+    font-family: var(--font);
+    font-weight: bold;
+}
+
+.bonificarBody .bonificar-pontos{
+    color: darkgreen;
+}
+
+.bonificarBody .bonificar-message{
+    height: 90%;
+    width: 80%;
+}
+
+.bonificarBody .bonificar-message input{
+    font-family: var(--font);
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.bonificarBody .bonificar-buttons{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.bonificar-buttons button:hover{
+    opacity: 0.7;
+    outline: 0;
+}
+
+.bonificar-buttons .bonificar-cancel{
+    height: 200%;
+}
+
+.bonificar-buttons .bonificar-cancel button{
+    font-family: var(--font);
+    height: 100%;
+    background-color: darkred;
+    color: #Fcfeff;
+    border: none;
+    border-radius: 4px;
+}
+
+.bonificar-buttons .bonificar-confirm{
+    height: 200%;
+}
+
+.bonificar-buttons .bonificar-confirm button{
+    font-family: var(--font);
+    height: 100%;
+    background-color: darkgreen;
+    color: #Fcfeff;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Parte destinada a página de penalização  ********************************************* */
+
+.penalizarBody {
+    width: 60%;
+    height: 80%;
+    background: whitesmoke;
+    border: none;
+    border-radius: 6px;
+    display: grid;
+    grid-template-rows: 10% 10% 10% 55% 15%;
+    justify-items: center;
+    align-items: center;
+    opacity: 0;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+}
+
+.penalizarBody .penalizar-title{
+    color: #171519;
+    font-weight: bold;
+}
+
+.penalizarBody .penalizar-select select{
+    width: 100%;
+    font-family: var(--font);
+    font-weight: bold;
+}
+
+.penalizarBody .penalizar-pontos{
+    color: darkred;
+}
+
+.penalizarBody .penalizar-message{
+    height: 90%;
+    width: 80%;
+}
+
+.penalizarBody .penalizar-message input{
+    font-family: var(--font);
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.penalizarBody .penalizar-buttons{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.penalizar-buttons button:hover{
+    opacity: 0.7;
+    outline: 0;
+}
+
+.penalizar-buttons .penalizar-cancel{
+    height: 200%;
+}
+
+.penalizar-buttons .penalizar-cancel button{
+    font-family: var(--font);
+    height: 100%;
+    background-color: darkred;
+    color: #Fcfeff;
+    border: none;
+    border-radius: 4px;
+}
+
+.penalizar-buttons .penalizar-confirm{
+    height: 200%;
+}
+
+.penalizar-buttons .penalizar-confirm button{
+    font-family: var(--font);
+    height: 100%;
+    background-color: darkgreen;
+    color: #Fcfeff;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Paginação */
+
+.pagination {
+  margin-bottom: 20px;
+}
+
+.eventos-container .step-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-links .current {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* Inicio das KeyFrames ************************************************** */
+
+@-webkit-keyframes slide {
+    100% { opacity: 1; }
+}
+
+@keyframes slide {
+    100% { opacity: 1; }
+}
+
+/* Filtro que será usado para fazer os modais
+
+  -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+
+    .blur-effect > *:not(.modal, .modal-content) {
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+    }
+*/
+
