@@ -23,6 +23,7 @@
     --drop-hover: #333;
     --profile-name: black;
     --background-image: url('../assets/background2.png');
+    --ranck-color: #2F1737;
 }
 
 /* Sera encaixado o tema dark do site */
@@ -46,6 +47,7 @@
     --drop-hover: whitesmoke;
     --profile-name: #2F1737;
     --background-image: #121212;
+    --ranck-color: #121212;
 }
 
 /* Reset de Elementos */
@@ -448,7 +450,9 @@ input:checked + .slider:before {
     justify-content: center;
     align-items: center;
     color: var(--primary-color);
+    flex-direction: column;
 }
+
 
 .bonificarContent {
     width: 100%;
@@ -1283,7 +1287,7 @@ td .row-table-option {
 }
 
 .ranck-container .ranck-bottom{
-    background-color: #2F1737;
+    background-color: var(--ranck-color);
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     display: grid;

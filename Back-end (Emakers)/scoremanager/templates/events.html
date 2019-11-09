@@ -58,26 +58,42 @@
                     </tbody>
                   </table>
                 </div>
-                
+                <div class="pagination">
+                  <span class="step-links">
+                      {% if events.has_previous %}
+                          <a href="?page=1">&laquo; first</a>
+                          <a href="?page={{ events.previous_page_number }}">previous</a>
+                      {% endif %}
+    
+                      <span class="current">
+                          Page {{ events.number }} of {{ events.paginator.num_pages }}.
+                      </span>
+    
+                      {% if events.has_next %}
+                          <a href="?page={{ events.next_page_number }}">next</a>
+                          <a href="?page={{ events.paginator.num_pages }}">last &raquo;</a>
+                      {% endif %}
+                  </span>
+              </div>
               </div>
             </div>
-            <div class="pagination">
-              <span class="step-links">
-                  {% if events.has_previous %}
-                      <a href="?page=1">&laquo; first</a>
-                      <a href="?page={{ events.previous_page_number }}">previous</a>
-                  {% endif %}
-
-                  <span class="current">
-                      Page {{ events.number }} of {{ events.paginator.num_pages }}.
-                  </span>
-
-                  {% if events.has_next %}
-                      <a href="?page={{ events.next_page_number }}">next</a>
-                      <a href="?page={{ events.paginator.num_pages }}">last &raquo;</a>
-                  {% endif %}
-              </span>
+  
           </div>
-          </div>
+          <script>
+            var modalMsg = document.getElementById("myModalMessage");
+            var btnMsg = document.getElementById("btn-msg");
+            var spanMsg = document.getElementsByClassName("close")[2];
+            btnMsg.onclick = function() {
+              modalMsg.style.display = "block";
+            }
+            spanMsg.onclick = function() {
+              modalMsg.style.display = "none";
+            }
+            window.onclick = function(event) {
+              if (event.target == modalMsg) {
+                modalMsg.style.display = "none"
+              }
+            }
+          </script>
     {% endif %}
 {% endblock content %}

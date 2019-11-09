@@ -97,18 +97,19 @@
                   <textarea name="score_description" placeholder="Descreva a pontuação (Ex.: O membro teve imprevistos)" id="id_score_description"></textarea>
                 </div>
                 <div class="modal-bottom-field">
-                  <p>Pontos</p>
-                  <input type="number" name="equivalent_score" required id="id_equivalent_score">
-                </div>
-                <div class="modal-bottom-field">
                   <p>Selecione:<p>
                   <select name="score_specification" id="id_score_specification">
                     <option value="B" selected>Bônus</option>
 
                     <option value="P">Penalidade</option>
-
                   </select>
-                  <button type="submit">Salvar</button>
+                </div>
+                <div class="modal-bottom-field">
+                  <p>Pontos</p>
+                  <input type="number" name="equivalent_score" required id="id_equivalent_score">
+                </div>
+                <div class="modal-bottom-field">
+                  <button id="btn-save" type="submit">Salvar</button>
                 </div>
               </div>
             </div>
