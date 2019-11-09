@@ -14,6 +14,7 @@ from .models import (
 	User,
 	User_has_score
 )
+from django.core.paginator import Paginator
 from operator import itemgetter
 import json
 
@@ -28,7 +29,7 @@ def get_ranking():
 
 	ranking = sorted(total_score_users.items(), key=itemgetter(1), reverse=True)
 
-	return ranking;
+	return ranking
 
 @login_required
 def list_ranking(request):
@@ -81,5 +82,10 @@ def apply_penalty(request, id_user):
 
 @login_required
 def list_events(request):
-    events = User_has_score.objects.all()
+    events_list = User_has_score.objects.all()
+    paginator = Paginator(events_list, 10)
+
+    page = request.GET.get('page')
+    events = paginator.get_page(page)
+
     return render(request, 'events.html', {'events': events})
