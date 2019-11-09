@@ -83,7 +83,7 @@ def apply_penalty(request, id_user):
 @login_required
 def list_events(request):
     events_list = User_has_score.objects.all()
-    paginator = Paginator(events_list, 10)
+    paginator = Paginator(events_list, 9)
 
     page = request.GET.get('page')
     events = paginator.get_page(page)
