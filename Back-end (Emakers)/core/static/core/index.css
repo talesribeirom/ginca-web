@@ -1349,7 +1349,7 @@ td .row-table-option {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-rows: 10% 90%;
+    grid-template-rows: 10% 85% 5%;
 }
 
 .eventos-container .eventos-top {
@@ -1364,7 +1364,7 @@ td .row-table-option {
 .eventos-top h2 {
     font-family: var(--font);
     color: var(--eventos-text);
-    font-size: 40px;
+    font-size: 38px;
     padding: 0;
     margin: 0;
 }
@@ -1848,8 +1848,10 @@ table .eventos-tablehead {
   margin-bottom: 20px;
 }
 
-.step-links {
-  position: absolute;
+.eventos-container .step-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
 }

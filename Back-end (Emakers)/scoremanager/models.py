@@ -2,13 +2,12 @@ from django.db import models
 from users.models import User
 from datetime import datetime
 
-
+# Modelo da tabela Score
 class Score(models.Model):
     type_score = models.CharField('Tipo', max_length=5)
     score_description = models.TextField('Descrição', max_length=255)
     equivalent_score = models.IntegerField('Equivalência')
     
-
     BONUS = 'B'
     PENALTY = 'P'
     SCORE_CHOICES = [
@@ -27,6 +26,7 @@ class Score(models.Model):
     def __add__(self, other_score):
         return self.equivalent_score + other_score.equivalent_score
 
+# Modelo da tabela User_has_score
 class User_has_score(models.Model):
     user = models.ForeignKey(User, verbose_name='Usuário', related_name='user_has_scores', on_delete=models.CASCADE)
     score = models.ForeignKey(Score, verbose_name='Pontuação', related_name='users_has_score', on_delete=models.PROTECT)

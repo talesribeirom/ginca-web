@@ -2,7 +2,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from .views import index
 
-
+# URLs das telas de login, logout e index
 urlpatterns = [
     path('', index, name='index'),
     path('index/', index, name='index'),

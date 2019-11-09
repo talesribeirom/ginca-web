@@ -1,3 +1,7 @@
+from django.http import HttpResponseNotFound
+from django.contrib.auth.decorators import login_required
+from .models import User
+from scoremanager.models import Score
 from django.shortcuts import (
 	render,
 	redirect	
@@ -22,16 +26,15 @@ from scoremanager.views import get_ranking
 def get_item(dictionary, key):
     return dictionary.get(key)
 
+# Lista todos os usuários cadastrados no sistema
 @login_required
 def list_users(request):
     if request.user.is_superuser:
         users = User.objects.all().order_by('username')
         form = User_Creation_Form(request.POST or None)
         score = Score_Form(request.POST or None)
-        ranking = get_ranking()
-        ranking = dict(ranking)
-        print(ranking)
-        print(ranking.get(request.user.username))
+        ranking = dict(get_ranking())
+
         if form.is_valid():
             form.save()
             return redirect('url_participants')
@@ -44,6 +47,7 @@ def list_users(request):
     else:
         return HttpResponseNotFound()
 
+# Exibe o perfil do usuário e permite edição
 @login_required
 def profile_user(request):
     userAtual = User.objects.get(pk=request.user.id)
