@@ -19,7 +19,7 @@ from django.urls import (
     include
 )
 
-
+# URLs bases do sistema
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),

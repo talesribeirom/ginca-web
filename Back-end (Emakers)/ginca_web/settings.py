@@ -86,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ginca',
         'USER': 'postgres',
-        'PASSWORD': '',
+        'PASSWORD': 'FEFEFE1998',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -142,3 +142,7 @@ LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/index'
 
 LOGOUT_REDIRECT_URL = '/login'
+
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False

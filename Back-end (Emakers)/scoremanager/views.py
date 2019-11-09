@@ -1,10 +1,13 @@
 from django.shortcuts import render
+from django.http import HttpResponseNotFound
+from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+from operator import itemgetter
+import json
 from django.shortcuts import (
 	render,
 	redirect
 )
-from django.http import HttpResponseNotFound
-from django.contrib.auth.decorators import login_required
 from .forms import (
 	Score_Form,
 	Apply_Score_Form
@@ -14,10 +17,31 @@ from .models import (
 	User,
 	User_has_score
 )
-from django.core.paginator import Paginator
-from operator import itemgetter
-import json
+from threading import Thread
+import time
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.header import Header
 
+# Função que envia email ao usuário penalizado
+def email_sender(input_message, email_to):
+
+    to = email_to
+    gmail_user = 'gincaweb@gmail.com'
+    gmail_pwd = 'gincaweb123'
+    smtpserver = smtplib.SMTP("smtp.gmail.com",587)
+    smtpserver.ehlo()
+    smtpserver.starttls()
+    smtpserver.ehlo
+    smtpserver.login(gmail_user, gmail_pwd)
+    header = 'To:' + to + '\n' + 'From: ' + gmail_user + '\n' + 'Subject:Penalidade recebida! \n'
+    input_message = input_message
+    msg = header + input_message 
+    smtpserver.sendmail(gmail_user, to, msg)
+    smtpserver.close()
+
+# Função que retorna o ranking de todos os usuários
 def get_ranking():
 	users = User.objects.all()
 	total_score_users = {}
@@ -36,6 +60,7 @@ def list_ranking(request):
 	ranking = get_ranking()
 	return render(request, 'ranking.html', {'ranking': ranking})
 
+# Função para aplicar bonificação a um usuário, só pode ser chamada por um administrador
 @login_required
 def apply_bonus(request, id_user):
 	if request.user.is_superuser:
@@ -58,6 +83,7 @@ def apply_bonus(request, id_user):
 	else:
 		return HttpResponseNotFound()
 
+# Função que aplica penalidade a um usuário, só pode ser chamada por um administrador
 @login_required
 def apply_penalty(request, id_user):
     if request.user.is_superuser:
@@ -74,15 +100,23 @@ def apply_penalty(request, id_user):
 
         if form.is_valid():
             form.save()
+            email_sender(form.data['score_comment'], userAux.email)
             return redirect('url_participants')
 
         return render(request, 'apply-penalty.html', {'form': form, 'userAux': userAux, 'scores': scores})
     else:
         return HttpResponseNotFound()
 
+# Função que lista os eventos
 @login_required
 def list_events(request):
-    events_list = User_has_score.objects.all()
+    # Se o usuário for administrador: lista todos eventos
+    # Senão: lista somente os eventos relacionados a ele
+    if request.user.is_superuser:
+      events_list = User_has_score.objects.all()
+    else:  
+      events_list = User_has_score.objects.filter(user=request.user)
+     
     paginator = Paginator(events_list, 9)
 
     page = request.GET.get('page')

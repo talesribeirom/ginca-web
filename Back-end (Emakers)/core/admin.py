@@ -9,13 +9,10 @@ from scoremanager.models import User_has_score
 
 
 class User_Admin(BaseUserAdmin):
-    # The forms to add and change user instances
-    # form = UserChangeForm
+    # Formulário para cadastrar novo usuário
     add_form = User_Creation_Form
 
-    # The fields to be used in displaying the User model.
-    # These override the definitions on the base UserAdmin
-    # that reference specific fields on auth.User.
+    # Altera as referências do user padrão do django admin
     list_display = ('username', 'email', 'date_of_birth', 'is_superuser')
     list_filter = ('is_superuser',)
     fieldsets = (
@@ -23,8 +20,7 @@ class User_Admin(BaseUserAdmin):
         ('Informações Pessoais', {'fields': ('date_of_birth', 'sex')}),
         ('Permissões', {'fields': ('is_superuser',)}),
     )
-    # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
-    # overrides get_fieldsets to use this attribute when creating a user.
+    # Sobrescreve os métodos padrões do django admin
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
@@ -35,7 +31,7 @@ class User_Admin(BaseUserAdmin):
     ordering = ('username',)
     filter_horizontal = ()
 
-# Now register the new UserAdmin...
+# Registra o novo usuário 
 admin.site.register(Score)
 admin.site.register(User_has_score)
 admin.site.register(User, User_Admin)
