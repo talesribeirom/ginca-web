@@ -4,6 +4,7 @@ from django.shortcuts import (
 )
 from django.http import HttpResponseNotFound
 from django.contrib.auth.decorators import login_required
+from django.template.defaulttags import register
 from .forms import (
 	User_Creation_Form,
 	User_Change_Form
@@ -14,7 +15,12 @@ from scoremanager.forms import (
 )
 from .models import User
 from scoremanager.models import Score
+from scoremanager.views import get_ranking
 
+
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)
 
 @login_required
 def list_users(request):
@@ -22,6 +28,10 @@ def list_users(request):
         users = User.objects.all().order_by('username')
         form = User_Creation_Form(request.POST or None)
         score = Score_Form(request.POST or None)
+        ranking = get_ranking()
+        ranking = dict(ranking)
+        print(ranking)
+        print(ranking.get(request.user.username))
         if form.is_valid():
             form.save()
             return redirect('url_participants')
@@ -30,7 +40,7 @@ def list_users(request):
             score.save()
             return redirect('url_participants')
 
-        return render(request, 'participants.html', {'users': users, 'form': form, 'score': score})
+        return render(request, 'participants.html', {'users': users, 'form': form, 'score': score, 'ranking': ranking})
     else:
         return HttpResponseNotFound()
 
