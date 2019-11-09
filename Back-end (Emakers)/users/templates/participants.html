@@ -146,12 +146,12 @@
                       <label for="name03"></label>
                     </div>
                     <div class="row-table-content">
-                      <h5>{{user.username}}</h5>
+                      <h5>{{ user.username }}</h5>
                     </div>
                   </div>
                 </td>
-                <td>{{user.email}}</td>
-                <td>383</td>
+                <td>{{ user.email }}</td>
+                <td>{{ ranking|get_item:user.username }}</td>
                 <td>
                   <div class="row-table-option">
                     <img onclick="location.href='/bonus/{{user.id}}'" src="{% static 'assets/caixa_add_redonda.svg' %}">
